@@ -2,7 +2,8 @@
  * 
  */
 /**
- * @author mgiro
+ * @author Fabio Carosi
+ * @author Mattia Girolami
  *
  */
 package it.univpm.TicketmasterCanada.model;
