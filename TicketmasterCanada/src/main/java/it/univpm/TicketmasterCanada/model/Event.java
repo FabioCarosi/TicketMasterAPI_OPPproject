@@ -8,5 +8,7 @@ package it.univpm.TicketmasterCanada.model;
  *
  */
 public class Event {
+	
+	
 
 }
