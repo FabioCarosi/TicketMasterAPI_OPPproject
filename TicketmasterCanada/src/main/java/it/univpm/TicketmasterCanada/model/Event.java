@@ -1,12 +1,10 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.model;
 
 /**
  * @author Mattia Girolami
  * @author Fabio Carosi
  */
+
 public class Event {
 	
 	private String id;
@@ -19,6 +17,16 @@ public class Event {
 	public Event() {
 		super();
 	}
+		
+	
+	/**
+	 * @param name
+	 */
+	public Event(String name) {
+		super();
+		this.name = name;
+	}
+	
 	/**
 	 * @param id
 	 * @param name
@@ -32,18 +40,21 @@ public class Event {
 		this.url = url;
 		this.info = info;
 	}
+	
 	/**
 	 * @return the id
 	 */
 	public String getId() {
 		return id;
 	}
+	
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(String id) {
 		this.id = id;
 	}
+	
 	/**
 	 * @return the name
 	 */
@@ -81,6 +92,5 @@ public class Event {
 		this.info = info;
 	}
 	
-		
 	
 }
