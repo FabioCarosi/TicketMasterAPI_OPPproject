@@ -1,5 +1,6 @@
 package it.univpm.TicketmasterCanada.model;
 
+
 /**
  * @author Mattia Girolami
  * @author Fabio Carosi
@@ -11,6 +12,7 @@ public class Event {
 	private String name;
 	private String url;
 	private String info;
+	
 	/**
 	 * 
 	 */
@@ -27,6 +29,17 @@ public class Event {
 		this.name = name;
 	}
 	
+	/**
+	 * @param id
+	 * @param name
+	 */
+	public Event(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+
 	/**
 	 * @param id
 	 * @param name
@@ -67,9 +80,11 @@ public class Event {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	/**
 	 * @return the url
 	 */
+	
 	public String getUrl() {
 		return url;
 	}
@@ -91,6 +106,43 @@ public class Event {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Event other = (Event) obj;
+		
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		
+		if (url == null) {
+			if (other.url != null)
+				return false;
+		} else if (!url.equals(other.url))
+			return false;
+		
+		if (info == null) {
+			if (other.info != null)
+				return false;
+		} else if (!info.equals(other.info))
+			return false;
+		
+		return true;
+	}
 	
 }

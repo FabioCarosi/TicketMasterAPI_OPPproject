@@ -14,7 +14,7 @@ public class Venue {
 	 * 
 	 */
 	private String name;
-	private String line1;
+	private String lineAddress;
 	private String stateCode;
 	private String stateName;
 	private String cityName;
