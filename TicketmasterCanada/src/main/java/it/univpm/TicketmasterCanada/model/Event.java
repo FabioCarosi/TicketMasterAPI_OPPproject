@@ -4,8 +4,8 @@
 package it.univpm.TicketmasterCanada.model;
 
 /**
- * @author mgiro
- *
+ * @author Mattia Girolami
+ * @author Fabio Carosi
  */
 public class Event {
 	
