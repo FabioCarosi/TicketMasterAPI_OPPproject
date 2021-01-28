@@ -20,6 +20,7 @@ public class Venue {
 	private String cityName;
 	private String countryName;
 	private String countryCode;
+	
 	public Venue() {
 		// TODO Auto-generated constructor stub
 	}
