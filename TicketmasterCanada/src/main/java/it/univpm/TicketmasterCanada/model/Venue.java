@@ -23,99 +23,113 @@ public class Venue {
 	private Vector<Event> eventArray = new Vector<Event>(); //contiene le informazioni essenziali di un evento in ua città
 	
 	
-	/** 
-	 * @return the name
+	/**
+	 * Metodo che restituisce il nome della località;
+	 * @return String name;
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * @param name the name to set
+	 * Metodo che setta il nome della località.
+	 * @param String name.
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * @return the address
+	 * Metodo che restituisce il nome dell'indirizzo.
+	 * @return String address;
 	 */
 	public String getAddress() {
 		return address;
 	}
 
 	/**
-	 * @param address the address to set
+	 * Metodo che setta il nome dell'indirizzo.
+	 * @param String address.
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
 	/**
-	 * @return the stateCode
+	 * Metodo che restituisce l'abbreviazione dello Stato;
+	 * @return String stateCode;
 	 */
 	public String getStateCode() {
 		return stateCode;
 	}
 
 	/**
-	 * @param stateCode the stateCode to set
+	 * Metodo che setta l'abbreviazione del Territorio.
+	 * @param String stateCode.
 	 */
 	public void setStateCode(String stateCode) {
 		this.stateCode = stateCode;
 	}
 
 	/**
-	 * @return the stateName
+	 * Metodo che restituisce il nome del Territorio;
+	 * @return String stateName;
 	 */
 	public String getStateName() {
 		return stateName;
 	}
 
 	/**
-	 * @param stateName the stateName to set
+	 * Metodo che setta il nome dello Stato.
+	 * @param String segmentName.
 	 */
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
 	}
 
 	/**
-	 * @return the cityName
+	 * Metodo che restituisce il nome della citta';
+	 * @return String cityName;
 	 */
 	public String getCityName() {
 		return cityName;
 	}
 
 	/**
-	 * @param cityName the cityName to set
+	 * Metodo che setta il nome della citta'.
+	 * @param String cityName.
 	 */
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
 
 	/**
-	 * @return the countryName
+	 * Metodo che restituisce il nome dello Stato;
+	 * @return String countryName;
 	 */
 	public String getCountryName() {
 		return countryName;
 	}
 
 	/**
-	 * @param countryName the countryName to set
+	 * Metodo che setta il nome dello Stato.
+	 * @param String cuntryName.
 	 */
 	public void setCountryName(String countryName) {
 		this.countryName = countryName;
 	}
 
 	/**
-	 * @return the countryCode
+	 * Metodo che restituisce l'abbreviazione dello Stato;
+	 * @return String countryCode;
 	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
 	/**
-	 * @param countryCode the countryCode to set
+	 * Metodo che setta l'abbreviazione dello Stato.
+	 * @param String countryCode.
 	 */
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
@@ -123,6 +137,7 @@ public class Venue {
 	
 	
 	/**
+	 * Metodo che restituisce il vettore di eventi;
 	 * @return the vector
 	 */
 	public Vector<Event> getVector() {
@@ -130,6 +145,7 @@ public class Venue {
 	}
 
 	/**
+	 * Metodo che setta il vettore di eventi. 
 	 * @param vector the vector to set
 	 */
 	public void setVector(Vector<Event> vector) {
