@@ -13,6 +13,7 @@ public class Event {
 	private String url;
 	private String info;
 	
+	
 	/**
 	 * 
 	 */
