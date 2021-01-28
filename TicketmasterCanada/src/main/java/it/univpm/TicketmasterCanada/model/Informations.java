@@ -26,7 +26,8 @@ public class Informations {
 	}
 	
 	/**
-	 * @param currency the currency to set
+	 * Metodo che setta la valuta.
+	 * @param String currency
 	 */
 	public void setCurrency(String currency) {
 		this.currency = currency;
@@ -39,8 +40,10 @@ public class Informations {
 	public double getMinPrince() {
 		return minPrince;
 	}
+	
 	/**
-	 * @param minPrince the minPrince to set
+	 * Metodo che setta il prezzo minimo.
+	 * @param double minPrice.
 	 */
 	public void setMinPrince(double minPrince) {
 		this.minPrince = minPrince;
@@ -55,7 +58,8 @@ public class Informations {
 	}
 	
 	/**
-	 * @param maxPrice the maxPrice to set
+	 * Metodo che setta il prezzo massimo.
+	 * @param double maxPrice. 
 	 */
 	public void setMaxPrice(double maxPrice) {
 		this.maxPrice = maxPrice;
@@ -70,7 +74,8 @@ public class Informations {
 	}
 	
 	/**
-	 * @param segmentName the segmentName to set
+	 * Metodo che setta il nome della categoria.
+	 * @param String segmentName.
 	 */
 	public void setSegmentName(String segmentName) {
 		this.segmentName = segmentName;
@@ -83,8 +88,10 @@ public class Informations {
 	public String getGenreName() {
 		return genreName;
 	}
+	
 	/**
-	 * @param genreName the genreName to set
+	 * Metodo che setta il genere dell'evento.
+	 * @param String genreName.
 	 */
 	public void setGenreName(String genreName) {
 		this.genreName = genreName;
@@ -97,8 +104,10 @@ public class Informations {
 	public String getSubGenreName() {
 		return subGenreName;
 	}
+	
 	/**
-	 * @param subGenreName the subGenreName to set
+	 * Metodo che setta il sottogenere dell'evento.
+	 * @param String subGenreName.
 	 */
 	public void setSubGenreName(String subGenreName) {
 		this.subGenreName = subGenreName;
