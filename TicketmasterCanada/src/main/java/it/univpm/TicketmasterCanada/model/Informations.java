@@ -16,6 +16,8 @@ public class Informations {
 	private String segmentName;		//tipologia dell'evento(es. Sport)
 	private String genreName;		//nome del genere dell'evento(es. Golf)
 	private String subGenreName;	//nome della manifestazione (es. Red Cup)
+	private String source;			//azienda che si occupa della vendita dei biglietti
+	
 	
 	/**
 	 * Metodo che restituisce la valuta.
@@ -113,7 +115,22 @@ public class Informations {
 		this.subGenreName = subGenreName;
 	}
 	
-	
+	/**
+	 * Metodo che restituisce il rivenditore dei biglietti;
+	 * @return String source;
+	 */
+	public String getSource() {
+		return source;
+	}
+
+	/**
+	 * Metodo che setta il rivenditore dei biglietti;
+	 * @param String source;
+	 */
+	public void setSource(String source) {
+		this.source = source;
+	}
+
 	/**
 	 * Costruttore completo con parametri:
 	 * @param currency
@@ -122,9 +139,10 @@ public class Informations {
 	 * @param segmentName
 	 * @param genreName
 	 * @param subGenreName
+	 * @param source
 	 */
-	public Informations(String currency, double minPrince, double maxPrice, String segmentName,
-			String genreName, String subGenreName) {
+	public Informations(String currency, double minPrince, double maxPrice, String segmentName, String genreName,
+			String subGenreName, String source) {
 		super();
 		this.currency = currency;
 		this.minPrince = minPrince;
@@ -132,8 +150,9 @@ public class Informations {
 		this.segmentName = segmentName;
 		this.genreName = genreName;
 		this.subGenreName = subGenreName;
+		this.source = source;
 	}
-	
+
 	/**
 	 * Costruttore vuoto
 	 */
@@ -145,6 +164,7 @@ public class Informations {
 		this.segmentName = null;
 		this.genreName = null;
 		this.subGenreName = null;
+		this.source = null;
 	}
 	
 	/**
@@ -161,6 +181,7 @@ public class Informations {
 		this.segmentName = null;
 		this.genreName = null;
 		this.subGenreName = null;
+		this.source = null;
 	}
 	
 	/**
@@ -177,6 +198,7 @@ public class Informations {
 		this.segmentName = segmentName;
 		this.genreName = genreName;
 		this.subGenreName = subGenreName;
+		this.source = null;
 	}
 	
 	/**
@@ -192,6 +214,7 @@ public class Informations {
 		this.segmentName = null;
 		this.genreName = genreName;
 		this.subGenreName = subGenreName;
+		this.source = null;
 	}
 	
 	/**
@@ -206,6 +229,7 @@ public class Informations {
 		this.segmentName = null;
 		this.genreName = null;
 		this.subGenreName = subGenreName;
+		this.source = null;
 	}
 	
 	/**
@@ -215,15 +239,15 @@ public class Informations {
 	@Override
 	public String toString() {
 		return "currency=" + currency + ", minPrince=" + minPrince + ", maxPrice=" + maxPrice
-				+ ", segmentName=" + segmentName + ", genreName=" + genreName + ", subGenreName=" + subGenreName;
+				+ ", segmentName=" + segmentName + ", genreName=" + genreName + ", subGenreName=" 
+				+ subGenreName + ", source=" + source;
 	}
 	
-	
 	/**
-	 * Override del metodo equals.
+	Override del metodo equals.
 	 * @param oggetto Informations da confrontare.
 	 * @return true se i due oggetti siano uguali, false altrimenti.
-	 */
+	*/
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -252,6 +276,11 @@ public class Informations {
 				return false;
 		} else if (!segmentName.equals(other.segmentName))
 			return false;
+		if (source == null) {
+			if (other.source != null)
+				return false;
+		} else if (!source.equals(other.source))
+			return false;
 		if (subGenreName == null) {
 			if (other.subGenreName != null)
 				return false;
@@ -259,6 +288,9 @@ public class Informations {
 			return false;
 		return true;
 	}
+	
+	
+	
 	
 	
 }
