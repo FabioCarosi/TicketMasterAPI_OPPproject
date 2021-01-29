@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.json.JSONObject;
 
 import it.univpm.TicketmasterCanada.model.*;
+import it.univpm.TicketmasterCanada.service.Service;
 
 
 /**
@@ -22,9 +23,10 @@ import it.univpm.TicketmasterCanada.model.*;
 
 @RestController
 
-public class Controller {
+public class Controller{
 	
 	@Autowired
+	Service service;
 	
 	@GetMapping(value = "/events")
 	public ResponseEntity<Object> getStateEvents(@RequestParam String stateName){

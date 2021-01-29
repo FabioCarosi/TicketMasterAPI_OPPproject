@@ -7,10 +7,10 @@ package it.univpm.TicketmasterCanada.service;
  * @author Mattia Girolami
  * @author Fabio Carosi
  */
-public class ServiceImplementation {
+public class ServiceImplementation implements it.univpm.TicketmasterCanada.service.Service {
 
 	/**
 	 * api_key
 	 */
-	private String api_key = "Ccg2GNVOGvUUXJeAPtSSAEQZjxbFN75B";
+	private String apiKey = "Ccg2GNVOGvUUXJeAPtSSAEQZjxbFN75B";
 }
