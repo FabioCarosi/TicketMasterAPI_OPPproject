@@ -10,9 +10,7 @@ package it.univpm.TicketmasterCanada.model;
  */
 public class Genre {
 
-	/**
-	 * 
-	 */
+
 	private String segmentName;		//tipologia dell'evento(es. Sport)
 	private String genreName;		//nome del genere dell'evento(es. Golf)
 	private String subGenreName;	//nome della manifestazione (es. Red Cup)
@@ -65,9 +63,8 @@ public class Genre {
 		this.subGenreName = subGenreName;
 	}
 	
-	
-	
 	/**
+	 * Costruttore completo.
 	 * @param segmentName
 	 * @param genreName
 	 * @param subGenreName
@@ -79,6 +76,9 @@ public class Genre {
 		this.subGenreName = subGenreName;
 	}
 
+	/**
+	 * Costruttore vuoto.
+	 */
 	public Genre() {
 		super();
 		this.segmentName = null;
@@ -87,14 +87,18 @@ public class Genre {
 	}
 
 	/**
+	 * Costruttore con parametro:
 	 * @param segmentName
 	 */
 	public Genre(String segmentName) {
 		super();
 		this.segmentName = segmentName;
+		this.genreName = null;
+		this.subGenreName = null;
 	}
 
 	/**
+	 * Costruttore con parametri:
 	 * @param segmentName
 	 * @param genreName
 	 */
@@ -102,6 +106,7 @@ public class Genre {
 		super();
 		this.segmentName = segmentName;
 		this.genreName = genreName;
+		this.subGenreName = null;
 	}
 	
 	/**
@@ -116,7 +121,7 @@ public class Genre {
 	
 	
 	/**
-	Override del metodo equals.
+	 * Override del metodo equals.		
 	 * @param oggetto Genre da confrontare.
 	 * @return true se i due oggetti siano uguali, false altrimenti.
 	*/
