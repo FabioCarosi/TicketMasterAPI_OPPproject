@@ -155,7 +155,15 @@ public class Venue {
 	
 	
 	public Venue() {
-		// TODO Auto-generated constructor stub
+		super();
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.stateName = null;
+		this.cityName = null;
+		this.countryCode = null;
+		this.countryName = null;
+		//this.eventArray = null;
 	}
 
 	
@@ -187,6 +195,13 @@ public class Venue {
 	public Venue(String cityName) {
 		super();
 		this.cityName = cityName;
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.stateName = null;
+		this.countryCode = null;
+		this.countryName = null;
+		//this.eventArray = null;
 	}
 
 	/**
@@ -197,6 +212,12 @@ public class Venue {
 		super();
 		this.stateName = stateName;
 		this.cityName = cityName;
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.countryCode = null;
+		this.countryName = null;
+		//this.eventArray = null;
 	}
 
 	/**
@@ -209,6 +230,11 @@ public class Venue {
 		this.stateName = stateName;
 		this.cityName = cityName;
 		this.countryName = countryName;
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.countryCode = null;
+		//this.eventArray = null;
 	}
 
 	@Override
