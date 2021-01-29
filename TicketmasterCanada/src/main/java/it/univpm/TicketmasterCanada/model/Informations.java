@@ -64,8 +64,6 @@ public class Informations {
 		this.maxPrice = maxPrice;
 	}
 	
-	
-	
 	/**
 	 * Metodo che restituisce il rivenditore dei biglietti;
 	 * @return String source;
@@ -87,20 +85,13 @@ public class Informations {
 	 * @param currency
 	 * @param minPrince
 	 * @param maxPrice
-	 * @param segmentName
-	 * @param genreName
-	 * @param subGenreName
 	 * @param source
 	 */
-	public Informations(String currency, double minPrince, double maxPrice, String segmentName, String genreName,
-			String subGenreName, String source) {
+	public Informations(String currency, double minPrince, double maxPrice, String source) {
 		super();
 		this.currency = currency;
 		this.minPrince = minPrince;
 		this.maxPrice = maxPrice;
-		this.segmentName = segmentName;
-		this.genreName = genreName;
-		this.subGenreName = subGenreName;
 		this.source = source;
 	}
 
@@ -112,9 +103,6 @@ public class Informations {
 		this.currency = null;
 		this.minPrince = 0.0;
 		this.maxPrice = 0.0;
-		this.segmentName = null;
-		this.genreName = null;
-		this.subGenreName = null;
 		this.source = null;
 	}
 	
@@ -129,60 +117,9 @@ public class Informations {
 		this.currency = currency;
 		this.minPrince = minPrince;
 		this.maxPrice = maxPrice;
-		this.segmentName = null;
-		this.genreName = null;
-		this.subGenreName = null;
 		this.source = null;
 	}
-	
-	/**
-	 * Costruttore con parametri:
-	 * @param segmentName
-	 * @param genreName
-	 * @param subGenreName
-	 */
-	public Informations(String segmentName, String genreName, String subGenreName) {
-		super();
-		this.currency = null;
-		this.minPrince = 0.0;
-		this.maxPrice = 0.0;
-		this.segmentName = segmentName;
-		this.genreName = genreName;
-		this.subGenreName = subGenreName;
-		this.source = null;
-	}
-	
-	/**
-	 * Costruttore con parametri:
-	 * @param genreName
-	 * @param subGenreName
-	 */
-	public Informations(String genreName, String subGenreName) {
-		super();
-		this.currency = null;
-		this.minPrince = 0.0;
-		this.maxPrice = 0.0;
-		this.segmentName = null;
-		this.genreName = genreName;
-		this.subGenreName = subGenreName;
-		this.source = null;
-	}
-	
-	/**
-	 * Costruttore con parametri:
-	 * @param subGenreName
-	 */
-	public Informations(String subGenreName) {
-		super();
-		this.currency = null;
-		this.minPrince = 0.0;
-		this.maxPrice = 0.0;
-		this.segmentName = null;
-		this.genreName = null;
-		this.subGenreName = subGenreName;
-		this.source = null;
-	}
-	
+
 	/**
 	 * Override del metodo toString.
 	 * @return una String con tutte le informazioni dell'evento.
@@ -190,10 +127,9 @@ public class Informations {
 	@Override
 	public String toString() {
 		return "currency=" + currency + ", minPrince=" + minPrince + ", maxPrice=" + maxPrice
-				+ ", segmentName=" + segmentName + ", genreName=" + genreName + ", subGenreName=" 
-				+ subGenreName + ", source=" + source;
+				+ ", source=" + source;
 	}
-	
+
 	/**
 	Override del metodo equals.
 	 * @param oggetto Informations da confrontare.
@@ -213,35 +149,28 @@ public class Informations {
 				return false;
 		} else if (!currency.equals(other.currency))
 			return false;
-		if (genreName == null) {
-			if (other.genreName != null)
-				return false;
-		} else if (!genreName.equals(other.genreName))
-			return false;
 		if (Double.doubleToLongBits(maxPrice) != Double.doubleToLongBits(other.maxPrice))
 			return false;
 		if (Double.doubleToLongBits(minPrince) != Double.doubleToLongBits(other.minPrince))
-			return false;
-		if (segmentName == null) {
-			if (other.segmentName != null)
-				return false;
-		} else if (!segmentName.equals(other.segmentName))
 			return false;
 		if (source == null) {
 			if (other.source != null)
 				return false;
 		} else if (!source.equals(other.source))
 			return false;
-		if (subGenreName == null) {
-			if (other.subGenreName != null)
-				return false;
-		} else if (!subGenreName.equals(other.subGenreName))
-			return false;
 		return true;
 	}
-	
-	
-	
-	
+
+	/**
+	 * Costruttore con paremetro:
+	 * @param source
+	 */
+	public Informations(String source) {
+		super();
+		this.currency = null;
+		this.minPrince = 0.0;
+		this.maxPrice = 0.0;
+		this.source = source;
+	}
 	
 }
