@@ -153,7 +153,9 @@ public class Venue {
 	}
 	
 	
-	
+	/**
+	 * Costruttore vuoto
+	 */
 	public Venue() {
 		super();
 		this.name = null;
@@ -169,6 +171,7 @@ public class Venue {
 	
 
 	/**
+	 * Construttore con tutti i parametri:
 	 * @param name
 	 * @param address
 	 * @param stateCode
@@ -190,6 +193,7 @@ public class Venue {
 	}
 
 	/**
+	 * Costruttore con parametro:
 	 * @param cityName
 	 */
 	public Venue(String cityName) {
@@ -205,6 +209,7 @@ public class Venue {
 	}
 
 	/**
+	 * Costruttore con parametri: 
 	 * @param stateName
 	 * @param cityName
 	 */
@@ -221,6 +226,7 @@ public class Venue {
 	}
 
 	/**
+	 * Costruttore con parametri:
 	 * @param stateName
 	 * @param cityName
 	 * @param countryName

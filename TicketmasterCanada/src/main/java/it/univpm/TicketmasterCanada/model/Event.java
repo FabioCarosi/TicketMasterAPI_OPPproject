@@ -15,7 +15,7 @@ public class Event {
 	
 	
 	/**
-	 * 
+	 * Costruttore vuoto
 	 */
 	public Event() {
 		super();
@@ -27,6 +27,7 @@ public class Event {
 		
 	
 	/**
+	 * Costrutture con parametro:
 	 * @param name
 	 */
 	public Event(String name) {
@@ -38,6 +39,7 @@ public class Event {
 	}
 	
 	/**
+	 * Costruttore con parametri: 
 	 * @param id
 	 * @param name
 	 */
@@ -51,6 +53,7 @@ public class Event {
 
 
 	/**
+	 * Costruttore con parametri:
 	 * @param id
 	 * @param name
 	 * @param url
