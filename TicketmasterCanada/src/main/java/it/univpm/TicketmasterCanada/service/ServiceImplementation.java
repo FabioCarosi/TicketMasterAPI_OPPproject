@@ -52,10 +52,28 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		return StateEventsObj;
 	}
+	
+	/**
+	 * Metodo che restituisce gli eventi da Ticketmaster passando il marketID come parametro
+	 * @param marketID dello Stato interassato
+	 * @return JSONObject con gli eventi del Market
+	 */
+	
+	public JSONObject getMarketEvents(int marketID) {
+		
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&marketId="+ marketID;
+		RestTemplate rTemplate = new RestTemplate();
+		JSONObject StateEventsObj;
+		StateEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		
+		return StateEventsObj;
+	}
 
 	@Override
 	public Venue getStateEventsfromApi(String venue) {
 		
 		return null;
 	}
+
+	
 }

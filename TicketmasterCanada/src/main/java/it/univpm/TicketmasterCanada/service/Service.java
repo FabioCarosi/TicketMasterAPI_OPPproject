@@ -17,6 +17,7 @@ public interface Service {
 
 		public abstract JSONObject getStateEvents(String stateCode);
 		public abstract JSONObject getCountryEvents(String countryCode);
+		public abstract JSONObject getMarketEvents(int marketID);
 		public abstract Venue getStateEventsfromApi(String venue);
 
 
