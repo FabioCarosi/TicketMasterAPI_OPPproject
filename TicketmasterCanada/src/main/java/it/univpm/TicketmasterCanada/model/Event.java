@@ -8,10 +8,10 @@ package it.univpm.TicketmasterCanada.model;
 
 public class Event {
 	
-	private String id;
-	private String name;
-	private String url;
-	private String info;
+	private String id;			//codice che identifica univocamente l'evento
+	private String name;		//nome dell'evento
+	private String url;			//url Ticketmaster corrispondente all'evento
+	private String info;		//informazioni sull'evento
 	
 	private Date date;
 	private Informations informations;
@@ -103,7 +103,23 @@ public class Event {
 	}
 	
 	/**
-	 * @return the date
+	 * Costruttore con parametri:
+	 * @param date
+	 * @param informations
+	 * @param venue
+	 * @param genre
+	 */
+	public Event(Date date, Informations informations, Venue venue, Genre genre) {
+		super();
+		this.date = date;
+		this.informations = informations;
+		this.venue = venue;
+		this.genre = genre;
+	}
+
+	/**
+	 * Metodo che restituisce la data.
+	 * @return Date date
 	 */
 	public Date getDate() {
 		return date;
@@ -111,23 +127,24 @@ public class Event {
 
 
 	/**
-	 * @param date the date to set
+	 * Metodo che setta la data.
+	 * @param Date date 
 	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
-
 	/**
-	 * @return the informations
+	 * Metodo che restituisce le informazioni.
+	 * @return Informations informations
 	 */
 	public Informations getInformations() {
 		return informations;
 	}
 
-
 	/**
-	 * @param informations the informations to set
+	 * Metodo che setta le informazioni.
+	 * @param Informations informations
 	 */
 	public void setInformations(Informations informations) {
 		this.informations = informations;
@@ -135,91 +152,101 @@ public class Event {
 
 
 	/**
-	 * @return the venue
+	 * Metodo che restituisce il luogo.
+	 * @return Venue venue
 	 */
 	public Venue getVenue() {
 		return venue;
 	}
 
-
 	/**
-	 * @param venue the venue to set
+	 * Metodo che setta il venue.
+	 * @param Venue venue
 	 */
 	public void setVenue(Venue venue) {
 		this.venue = venue;
 	}
 
-
 	/**
-	 * @return the genre
+	 * Metodo che restituisce il genere
+	 * @return Genre genre
 	 */
 	public Genre getGenre() {
 		return genre;
 	}
 
-
 	/**
-	 * @param genre the genre to set
+	 * Metodo che setta il genere.
+	 * @param Genre genre
 	 */
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
 
-
 	/**
-	 * @return the id
+	 * Metodo che restituisce l'ID
+	 * @return String id
 	 */
 	public String getId() {
 		return id;
 	}
 	
 	/**
-	 * @param id the id to set
+	 * Metodo che setta l'id
+	 * @param Id id
 	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 	
 	/**
-	 * @return the name
+	 * Metodo che restituisce il nome.
+	 * @return String name
 	 */
 	public String getName() {
 		return name;
 	}
+	
 	/**
-	 * @param name the name to set
+	 * Metodo che setta il name dell'evento.
+	 * @param Name name
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
 	/**
-	 * @return the url
+	 * Metodo che restituisce l'url.
+	 * @return String url
 	 */
-	
 	public String getUrl() {
 		return url;
 	}
+	
 	/**
-	 * @param url the url to set
+	 * Metodo che setta l'url.
+	 * @param Url url
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
 	/**
-	 * @return the info
+	 * Metodo che restituisce le informazioni.
+	 * @return String info
 	 */
 	public String getInfo() {
 		return info;
 	}
+	
 	/**
-	 * @param info the info to set
+	 * Metodo che setta le info.
+	 * @param Info info
 	 */
 	public void setInfo(String info) {
 		this.info = info;
 	}
 
-	
 	/**
 	 * Override del metodo toString
 	 */
@@ -230,7 +257,7 @@ public class Event {
 	}
 
 	/**
-	 * Override del metodo equals
+	 * Override del metodo equals.
 	 */
 	@Override
 	public boolean equals(Object obj) {
