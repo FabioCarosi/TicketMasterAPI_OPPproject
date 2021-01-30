@@ -34,6 +34,8 @@ public class JsonCreator {
 		object.put("name", venue.getName());
 		object.put("stateCode", venue.getStateCode());
 		object.put("stateName", venue.getStateName());
+		object.put("marketName", venue.getMarketName());
+		object.put("marketID", venue.getMarketID());
 		
 		JSONArray arr = new JSONArray();
 		
