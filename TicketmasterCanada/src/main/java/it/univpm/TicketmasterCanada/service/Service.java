@@ -15,7 +15,7 @@ import it.univpm.TicketmasterCanada.model.Venue;
  */
 public interface Service {
 
-		public abstract JSONObject getStateEvents(String stateName);
+		public abstract JSONObject getStateEvents(String stateCode);
 		public abstract Venue getStateEventsfromApi(String venue);
 
 
