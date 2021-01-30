@@ -8,9 +8,11 @@ import org.json.JSONArray;
 import it.univpm.TicketmasterCanada.model.*;
 
 /**
+ * Questa classe ci permette di scrivere un oggetto Venue all'interno di un JSONObject. 
  * @author Mattia Girolami
- * @author Fabio Carosi
+ * @author Fabio Carosi 
  */
+
 public class JsonCreator {
 	
 	Venue venue = new Venue();
@@ -39,11 +41,19 @@ public class JsonCreator {
 			
 			JSONObject evento = new JSONObject();
 			evento.put("data", (venue.getVector()).get(i).getDate().getData());
-			
-			
+			evento.put("orario", (venue.getVector()).get(i).getDate().getOrario());
+			evento.put("segment", (venue.getVector()).get(i).getGenre().getSegmentName());
+			evento.put("genre", (venue.getVector()).get(i).getGenre().getGenreName());
+			evento.put("subgenre", (venue.getVector()).get(i).getGenre().getSubGenreName());
+			evento.put("currency", (venue.getVector()).get(i).getInformations().getCurrency());
+			evento.put("maxPrice", (venue.getVector()).get(i).getInformations().getMaxPrice());
+			evento.put("minPrice", (venue.getVector()).get(i).getInformations().getMinPrince());
+			evento.put("source", (venue.getVector()).get(i).getInformations().getSource());
+			arr.put(evento);
 		}
 		
-		 return object;
+		object.put("Evento", arr );		
+		return object;
 	}
 
 }
