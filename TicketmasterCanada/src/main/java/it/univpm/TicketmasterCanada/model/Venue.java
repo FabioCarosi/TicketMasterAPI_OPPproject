@@ -20,9 +20,161 @@ public class Venue {
 	private String cityName; //rappresenta il nome della città (es. Edmonton, Winnipeg)
 	private String countryName; //rappresenta il nome dello Stato (es. Canada)
 	private String countryCode; //rappresenta l'abbreviazione dello Stato (es. CA)
-	private Vector<Event> eventArray = new Vector<Event>(); //contiene le informazioni essenziali di un evento in ua città
+	private int marketID; //rappresenta l'id di un ampio raggruppamento geografico
+	private String marketName; //rappresenta il nome di un ampio raggruppamento geografico
+	private Vector<Event> eventArray = new Vector<Event>(); //contiene le informazioni essenziali di un evento in una città
+	
+
+	/**
+	 * Costruttore vuoto
+	 */
+	public Venue() {
+		super();
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.stateName = null;
+		this.cityName = null;
+		this.countryName = null;
+		this.countryCode = null;
+		this.marketName = null;
+		this.marketID = 0;
+		//this.eventArray = null;
+	}
 	
 	
+
+	/**
+	 * Costruttore con parametro:
+	 * @param marketID
+	 */
+	public Venue(int marketID) {
+		super();
+		this.marketID = marketID;
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.stateName = null;
+		this.cityName = null;
+		this.countryName = null;
+		this.countryCode = null;
+		this.marketName = null;
+		//this.eventArray = null;
+	}
+
+
+
+	/**
+	 * Costruttore con parametri:
+	 * @param marketID
+	 * @param marketName
+	 */
+	public Venue(int marketID, String marketName) {
+		super();
+		this.marketID = marketID;
+		this.marketName = marketName;
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.stateName = null;
+		this.cityName = null;
+		this.countryName = null;
+		this.countryCode = null;
+		//this.eventArray = null;
+	}
+
+	/**
+	 * Costruttore con parametro:
+	 * @param cityName
+	 */
+	public Venue(String cityName) {
+		super();
+		this.cityName = cityName;
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.stateName = null;
+		this.countryName = null;
+		this.countryCode = null;
+		this.marketName = null;
+		this.marketID = 0;
+		//this.eventArray = null;
+	}
+
+	/**
+	 * Costruttore con parametri:
+	 * @param cityName
+	 * @param countryName
+	 */
+	public Venue(String cityName, String countryName) {
+		super();
+		this.cityName = cityName;
+		this.countryName = countryName;
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.stateName = null;
+		this.countryCode = null;
+		this.marketName = null;
+		this.marketID = 0;
+		//this.eventArray = null;
+	}
+
+
+
+	/**
+	 * Costruttore con parametri:
+	 * @param stateName
+	 * @param cityName
+	 * @param countryName
+	 */
+	public Venue(String stateName, String cityName, String countryName) {
+		super();
+		this.stateName = stateName;
+		this.cityName = cityName;
+		this.countryName = countryName;
+		this.name = null;
+		this.address = null;
+		this.stateCode = null;
+		this.countryCode = null;
+		this.marketName = null;
+		this.marketID = 0;
+		//this.eventArray = null;
+	}
+	
+
+
+
+	/**
+	 * Costruttore con tutti i paramentri
+	 * @param name
+	 * @param address
+	 * @param stateCode
+	 * @param stateName
+	 * @param cityName
+	 * @param countryName
+	 * @param countryCode
+	 * @param marketID
+	 * @param marketName
+	 * @param eventArray
+	 */
+	public Venue(String name, String address, String stateCode, String stateName, String cityName, String countryName,
+			String countryCode, int marketID, String marketName, Vector<Event> eventArray) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.stateCode = stateCode;
+		this.stateName = stateName;
+		this.cityName = cityName;
+		this.countryName = countryName;
+		this.countryCode = countryCode;
+		this.marketID = marketID;
+		this.marketName = marketName;
+		this.eventArray = eventArray;
+	}
+
+
+
 	/**
 	 * Metodo che restituisce il nome della località;
 	 * @return String name;
@@ -153,95 +305,36 @@ public class Venue {
 	}
 	
 	
+
 	/**
-	 * Costruttore vuoto
+	 * @return the marketID
 	 */
-	public Venue() {
-		super();
-		this.name = null;
-		this.address = null;
-		this.stateCode = null;
-		this.stateName = null;
-		this.cityName = null;
-		this.countryCode = null;
-		this.countryName = null;
-		//this.eventArray = null;
+	public int getMarketID() {
+		return marketID;
 	}
 
+	/**
+	 * @param marketID the marketID to set
+	 */
+	public void setMarketID(int marketID) {
+		this.marketID = marketID;
+	}
+
+	/**
+	 * @return the marketName
+	 */
+	public String getMarketName() {
+		return marketName;
+	}
+
+	/**
+	 * @param marketName the marketName to set
+	 */
+	public void setMarketName(String marketName) {
+		this.marketName = marketName;
+	}
 	
-
-	/**
-	 * Construttore con tutti i parametri:
-	 * @param name
-	 * @param address
-	 * @param stateCode
-	 * @param stateName
-	 * @param cityName
-	 * @param countryName
-	 * @param countryCode
-	 */
-	public Venue(String name, String address, String stateCode, String stateName, String cityName, String countryName,
-			String countryCode) {
-		super();
-		this.name = name;
-		this.address = address;
-		this.stateCode = stateCode;
-		this.stateName = stateName;
-		this.cityName = cityName;
-		this.countryName = countryName;
-		this.countryCode = countryCode;
-	}
-
-	/**
-	 * Costruttore con parametro:
-	 * @param cityName
-	 */
-	public Venue(String cityName) {
-		super();
-		this.cityName = cityName;
-		this.name = null;
-		this.address = null;
-		this.stateCode = null;
-		this.stateName = null;
-		this.countryCode = null;
-		this.countryName = null;
-		//this.eventArray = null;
-	}
-
-	/**
-	 * Costruttore con parametri: 
-	 * @param stateName
-	 * @param cityName
-	 */
-	public Venue(String stateName, String cityName) {
-		super();
-		this.stateName = stateName;
-		this.cityName = cityName;
-		this.name = null;
-		this.address = null;
-		this.stateCode = null;
-		this.countryCode = null;
-		this.countryName = null;
-		//this.eventArray = null;
-	}
-
-	/**
-	 * Costruttore con parametri:
-	 * @param stateName
-	 * @param cityName
-	 * @param countryName
-	 */
-	public Venue(String stateName, String cityName, String countryName) {
-		super();
-		this.stateName = stateName;
-		this.cityName = cityName;
-		this.countryName = countryName;
-		this.name = null;
-		this.address = null;
-		this.stateCode = null;
-		this.countryCode = null;
-		//this.eventArray = null;
-	}
+	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -252,52 +345,56 @@ public class Venue {
 		if (getClass() != obj.getClass())
 			return false;
 		Venue other = (Venue) obj;
-		
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		
 		if (address == null) {
 			if (other.address != null)
 				return false;
 		} else if (!address.equals(other.address))
 			return false;
-		
-		if (stateCode == null) {
-			if (other.stateCode != null)
-				return false;
-		} else if (!stateCode.equals(other.stateCode))
-			return false;
-		
-		if (stateName == null) {
-			if (other.stateName != null)
-				return false;
-		} else if (!stateName.equals(other.stateName))
-			return false;
-		
 		if (cityName == null) {
 			if (other.cityName != null)
 				return false;
 		} else if (!cityName.equals(other.cityName))
 			return false;
-		
-		if (countryName == null) {
-			if (other.countryName != null)
-				return false;
-		} else if (!countryName.equals(other.countryName))
-			return false;
-		
 		if (countryCode == null) {
 			if (other.countryCode != null)
 				return false;
 		} else if (!countryCode.equals(other.countryCode))
 			return false;
-		
+		if (countryName == null) {
+			if (other.countryName != null)
+				return false;
+		} else if (!countryName.equals(other.countryName))
+			return false;
+		if (eventArray == null) {
+			if (other.eventArray != null)
+				return false;
+		} else if (!eventArray.equals(other.eventArray))
+			return false;
+		if (marketID != other.marketID)
+			return false;
+		if (marketName == null) {
+			if (other.marketName != null)
+				return false;
+		} else if (!marketName.equals(other.marketName))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (stateCode == null) {
+			if (other.stateCode != null)
+				return false;
+		} else if (!stateCode.equals(other.stateCode))
+			return false;
+		if (stateName == null) {
+			if (other.stateName != null)
+				return false;
+		} else if (!stateName.equals(other.stateName))
+			return false;
 		return true;
 	}
-	
+
 	/**
      * Metodo che scrive il vettore come una stringa.
      * @return String toReturn che rappresenta gli eventi.
@@ -316,7 +413,7 @@ public class Venue {
 	@Override
 	public String toString() {
 		return "cityName= " + cityName +", name= " + name + ", address= " + address + ", stateName= " + stateName + ", stateCode= " + stateCode
-				+ ", countryName= " + countryName + ", countryCode= " + countryCode + ", eventArray=" + toStringVector()+ ""; 
+				+ ", countryName= " + countryName + ", countryCode= " + countryCode + ", marketID= " + marketID + ", marketName= " + marketName+ ", eventArray=" + toStringVector()+ ""; 
 	}
 
 }
