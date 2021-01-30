@@ -69,11 +69,22 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		return StateEventsObj;
 	}
 
-	@Override
-	public Venue getStateEventsfromApi(String venue) {
-		
+
+	public Venue getStateEventsfromApi(String stateCode) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
+	public Venue getCountryEventsfromApi(String contryCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Venue getMarketEventsfromApi(int marketID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -14,15 +14,14 @@ import it.univpm.TicketmasterCanada.model.Venue;
  *
  */
 public interface Service {
-
+	
 		public abstract JSONObject getStateEvents(String stateCode);
 		public abstract JSONObject getCountryEvents(String countryCode);
 		public abstract JSONObject getMarketEvents(int marketID);
-		public abstract Venue getStateEventsfromApi(String venue);
-
-
-
-
+		public abstract Venue getStateEventsfromApi(String stateCode);
+		public abstract Venue getCountryEventsfromApi(String contryCode);
+		public abstract Venue getMarketEventsfromApi(int marketID);
+		
 }
 
 
