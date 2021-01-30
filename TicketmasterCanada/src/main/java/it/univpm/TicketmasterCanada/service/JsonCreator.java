@@ -18,10 +18,10 @@ public class JsonCreator {
 	Venue venue = new Venue();
 	
 	/**
-	 * Questo metodo restituisce il JSONObject corrispondente all'oggetto City passato in ingresso.
+	 * Passato un oggetto Venue restituisce il JSONObject
 	 * 
-	 * @param city città che si vuole come un JSONObject.
-	 * @return il JSONObject che rappresenta la città.
+	 * @param venue che si vuole trasformare in JSONObject.
+	 * @return JSONObject del venue.
 	 */
 	
 	public JSONObject jsonCreator(Venue venue) {
