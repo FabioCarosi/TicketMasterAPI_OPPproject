@@ -22,7 +22,13 @@ public class Date {
 		this.data = data;
 		this.orario = orario;
 	}
-
+	
+	/**
+	 * 
+	 */
+	public Date() {
+		super();
+	}
 
 	public String getData() {
 		return data;

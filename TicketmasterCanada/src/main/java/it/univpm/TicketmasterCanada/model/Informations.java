@@ -11,7 +11,7 @@ package it.univpm.TicketmasterCanada.model;
 public class Informations {
 
 	private String currency;   		//valuta del pagamento
-	private double minPrince;   	//prezzo minimo del biglietto
+	private double minPrice;   	//prezzo minimo del biglietto
 	private double maxPrice;    	//prezzo massimo del biglietto
 	private String source;			//azienda che si occupa della vendita dei biglietti
 	
@@ -36,16 +36,16 @@ public class Informations {
 	 * Metodo che restituisce il prezzo minimo.
 	 * @return double minPrince.
 	 */
-	public double getMinPrince() {
-		return minPrince;
+	public double getMinPrice() {
+		return minPrice;
 	}
 	
 	/**
 	 * Metodo che setta il prezzo minimo.
 	 * @param double minPrice.
 	 */
-	public void setMinPrince(double minPrince) {
-		this.minPrince = minPrince;
+	public void setMinPrice(double minPrice) {
+		this.minPrice = minPrice;
 	}
 	
 	/**
@@ -83,14 +83,14 @@ public class Informations {
 	/**
 	 * Costruttore completo con parametri:
 	 * @param currency
-	 * @param minPrince
+	 * @param minPrice
 	 * @param maxPrice
 	 * @param source
 	 */
-	public Informations(String currency, double minPrince, double maxPrice, String source) {
+	public Informations(String currency, double minPrice, double maxPrice, String source) {
 		super();
 		this.currency = currency;
-		this.minPrince = minPrince;
+		this.minPrice = minPrice;
 		this.maxPrice = maxPrice;
 		this.source = source;
 	}
@@ -101,7 +101,7 @@ public class Informations {
 	public Informations() {
 		super();
 		this.currency = null;
-		this.minPrince = 0.0;
+		this.minPrice = 0.0;
 		this.maxPrice = 0.0;
 		this.source = null;
 	}
@@ -109,13 +109,13 @@ public class Informations {
 	/**
 	 * Costruttore con parametri:
 	 * @param currency
-	 * @param minPrince
+	 * @param minPrice
 	 * @param maxPrice
 	 */
-	public Informations(String currency, double minPrince, double maxPrice) {
+	public Informations(String currency, double minPrice, double maxPrice) {
 		super();
 		this.currency = currency;
-		this.minPrince = minPrince;
+		this.minPrice = minPrice;
 		this.maxPrice = maxPrice;
 		this.source = null;
 	}
@@ -126,7 +126,7 @@ public class Informations {
 	 */
 	@Override
 	public String toString() {
-		return "currency=" + currency + ", minPrince=" + minPrince + ", maxPrice=" + maxPrice
+		return "currency=" + currency + ", minPrice=" + minPrice + ", maxPrice=" + maxPrice
 				+ ", source=" + source;
 	}
 
@@ -151,7 +151,7 @@ public class Informations {
 			return false;
 		if (Double.doubleToLongBits(maxPrice) != Double.doubleToLongBits(other.maxPrice))
 			return false;
-		if (Double.doubleToLongBits(minPrince) != Double.doubleToLongBits(other.minPrince))
+		if (Double.doubleToLongBits(minPrice) != Double.doubleToLongBits(other.minPrice))
 			return false;
 		if (source == null) {
 			if (other.source != null)
@@ -168,7 +168,7 @@ public class Informations {
 	public Informations(String source) {
 		super();
 		this.currency = null;
-		this.minPrince = 0.0;
+		this.minPrice = 0.0;
 		this.maxPrice = 0.0;
 		this.source = source;
 	}

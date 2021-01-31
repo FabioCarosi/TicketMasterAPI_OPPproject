@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
 
-
 import it.univpm.TicketmasterCanada.model.*;
+
 
 /**
  * @author Fabio Carosi
@@ -103,12 +103,38 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			event.setUrl(stack.getString("url"));
 			event.setInfo(stack.getString("info"));
 			
-			
+	
+			Date data = new Date();
 			JSONArray datesArray = stack.getJSONArray("dates");
 			JSONObject datesObject = datesArray.getJSONObject(0);
 			JSONArray startDateArray = datesObject.getJSONArray("start");
 			JSONObject startDateObject = startDateArray.getJSONObject(0);
-			event.setDate(startDateObject.getDate().getData("localDate"));
+			data.setData(startDateObject.getString("localDate"));
+			data.setOrario(startDateObject.getString("localTime"));
+			event.setDate(data);
+			
+			Informations information = new Informations();
+			JSONArray informationsArray = stack.getJSONArray("priceRanges");
+			JSONObject informationsObject = informationsArray.getJSONObject(0);
+			information.setCurrency(informationsObject.getString("currency"));
+			information.setMaxPrice(informationsObject.getDouble("max"));
+			information.setMinPrice(informationsObject.getDouble("min"));
+			event.setInformations(information);
+			
+			Genre genre = new Genre();
+			JSONArray classificationsArray = stack.getJSONArray("classifications");
+			JSONObject classificationsObject = classificationsArray.getJSONObject(0);
+			JSONArray segmentsArray = classificationsObject.getJSONArray("segment");
+			JSONObject segmentsObject = segmentsArray.getJSONObject(0);
+			genre.setSegmentName(segmentsObject.getString("name"));
+			JSONArray genresArray = classificationsObject.getJSONArray("genre");
+			JSONObject genresObject = genresArray.getJSONObject(0);
+			genre.setGenreName(genresObject.getString("name"));
+			JSONArray subGenresArray = classificationsObject.getJSONArray("subGenre");
+			JSONObject subGenresObject = subGenresArray.getJSONObject(0);
+			genre.setSubGenreName(subGenresObject.getString("name"));	
+			event.setGenre(genre);
+
 	
 		}
 		
