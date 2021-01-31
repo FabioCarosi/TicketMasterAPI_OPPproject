@@ -31,7 +31,7 @@ public class JsonCreator {
 		object.put("cityName", venue.getCityName());
 		object.put("countryCode", venue.getCountryCode());
 		object.put("countryName", venue.getCountryName());
-		object.put("name", venue.getName());
+		object.put("venueName", venue.getVenueName());
 		object.put("stateCode", venue.getStateCode());
 		object.put("stateName", venue.getStateName());
 		object.put("marketName", venue.getMarketName());

@@ -13,7 +13,7 @@ import java.util.Vector;
 public class Venue {
 
 	
-	private String name; //rappresenta il nome della località
+	private String venueName; //rappresenta il nome della località
 	private String address; //rappresenta l'indirizzo dove si svolge l'evento
 	private String stateCode; //rappresenta l'abbreviazione del territorio (es. AB, MB...)
 	private String stateName; //rappresenta il nome del territorio (es. Alberta, Manitoba...)
@@ -22,6 +22,7 @@ public class Venue {
 	private String countryCode; //rappresenta l'abbreviazione dello Stato (es. CA)
 	private int marketID; //rappresenta l'id di un ampio raggruppamento geografico
 	private String marketName; //rappresenta il nome di un ampio raggruppamento geografico
+	
 	private Vector<Event> eventArray = new Vector<Event>(); //contiene le informazioni essenziali di un evento in una città
 	
 
@@ -30,7 +31,7 @@ public class Venue {
 	 */
 	public Venue() {
 		super();
-		this.name = null;
+		this.venueName = null;
 		this.address = null;
 		this.stateCode = null;
 		this.stateName = null;
@@ -51,7 +52,7 @@ public class Venue {
 	public Venue(int marketID) {
 		super();
 		this.marketID = marketID;
-		this.name = null;
+		this.venueName = null;
 		this.address = null;
 		this.stateCode = null;
 		this.stateName = null;
@@ -73,7 +74,7 @@ public class Venue {
 		super();
 		this.marketID = marketID;
 		this.marketName = marketName;
-		this.name = null;
+		this.venueName = null;
 		this.address = null;
 		this.stateCode = null;
 		this.stateName = null;
@@ -90,7 +91,7 @@ public class Venue {
 	public Venue(String cityName) {
 		super();
 		this.cityName = cityName;
-		this.name = null;
+		this.venueName = null;
 		this.address = null;
 		this.stateCode = null;
 		this.stateName = null;
@@ -110,7 +111,7 @@ public class Venue {
 		super();
 		this.cityName = cityName;
 		this.countryName = countryName;
-		this.name = null;
+		this.venueName = null;
 		this.address = null;
 		this.stateCode = null;
 		this.stateName = null;
@@ -133,7 +134,7 @@ public class Venue {
 		this.stateName = stateName;
 		this.cityName = cityName;
 		this.countryName = countryName;
-		this.name = null;
+		this.venueName = null;
 		this.address = null;
 		this.stateCode = null;
 		this.countryCode = null;
@@ -147,7 +148,7 @@ public class Venue {
 
 	/**
 	 * Costruttore con tutti i paramentri
-	 * @param name
+	 * @param venueName
 	 * @param address
 	 * @param stateCode
 	 * @param stateName
@@ -158,10 +159,10 @@ public class Venue {
 	 * @param marketName
 	 * @param eventArray
 	 */
-	public Venue(String name, String address, String stateCode, String stateName, String cityName, String countryName,
+	public Venue(String venueName, String address, String stateCode, String stateName, String cityName, String countryName,
 			String countryCode, int marketID, String marketName, Vector<Event> eventArray) {
 		super();
-		this.name = name;
+		this.venueName = venueName;
 		this.address = address;
 		this.stateCode = stateCode;
 		this.stateName = stateName;
@@ -177,18 +178,18 @@ public class Venue {
 
 	/**
 	 * Metodo che restituisce il nome della località;
-	 * @return String name;
+	 * @return String venueName;
 	 */
-	public String getName() {
-		return name;
+	public String getVenueName() {
+		return venueName;
 	}
 
 	/**
 	 * Metodo che setta il nome della località.
-	 * @param String name.
+	 * @param String venueName.
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setVenueName(String venueName) {
+		this.venueName = venueName;
 	}
 
 	/**
@@ -377,10 +378,10 @@ public class Venue {
 				return false;
 		} else if (!marketName.equals(other.marketName))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (venueName == null) {
+			if (other.venueName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!venueName.equals(other.venueName))
 			return false;
 		if (stateCode == null) {
 			if (other.stateCode != null)
@@ -412,7 +413,7 @@ public class Venue {
 	 */
 	@Override
 	public String toString() {
-		return "cityName= " + cityName +", name= " + name + ", address= " + address + ", stateName= " + stateName + ", stateCode= " + stateCode
+		return "cityName= " + cityName +", venueName= " + venueName + ", address= " + address + ", stateName= " + stateName + ", stateCode= " + stateCode
 				+ ", countryName= " + countryName + ", countryCode= " + countryCode + ", marketID= " + marketID + ", marketName= " + marketName+ ", eventArray=" + toStringVector()+ ""; 
 	}
 

@@ -15,7 +15,6 @@ public class Event {
 	
 	private Date date;
 	private Informations informations;
-	private Venue venue;
 	private Genre genre;
 
 	
@@ -30,7 +29,6 @@ public class Event {
 		this.info = null;
 		this.date = null;
 		this.informations = null;
-		this.venue = null;
 		this.genre = null;
 	}
 	
@@ -43,10 +41,9 @@ public class Event {
 	 * @param info
 	 * @param date
 	 * @param informations
-	 * @param venue
 	 * @param genre
 	 */
-	public Event(String id, String name, String url, String info, Date date, Informations informations, Venue venue,
+	public Event(String id, String name, String url, String info, Date date, Informations informations,
 			Genre genre) {
 		super();
 		this.id = id;
@@ -55,7 +52,6 @@ public class Event {
 		this.info = info;
 		this.date = date;
 		this.informations = informations;
-		this.venue = venue;
 		this.genre = genre;
 	}
 
@@ -106,14 +102,12 @@ public class Event {
 	 * Costruttore con parametri:
 	 * @param date
 	 * @param informations
-	 * @param venue
 	 * @param genre
 	 */
-	public Event(Date date, Informations informations, Venue venue, Genre genre) {
+	public Event(Date date, Informations informations, Genre genre) {
 		super();
 		this.date = date;
 		this.informations = informations;
-		this.venue = venue;
 		this.genre = genre;
 	}
 
@@ -150,22 +144,6 @@ public class Event {
 		this.informations = informations;
 	}
 
-
-	/**
-	 * Metodo che restituisce il luogo.
-	 * @return Venue venue
-	 */
-	public Venue getVenue() {
-		return venue;
-	}
-
-	/**
-	 * Metodo che setta il venue.
-	 * @param Venue venue
-	 */
-	public void setVenue(Venue venue) {
-		this.venue = venue;
-	}
 
 	/**
 	 * Metodo che restituisce il genere
@@ -253,7 +231,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "id=" + id + ", name=" + name + ", url=" + url + ", info=" + info + ", date=" + date
-				+ ", informations=" + informations + ", venue=" + venue + ", genre=" + genre;
+				+ ", informations=" + informations + ", genre=" + genre;
 	}
 
 	/**
@@ -302,11 +280,6 @@ public class Event {
 			if (other.url != null)
 				return false;
 		} else if (!url.equals(other.url))
-			return false;
-		if (venue == null) {
-			if (other.venue != null)
-				return false;
-		} else if (!venue.equals(other.venue))
 			return false;
 		return true;
 	}

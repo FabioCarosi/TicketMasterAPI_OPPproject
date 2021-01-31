@@ -3,10 +3,14 @@
  */
 package it.univpm.TicketmasterCanada.service;
 
+import java.util.Vector;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
 
-import it.univpm.TicketmasterCanada.model.Venue;
+
+import it.univpm.TicketmasterCanada.model.*;
 
 /**
  * @author Fabio Carosi
@@ -47,10 +51,10 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&countryCode="+ countryCode;
 		RestTemplate rTemplate = new RestTemplate();
-		JSONObject StateEventsObj;
-		StateEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		JSONObject CountryEventsObj;
+		CountryEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
 		
-		return StateEventsObj;
+		return CountryEventsObj;
 	}
 	
 	/**
@@ -63,10 +67,10 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&marketId="+ marketID;
 		RestTemplate rTemplate = new RestTemplate();
-		JSONObject StateEventsObj;
-		StateEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		JSONObject MarketEventsObj;
+		MarketEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
 		
-		return StateEventsObj;
+		return MarketEventsObj;
 	}
 
 
@@ -76,13 +80,50 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	}
 
 
-	public Venue getCountryEventsfromApi(String contryCode) {
-		// TODO Auto-generated method stub
+	public Venue getChosenCountryEventsfromApi(String countryCode) {
+		
+		JSONObject countryAPIObj = getCountryEvents(countryCode);
+		
+		Venue country = new Venue(countryCode);
+		
+		country = getCountryFromAPI(countryCode);
+		
+		JSONArray eventsArray = countryAPIObj.getJSONArray("events");
+		JSONObject stack;
+		
+		Vector<Event> vector = new Vector<Event>(eventsArray.length());
+		
+		
+		for (int i = 0; i<eventsArray.length(); i++) {
+			
+			Event event = new Event();
+			stack = eventsArray.getJSONObject(i);
+			event.setName(stack.getString("name"));
+			event.setId(stack.getString("id"));
+			event.setUrl(stack.getString("url"));
+			event.setInfo(stack.getString("info"));
+			
+			
+			JSONArray datesArray = stack.getJSONArray("dates");
+			JSONObject datesObject = datesArray.getJSONObject(0);
+			JSONArray startDateArray = datesObject.getJSONArray("start");
+			JSONObject startDateObject = startDateArray.getJSONObject(0);
+			event.setDate(startDateObject.getDate().getData("localDate"));
+	
+		}
+		
+		
 		return null;
 	}
 
 
 	public Venue getMarketEventsfromApi(int marketID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Venue getCountryEventsfromApi(String contryCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
