@@ -146,10 +146,4 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		return null;
 	}
 
-	@Override
-	public Venue getCountryEventsfromApi(String contryCode) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
