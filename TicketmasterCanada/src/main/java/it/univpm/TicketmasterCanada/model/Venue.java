@@ -12,7 +12,6 @@ import java.util.Vector;
  */
 public class Venue {
 
-	
 	private String venueName; //rappresenta il nome della località
 	private String address; //rappresenta l'indirizzo dove si svolge l'evento
 	private String stateCode; //rappresenta l'abbreviazione del territorio (es. AB, MB...)

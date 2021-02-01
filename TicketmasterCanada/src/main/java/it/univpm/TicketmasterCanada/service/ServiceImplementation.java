@@ -78,15 +78,91 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+/*
+	
+public Venue getVenueInformationsFromAPI (String code) {
+		JSONObject Object = getCountryEvents(code);
+		
+		Venue venue = new Venue(code);
+		
+		JSONArray venueArray = Object.getJSONArray("_embedded");
+		JSONObject stack;
+		
+		Vector<Venue> vector = new Vector<Venue>(venueArray.length());
+		
+		
+		for (int i = 0; i<venueArray.length(); i++) {
+			
+			stack = venueArray.getJSONObject(i);  // i-esimo blocco nel vettore degli eventi
+			JSONArray venueInfoArray = stack.getJSONArray("venues"); //creo un JSONArray che corrisponde all'array "dates"
+			JSONObject venueInfoObject = venueInfoArray.getJSONObject(0); //creo un JSONObject a partire dal dataArray precedente
+			venue.setVenueName(venueInfoObject.getString("name"));
+			
+			
+			JSONArray cityArray = venueInfoObject.getJSONArray("city");//creo un JSONArray che corrisponde all'array "start"
+			JSONObject cityObject = cityArray.getJSONObject(0);//creo un JSONObject a partire dal startDateArray precedente
+			venue.setCityName(cityObject.getString("name")); //setto la data della data con la stringa che corrisponde a "localDate"
+
+
+			JSONArray countryArray = venueInfoObject.getJSONArray("country");//creo un JSONArray che corrisponde all'array "start"
+			JSONObject countryObject = countryArray.getJSONObject(0);//creo un JSONObject a partire dal startDateArray precedente
+			venue.setCountryName(countryObject.getString("name")); //setto la data della data con la stringa che corrisponde a "localDate"
+			venue.setCountryCode(countryObject.getString("name")); //setto la data della data con la stringa che corrisponde a "localDate"
+		}
+		return venue;	
+	}
+*/		
+		
+	public Venue getVenueInformationsFromAPI (String code) {	
+		
+		JSONObject stack = getCountryEvents(code);
+		Venue venue = new Venue(code);
+	
+		try {
+			JSONObject embeddedObject = stack.getJSONObject("_embedded");
+			JSONObject venuesObject = embeddedObject.getJSONObject("venues");
+			String venueName = (String) venuesObject.get("name");
+			JSONObject cityObject = venuesObject.getJSONObject("city");
+			String cityName = (String) cityObject.get("name");
+			JSONObject countryObject = venuesObject.getJSONObject("country");
+			String countryName = (String) countryObject.get("name");
+			String countryCode = (String) countryObject.get("countryCode");
+			JSONObject stateObject = venuesObject.getJSONObject("state");
+			String stateName = (String) stateObject.get("name");
+			String stateCode = (String) stateObject.get("stateCode");
+			JSONObject addressObject = venuesObject.getJSONObject("address");
+			String addressName = (String) addressObject.get("line1");
+			JSONObject marketObject = venuesObject.getJSONObject("markets");
+			String marketName = (String) marketObject.get("name");
+			int marketID = (int) marketObject.get("id");
+			venue.setAddress(addressName);
+			venue.setCityName(cityName);
+			venue.setCountryCode(countryCode);
+			venue.setCountryName(countryName);
+			venue.setStateCode(stateCode);
+			venue.setStateName(stateName);
+			venue.setMarketName(marketName);
+			venue.setMarketID(marketID);
+			venue.setVenueName(venueName);
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return venue;
+}
+	
 
 
 	public Venue getChosenCountryEventsfromApi(String countryCode) {
 		
 		JSONObject countryAPIObj = getCountryEvents(countryCode);
 		
-		Venue country = new Venue(countryCode);
+		Venue venue = new Venue(countryCode);
 		
-		country = getCountryFromAPI(countryCode);
+		venue = getVenueInformationsFromAPI(countryCode);
 		
 		JSONArray eventsArray = countryAPIObj.getJSONArray("events");
 		JSONObject stack;
@@ -134,14 +210,22 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			JSONObject subGenresObject = subGenresArray.getJSONObject(0);//creo un JSONObject a partire dal subGenreArray precedente
 			genre.setSubGenreName(subGenresObject.getString("name")); //setto il nome del sottogenere con la stringa che corrisponde a "name"
 			event.setGenre(genre); //setto il genere dell'evento con l'oggetto genre appena creato
+			vector.add(event); 
 		}
 		
+		venue.setVector(vector);
 		
-		return null;
+		return venue;
 	}
 
 
 	public Venue getMarketEventsfromApi(int marketID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Venue getCountryEventsfromApi(String contryCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
