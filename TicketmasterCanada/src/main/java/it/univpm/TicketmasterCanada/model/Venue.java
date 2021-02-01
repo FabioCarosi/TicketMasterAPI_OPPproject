@@ -17,8 +17,6 @@ public class Venue {
 	private String stateCode; //rappresenta l'abbreviazione del territorio (es. AB, MB...)
 	private String stateName; //rappresenta il nome del territorio (es. Alberta, Manitoba...)
 	private String cityName; //rappresenta il nome della città (es. Edmonton, Winnipeg)
-	private String countryName; //rappresenta il nome dello Stato (es. Canada)
-	private String countryCode; //rappresenta l'abbreviazione dello Stato (es. CA)
 	private int marketID; //rappresenta l'id di un ampio raggruppamento geografico
 	private String marketName; //rappresenta il nome di un ampio raggruppamento geografico
 	
@@ -35,8 +33,6 @@ public class Venue {
 		this.stateCode = null;
 		this.stateName = null;
 		this.cityName = null;
-		this.countryName = null;
-		this.countryCode = null;
 		this.marketName = null;
 		this.marketID = 0;
 		//this.eventArray = null;
@@ -56,8 +52,6 @@ public class Venue {
 		this.stateCode = null;
 		this.stateName = null;
 		this.cityName = null;
-		this.countryName = null;
-		this.countryCode = null;
 		this.marketName = null;
 		//this.eventArray = null;
 	}
@@ -78,8 +72,6 @@ public class Venue {
 		this.stateCode = null;
 		this.stateName = null;
 		this.cityName = null;
-		this.countryName = null;
-		this.countryCode = null;
 		//this.eventArray = null;
 	}
 
@@ -94,49 +86,23 @@ public class Venue {
 		this.address = null;
 		this.stateCode = null;
 		this.stateName = null;
-		this.countryName = null;
-		this.countryCode = null;
 		this.marketName = null;
 		this.marketID = 0;
 		//this.eventArray = null;
 	}
-
-	/**
-	 * Costruttore con parametri:
-	 * @param cityName
-	 * @param countryName
-	 */
-	public Venue(String cityName, String countryName) {
-		super();
-		this.cityName = cityName;
-		this.countryName = countryName;
-		this.venueName = null;
-		this.address = null;
-		this.stateCode = null;
-		this.stateName = null;
-		this.countryCode = null;
-		this.marketName = null;
-		this.marketID = 0;
-		//this.eventArray = null;
-	}
-
-
 
 	/**
 	 * Costruttore con parametri:
 	 * @param stateName
 	 * @param cityName
-	 * @param countryName
 	 */
-	public Venue(String stateName, String cityName, String countryName) {
+	public Venue(String stateName, String cityName) {
 		super();
 		this.stateName = stateName;
 		this.cityName = cityName;
-		this.countryName = countryName;
 		this.venueName = null;
 		this.address = null;
 		this.stateCode = null;
-		this.countryCode = null;
 		this.marketName = null;
 		this.marketID = 0;
 		//this.eventArray = null;
@@ -152,22 +118,18 @@ public class Venue {
 	 * @param stateCode
 	 * @param stateName
 	 * @param cityName
-	 * @param countryName
-	 * @param countryCode
 	 * @param marketID
 	 * @param marketName
 	 * @param eventArray
 	 */
-	public Venue(String venueName, String address, String stateCode, String stateName, String cityName, String countryName,
-			String countryCode, int marketID, String marketName, Vector<Event> eventArray) {
+	public Venue(String venueName, String address, String stateCode, String stateName, String cityName,
+			int marketID, String marketName, Vector<Event> eventArray) {
 		super();
 		this.venueName = venueName;
 		this.address = address;
 		this.stateCode = stateCode;
 		this.stateName = stateName;
 		this.cityName = cityName;
-		this.countryName = countryName;
-		this.countryCode = countryCode;
 		this.marketID = marketID;
 		this.marketName = marketName;
 		this.eventArray = eventArray;
@@ -255,37 +217,7 @@ public class Venue {
 		this.cityName = cityName;
 	}
 
-	/**
-	 * Metodo che restituisce il nome dello Stato;
-	 * @return String countryName;
-	 */
-	public String getCountryName() {
-		return countryName;
-	}
-
-	/**
-	 * Metodo che setta il nome dello Stato.
-	 * @param String cuntryName.
-	 */
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
-	}
-
-	/**
-	 * Metodo che restituisce l'abbreviazione dello Stato;
-	 * @return String countryCode;
-	 */
-	public String getCountryCode() {
-		return countryCode;
-	}
-
-	/**
-	 * Metodo che setta l'abbreviazione dello Stato.
-	 * @param String countryCode.
-	 */
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
+	
 	
 	
 	/**
@@ -355,16 +287,6 @@ public class Venue {
 				return false;
 		} else if (!cityName.equals(other.cityName))
 			return false;
-		if (countryCode == null) {
-			if (other.countryCode != null)
-				return false;
-		} else if (!countryCode.equals(other.countryCode))
-			return false;
-		if (countryName == null) {
-			if (other.countryName != null)
-				return false;
-		} else if (!countryName.equals(other.countryName))
-			return false;
 		if (eventArray == null) {
 			if (other.eventArray != null)
 				return false;
@@ -413,7 +335,7 @@ public class Venue {
 	@Override
 	public String toString() {
 		return "cityName= " + cityName +", venueName= " + venueName + ", address= " + address + ", stateName= " + stateName + ", stateCode= " + stateCode
-				+ ", countryName= " + countryName + ", countryCode= " + countryCode + ", marketID= " + marketID + ", marketName= " + marketName+ ", eventArray=" + toStringVector()+ ""; 
+				 + ", marketID= " + marketID + ", marketName= " + marketName+ ", eventArray=" + toStringVector()+ ""; 
 	}
 
 }
