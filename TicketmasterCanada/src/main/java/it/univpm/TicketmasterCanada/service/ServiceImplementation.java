@@ -63,7 +63,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @return JSONObject con gli eventi del Market
 	 */
 	
-	public JSONObject getMarketEvents(int marketID) {
+	public JSONObject getMarketEvents(String marketID) {
 		
 		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&marketId="+ marketID;
 		RestTemplate rTemplate = new RestTemplate();

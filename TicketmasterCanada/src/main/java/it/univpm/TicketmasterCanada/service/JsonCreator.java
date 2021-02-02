@@ -27,15 +27,15 @@ public class JsonCreator {
 	public JSONObject jsonCreator(Venue venue) {
 		
 		JSONObject object = new JSONObject();
-		object.put("address", venue.getAddress());
-		object.put("cityName", venue.getCityName());
-		object.put("countryCode", venue.getCountryCode());
-		object.put("countryName", venue.getCountryName());
-		object.put("venueName", venue.getVenueName());
-		object.put("stateCode", venue.getStateCode());
-		object.put("stateName", venue.getStateName());
-		object.put("marketName", venue.getMarketName());
-		object.put("marketID", venue.getMarketID());
+		object.put("address", venue.getCity().getAddress());
+		object.put("cityName", venue.getCity().getCityName());
+		object.put("countryCode", venue.getCountry().getCountryCode());
+		object.put("countryName", venue.getCountry().getCountryName());
+		object.put("venueName", venue.getCity().getVenueName());
+		object.put("stateCode", venue.getState().getStateCode());
+		object.put("stateName", venue.getState().getStateName());
+		object.put("marketName", venue.getMarket().getMarketName());
+		object.put("marketID", venue.getMarket().getMarketID());
 		
 		JSONArray arr = new JSONArray();
 		

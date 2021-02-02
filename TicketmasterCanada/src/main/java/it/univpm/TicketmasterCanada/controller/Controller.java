@@ -28,12 +28,21 @@ public class Controller{
 	@Autowired
 	Service service;
 	
+	/**
 	@GetMapping(value = "/events")
-	public ResponseEntity<Object> getStateEvents(@RequestParam String stateName){
-		Venue venue = service.getStateEventsfromApi(stateName);
+	public ResponseEntity<Object> getStateEvents(@RequestParam String stateCode){
+		Venue venue = service.getStateEventsfromApi(stateCode);
 		
 		JSONObject obj = new JSONObject();
 		
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+	*/
+		
+	@GetMapping(value = "/pacca")
+	public ResponseEntity<Object> getCountryInformationsFromAPI(@RequestParam String stateCode){
+			
+	JSONObject obj = new JSONObject();
+			
+	return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
 	}
 }
