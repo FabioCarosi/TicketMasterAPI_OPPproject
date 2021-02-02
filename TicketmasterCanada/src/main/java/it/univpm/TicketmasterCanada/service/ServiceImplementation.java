@@ -93,50 +93,46 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		for (int i = 0; i<eventsArray.length(); i++) {
 			
-			JSONObject firstObject = eventsArray.getJSONObject(i);
-			JSONObject lowerEmbeddedObj = firstObject.getJSONObject("_embedded");
-			JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
-			JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
+			JSONObject firstObject = eventsArray.getJSONObject(i);                     //creo un nuovo JSONObject che contiene l'oggetto i-esimo sul vettore di JSON
+			JSONObject lowerEmbeddedObj = firstObject.getJSONObject("_embedded");      //creo un nuovo JSONObject che contiene l'oggetto l'oggetto _embedded del JSON
+			JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");           //creo un nuovo JSONArray che contiene l'array "venues" del JSON
+			JSONObject lowerFirstObject = venuesArray.getJSONObject(0);                //creo un nuovo JSONObject che contiene l'oggetto i-esimo sul vettore di JSON
 			
 			City city = new City();
 			city.setVenueName(lowerFirstObject.getString("name"));
-			JSONObject cityObject = lowerFirstObject.getJSONObject("city");
-			JSONObject cityNameObject = cityObject.getJSONObject("name");
-			city.setCityName(cityNameObject.getString("name"));
-			JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-			JSONObject addressNameObject = addressObject.getJSONObject("line1");
-			city.setAddress(addressNameObject.getString("line1"));
-			venue.setCity(city);
+			JSONObject cityObject = lowerFirstObject.getJSONObject("city");             //creo un nuovo JSONObject che contiene l'ogetto city del JSON
+			JSONObject cityNameObject = cityObject.getJSONObject("name");               //creo un nuovo JSONObject che contiene l'oggetto name della city del JSON
+			city.setCityName(cityNameObject.getString("name"));                         //setto il nome dell'oggetto city
+			JSONObject addressObject = lowerFirstObject.getJSONObject("address");       //creo un nuovo JSONObject che contiene
+			JSONObject addressNameObject = addressObject.getJSONObject("line1");        //creo un nuovo JSONObject che contiene
+			city.setAddress(addressNameObject.getString("line1"));                      //setto l'indirizzo di city
+			venue.setCity(city);                                                        //setto la city di venue con la city creata
 			
 			State state = new State();
-			JSONObject stateObject = lowerFirstObject.getJSONObject("state");
-			JSONObject stateNameObject = stateObject.getJSONObject("name");
-			JSONObject stateCodeObject = stateObject.getJSONObject("stateCode");
-			state.setStateName(stateNameObject.getString("name"));
-			state.setStateCode(stateCodeObject.getString("stateCode"));
-			venue.setState(state);
+			JSONObject stateObject = lowerFirstObject.getJSONObject("state");           //creo un nuovo JSONObject che contiene l'oggetto state del JSON
+			JSONObject stateNameObject = stateObject.getJSONObject("name");             //creo un nuovo JSONObject che contiene l'oggetto name dello state del JSON
+			JSONObject stateCodeObject = stateObject.getJSONObject("stateCode");        //creo un nuovo JSONObject che contiene l'oggetto code dello state del JSON
+			state.setStateName(stateNameObject.getString("name"));                      //setto lo stateName dello state
+			state.setStateCode(stateCodeObject.getString("stateCode"));                 //setto lo stateCode dello state
+			venue.setState(state);                                                      //setto lo state di venue passandogli lo stato appena creato
 			
 			Country country = new Country();
-			JSONObject countryObject = lowerFirstObject.getJSONObject("country");
-			JSONObject countryNameObject = countryObject.getJSONObject("name");
-			JSONObject countryCodeObject = countryObject.getJSONObject("countryCode");
-			country.setCountryName(countryNameObject.getString("name"));
-			country.setCountryCode(countryCodeObject.getString("countryCode"));
-			venue.setCountry(country);
+			JSONObject countryObject = lowerFirstObject.getJSONObject("country");      //creo un nuovo JSONObject che contiene l'oggetto country del JSON
+			JSONObject countryNameObject = countryObject.getJSONObject("name");        //creo un nuovo JSONObject che contiene l'oggetto name del country del JSON
+			JSONObject countryCodeObject = countryObject.getJSONObject("countryCode"); //creo un nuovo JSONObject che contiene l'oggetto code del country del JSON
+			country.setCountryName(countryNameObject.getString("name"));               //setto il countryName del country
+			country.setCountryCode(countryCodeObject.getString("countryCode"));        //setto il countryCode del country
+			venue.setCountry(country);                                                 //setto il country di venue passandogli il country appena creato
 			
 			Market market = new Market();
-			JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
+			JSONArray marketArray = lowerFirstObject.getJSONArray("markets");          //creo un nuovo JSONArray che contiene l'array "markets" del JSON
 			JSONObject marketObject = marketArray.getJSONObject(0);
-			JSONObject marketNameObject = marketObject.getJSONObject("name");
-			JSONObject marketIdObject = marketObject.getJSONObject("Id");
-			market.setMarketName(marketNameObject.getString("name"));
-			market.setMarketID(marketIdObject.getInt("id"));
-			venue.setMarket(market);
+			JSONObject marketNameObject = marketObject.getJSONObject("name");          //creo un nuovo JSONObject che contiene l'oggetto name del market del JSON
+			JSONObject marketIdObject = marketObject.getJSONObject("Id");              //creo un nuovo JSONObject che contiene l'oggetto code del market del JSON
+			market.setMarketName(marketNameObject.getString("name"));                  //setto il nome del market
+			market.setMarketID(marketIdObject.getString("id"));                        //setto l'id del market
+			venue.setMarket(market);                                                   //setto il market di venue passanfogli il market appena creato
 		}
-		
-		
-		
-
 		return venue;
 }
 	

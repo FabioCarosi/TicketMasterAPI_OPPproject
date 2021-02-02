@@ -9,14 +9,14 @@ package it.univpm.TicketmasterCanada.model;
  */
 public class Market {
 	
-	private int marketID; 		//rappresenta l'id di un ampio raggruppamento geografico
+	private String marketID; 		//rappresenta l'id di un ampio raggruppamento geografico
 	private String marketName; 	//rappresenta il nome di un ampio raggruppamento geografico
 	
 	/**
 	 * Metodo che restituisce il:
 	 * @return the marketID
 	 */
-	public int getMarketID() {
+	public String getMarketID() {
 		return marketID;
 	}
 	
@@ -24,7 +24,7 @@ public class Market {
 	 * Metodo che setta il:
 	 * @param marketID the marketID to set
 	 */
-	public void setMarketID(int marketID) {
+	public void setMarketID(String marketID) {
 		this.marketID = marketID;
 	}
 	
@@ -49,7 +49,7 @@ public class Market {
 	 * @param marketID
 	 * @param marketName
 	 */
-	public Market(int marketID, String marketName) {
+	public Market(String marketID, String marketName) {
 		super();
 		this.marketID = marketID;
 		this.marketName = marketName;
@@ -59,28 +59,19 @@ public class Market {
 	 * Costruttore con parametro:
 	 * @param marketID
 	 */
-	public Market(int marketID) {
+	public Market(String marketID) {
 		super();
 		this.marketID = marketID;
 		this.marketName = null;
 	}
 	
-	/**
-	 * Costruttore con parametro:
-	 * @param marketName
-	 */
-	public Market(String marketName) {
-		super();
-		this.marketID = 0;
-		this.marketName = marketName;
-	}
 	
 	/**
 	 * Costruttore vuoto.
 	 */
 	public Market() {
 		super();
-		this.marketID = 0;
+		this.marketID = null;
 		this.marketName = null;
 	}
 	
@@ -91,10 +82,8 @@ public class Market {
 	public String toString() {
 		return "marketID=" + marketID + ", marketName=" + marketName;
 	}
-	
-	/**
-	 * Override del metodo equals.
-	 */
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -104,7 +93,10 @@ public class Market {
 		if (getClass() != obj.getClass())
 			return false;
 		Market other = (Market) obj;
-		if (marketID != other.marketID)
+		if (marketID == null) {
+			if (other.marketID != null)
+				return false;
+		} else if (!marketID.equals(other.marketID))
 			return false;
 		if (marketName == null) {
 			if (other.marketName != null)
@@ -113,5 +105,7 @@ public class Market {
 			return false;
 		return true;
 	}
+	
+	
 	
 }
