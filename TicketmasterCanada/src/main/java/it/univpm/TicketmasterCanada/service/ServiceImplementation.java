@@ -78,47 +78,15 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-/*
-	
-public Venue getVenueInformationsFromAPI (String code) {
-		JSONObject Object = getCountryEvents(code);
 		
-		Venue venue = new Venue(code);
-		
-		JSONArray venueArray = Object.getJSONArray("_embedded");
-		JSONObject stack;
-		
-		Vector<Venue> vector = new Vector<Venue>(venueArray.length());
-		
-		
-		for (int i = 0; i<venueArray.length(); i++) {
-			
-			stack = venueArray.getJSONObject(i);  // i-esimo blocco nel vettore degli eventi
-			JSONArray venueInfoArray = stack.getJSONArray("venues"); //creo un JSONArray che corrisponde all'array "dates"
-			JSONObject venueInfoObject = venueInfoArray.getJSONObject(0); //creo un JSONObject a partire dal dataArray precedente
-			venue.setVenueName(venueInfoObject.getString("name"));
-			
-			
-			JSONArray cityArray = venueInfoObject.getJSONArray("city");//creo un JSONArray che corrisponde all'array "start"
-			JSONObject cityObject = cityArray.getJSONObject(0);//creo un JSONObject a partire dal startDateArray precedente
-			venue.setCityName(cityObject.getString("name")); //setto la data della data con la stringa che corrisponde a "localDate"
-
-
-			JSONArray countryArray = venueInfoObject.getJSONArray("country");//creo un JSONArray che corrisponde all'array "start"
-			JSONObject countryObject = countryArray.getJSONObject(0);//creo un JSONObject a partire dal startDateArray precedente
-			venue.setCountryName(countryObject.getString("name")); //setto la data della data con la stringa che corrisponde a "localDate"
-			venue.setCountryCode(countryObject.getString("name")); //setto la data della data con la stringa che corrisponde a "localDate"
-		}
-		return venue;	
-	}
-*/		
 		
 	public Venue getVenueInformationsFromAPI (String code) {	
 		
 		JSONObject countryObj = getCountryEvents(code);
 		
-		Venue venue = new Venue(code);
+		Country country1 = new Country(code);
+		
+		Venue venue = new Venue(country1);
 		
 		JSONObject embeddedObject = countryObj.getJSONObject("_embedded");
 		JSONArray eventsArray = embeddedObject.getJSONArray("events");
@@ -126,40 +94,45 @@ public Venue getVenueInformationsFromAPI (String code) {
 		JSONObject lowerEmbeddedObj = firstObject.getJSONObject("_embedded");
 		JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
 		JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
-		venue.setVenueName(lowerFirstObject.getString("name"));
 		
+		City city = new City();
+		city.setVenueName(lowerFirstObject.getString("name"));
 		JSONObject cityObject = lowerFirstObject.getJSONObject("city");
 		JSONObject cityNameObject = cityObject.getJSONObject("name");
-		venue.setCityName(cityNameObject.getString("name"));
+		city.setCityName(cityNameObject.getString("name"));
+		JSONObject addressObject = lowerFirstObject.getJSONObject("address");
+		JSONObject addressNameObject = addressObject.getJSONObject("line1");
+		city.setAddress(addressNameObject.getString("line1"));
+		venue.setCity(city);
 		
+		State state = new State();
 		JSONObject stateObject = lowerFirstObject.getJSONObject("state");
 		JSONObject stateNameObject = stateObject.getJSONObject("name");
 		JSONObject stateCodeObject = stateObject.getJSONObject("stateCode");
-		venue.setStateName(stateNameObject.getString("name"));
-		venue.setStateCode(stateCodeObject.getString("stateCode"));
+		state.setStateName(stateNameObject.getString("name"));
+		state.setStateCode(stateCodeObject.getString("stateCode"));
+		venue.setState(state);
 		
-		
+		Country country = new Country();
 		JSONObject countryObject = lowerFirstObject.getJSONObject("country");
 		JSONObject countryNameObject = countryObject.getJSONObject("name");
 		JSONObject countryCodeObject = countryObject.getJSONObject("countryCode");
-		venue.setCountryName(countryNameObject.getString("name"));
-		venue.setCountryCode(countryCodeObject.getString("countryCode"));
+		country.setCountryName(countryNameObject.getString("name"));
+		country.setCountryCode(countryCodeObject.getString("countryCode"));
+		venue.setCountry(country);
 		
-		JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-		JSONObject addressNameObject = addressObject.getJSONObject("line1");
-		venue.setAddress(addressNameObject.getString("line1"));
-		
+		Market market = new Market();
 		JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
 		JSONObject marketObject = marketArray.getJSONObject(0);
 		JSONObject marketNameObject = marketObject.getJSONObject("name");
 		JSONObject marketIdObject = marketObject.getJSONObject("Id");
-		venue.setMarketName(marketNameObject.getString("name"));
-		venue.setMarketID(marketIdObject.getInt("id"));
-		
+		market.setMarketName(marketNameObject.getString("name"));
+		market.setMarketID(marketIdObject.getInt("id"));
+		venue.setMarket(market);
 		
 		
 
-		return null;
+		return venue;
 }
 	
 	
@@ -167,7 +140,9 @@ public Venue getVenueInformationsFromAPI (String code) {
 		
 		JSONObject countryAPIObj = getCountryEvents(countryCode);
 		
-		Venue venue = new Venue(countryCode);
+		Country country = new Country(countryCode);
+		
+		Venue venue = new Venue(country);
 		
 		venue = getVenueInformationsFromAPI(countryCode);
 		
@@ -221,21 +196,8 @@ public Venue getVenueInformationsFromAPI (String code) {
 			vector.add(event); 
 		}
 		
-		venue.setVector(vector);
+		venue.setVectorEvent(vector);
 		
 		return venue;
 	}
-
-
-	public Venue getMarketEventsfromApi(int marketID) {
-
-		return null;
-	}
-
-	@Override
-	public Venue getCountryEventsfromApi(String contryCode) {
-
-		return null;
-	}
-
 }
