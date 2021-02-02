@@ -5,7 +5,7 @@ package it.univpm.TicketmasterCanada.service;
 
 import org.json.JSONObject;
 
-import it.univpm.TicketmasterCanada.model.Venue;
+import it.univpm.TicketmasterCanada.model.*;
 
 
 /**
@@ -15,7 +15,7 @@ import it.univpm.TicketmasterCanada.model.Venue;
  */
 public interface Service {
 	
-		public abstract Venue getCountryInformationsFromAPI   (String code);
+		public abstract EventVector getCountryInformationsFromAPI   (String code);
 		public abstract Venue getChosenCountryEventsfromApi (String countryCode);
 		public abstract JSONObject getStateEvents(String stateCode);
 }
