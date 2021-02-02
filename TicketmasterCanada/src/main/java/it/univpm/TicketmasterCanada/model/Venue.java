@@ -21,6 +21,7 @@ public class Venue {
 	private Vector<Event> vectorEvent = new Vector<Event>();
 
 	/**
+	 * Ritorna la citta'
 	 * @return the city
 	 */
 	public City getCity() {
@@ -28,6 +29,7 @@ public class Venue {
 	}
 
 	/**
+	 * Setta la citta'
 	 * @param city the city to set
 	 */
 	public void setCity(City city) {
@@ -35,6 +37,7 @@ public class Venue {
 	}
 
 	/**
+	 * Ritorna lo Stato
 	 * @return the state
 	 */
 	public State getState() {
@@ -42,6 +45,7 @@ public class Venue {
 	}
 
 	/**
+	 * Setta lo Stato
 	 * @param state the state to set
 	 */
 	public void setState(State state) {
@@ -49,6 +53,7 @@ public class Venue {
 	}
 
 	/**
+	 * Ritorna il Market
 	 * @return the market
 	 */
 	public Market getMarket() {
@@ -56,6 +61,7 @@ public class Venue {
 	}
 
 	/**
+	 * Setta il Market
 	 * @param market the market to set
 	 */
 	public void setMarket(Market market) {
@@ -63,6 +69,7 @@ public class Venue {
 	}
 
 	/**
+	 * Ritorna il paese
 	 * @return the country
 	 */
 	public Country getCountry() {
@@ -70,6 +77,7 @@ public class Venue {
 	}
 
 	/**
+	 * Setta il paese
 	 * @param country the country to set
 	 */
 	public void setCountry(Country country) {
@@ -91,13 +99,14 @@ public class Venue {
 	}
 
 	/**
-	 * 
+	 * Costruttore vuoto
 	 */
 	public Venue() {
 		super();
 	}
 
 	/**
+	 * Costruttore con parametro citta'
 	 * @param city
 	 */
 	public Venue(City city) {
@@ -106,6 +115,7 @@ public class Venue {
 	}
 
 	/**
+	 * Costruttore con parametro stato
 	 * @param state
 	 */
 	public Venue(State state) {
@@ -114,6 +124,7 @@ public class Venue {
 	}
 
 	/**
+	 * Costruttore con parametro market
 	 * @param market
 	 */
 	public Venue(Market market) {
@@ -122,6 +133,7 @@ public class Venue {
 	}
 
 	/**
+	 * Costruttore con parametro paese
 	 * @param country
 	 */
 	public Venue(Country country) {
@@ -138,6 +150,7 @@ public class Venue {
 	}
 
 	/**
+	 * Costruttore con tutti i parametri
 	 * @param city
 	 * @param state
 	 * @param market
@@ -192,7 +205,7 @@ public class Venue {
 	}
 	/**
      * Metodo che scrive il vettore come una stringa.
-     * @return String toReturn che rappresenta le previsioni meteo.
+     * @return Stringa che rappresenta il vettore di eventi
      */
 	public String VectorString() {
 		String Stringa="";
