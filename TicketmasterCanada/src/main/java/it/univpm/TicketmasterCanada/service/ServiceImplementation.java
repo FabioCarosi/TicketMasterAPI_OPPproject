@@ -90,45 +90,50 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		JSONObject embeddedObject = countryObj.getJSONObject("_embedded");
 		JSONArray eventsArray = embeddedObject.getJSONArray("events");
-		JSONObject firstObject = eventsArray.getJSONObject(0);
-		JSONObject lowerEmbeddedObj = firstObject.getJSONObject("_embedded");
-		JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
-		JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
 		
-		City city = new City();
-		city.setVenueName(lowerFirstObject.getString("name"));
-		JSONObject cityObject = lowerFirstObject.getJSONObject("city");
-		JSONObject cityNameObject = cityObject.getJSONObject("name");
-		city.setCityName(cityNameObject.getString("name"));
-		JSONObject addressObject = lowerFirstObject.getJSONObject("address");
-		JSONObject addressNameObject = addressObject.getJSONObject("line1");
-		city.setAddress(addressNameObject.getString("line1"));
-		venue.setCity(city);
+		for (int i = 0; i<eventsArray.length(); i++) {
+			
+			JSONObject firstObject = eventsArray.getJSONObject(i);
+			JSONObject lowerEmbeddedObj = firstObject.getJSONObject("_embedded");
+			JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");
+			JSONObject lowerFirstObject = venuesArray.getJSONObject(0);
+			
+			City city = new City();
+			city.setVenueName(lowerFirstObject.getString("name"));
+			JSONObject cityObject = lowerFirstObject.getJSONObject("city");
+			JSONObject cityNameObject = cityObject.getJSONObject("name");
+			city.setCityName(cityNameObject.getString("name"));
+			JSONObject addressObject = lowerFirstObject.getJSONObject("address");
+			JSONObject addressNameObject = addressObject.getJSONObject("line1");
+			city.setAddress(addressNameObject.getString("line1"));
+			venue.setCity(city);
+			
+			State state = new State();
+			JSONObject stateObject = lowerFirstObject.getJSONObject("state");
+			JSONObject stateNameObject = stateObject.getJSONObject("name");
+			JSONObject stateCodeObject = stateObject.getJSONObject("stateCode");
+			state.setStateName(stateNameObject.getString("name"));
+			state.setStateCode(stateCodeObject.getString("stateCode"));
+			venue.setState(state);
+			
+			Country country = new Country();
+			JSONObject countryObject = lowerFirstObject.getJSONObject("country");
+			JSONObject countryNameObject = countryObject.getJSONObject("name");
+			JSONObject countryCodeObject = countryObject.getJSONObject("countryCode");
+			country.setCountryName(countryNameObject.getString("name"));
+			country.setCountryCode(countryCodeObject.getString("countryCode"));
+			venue.setCountry(country);
+			
+			Market market = new Market();
+			JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
+			JSONObject marketObject = marketArray.getJSONObject(0);
+			JSONObject marketNameObject = marketObject.getJSONObject("name");
+			JSONObject marketIdObject = marketObject.getJSONObject("Id");
+			market.setMarketName(marketNameObject.getString("name"));
+			market.setMarketID(marketIdObject.getInt("id"));
+			venue.setMarket(market);
+		}
 		
-		State state = new State();
-		JSONObject stateObject = lowerFirstObject.getJSONObject("state");
-		JSONObject stateNameObject = stateObject.getJSONObject("name");
-		JSONObject stateCodeObject = stateObject.getJSONObject("stateCode");
-		state.setStateName(stateNameObject.getString("name"));
-		state.setStateCode(stateCodeObject.getString("stateCode"));
-		venue.setState(state);
-		
-		Country country = new Country();
-		JSONObject countryObject = lowerFirstObject.getJSONObject("country");
-		JSONObject countryNameObject = countryObject.getJSONObject("name");
-		JSONObject countryCodeObject = countryObject.getJSONObject("countryCode");
-		country.setCountryName(countryNameObject.getString("name"));
-		country.setCountryCode(countryCodeObject.getString("countryCode"));
-		venue.setCountry(country);
-		
-		Market market = new Market();
-		JSONArray marketArray = lowerFirstObject.getJSONArray("markets");
-		JSONObject marketObject = marketArray.getJSONObject(0);
-		JSONObject marketNameObject = marketObject.getJSONObject("name");
-		JSONObject marketIdObject = marketObject.getJSONObject("Id");
-		market.setMarketName(marketNameObject.getString("name"));
-		market.setMarketID(marketIdObject.getInt("id"));
-		venue.setMarket(market);
 		
 		
 
@@ -200,4 +205,5 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		return venue;
 	}
+
 }
