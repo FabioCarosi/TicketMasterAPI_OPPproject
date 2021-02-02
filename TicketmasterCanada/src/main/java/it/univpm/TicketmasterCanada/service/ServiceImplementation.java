@@ -154,7 +154,7 @@ public Venue getVenueInformationsFromAPI (String code) {
 		JSONObject marketNameObject = marketObject.getJSONObject("name");
 		JSONObject marketIdObject = marketObject.getJSONObject("Id");
 		venue.setMarketName(marketNameObject.getString("name"));
-		venue.setMarketId(marketIdObject.getString("id"));
+		venue.setMarketID(marketIdObject.getInt("id"));
 		
 		
 		

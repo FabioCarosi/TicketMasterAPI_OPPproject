@@ -49,7 +49,7 @@ public class JsonCreator {
 			evento.put("subgenre", (venue.getVector()).get(i).getGenre().getSubGenreName());
 			evento.put("currency", (venue.getVector()).get(i).getInformations().getCurrency());
 			evento.put("maxPrice", (venue.getVector()).get(i).getInformations().getMaxPrice());
-			evento.put("minPrice", (venue.getVector()).get(i).getInformations().getMinPrince());
+			evento.put("minPrice", (venue.getVector()).get(i).getInformations().getMinPrice());
 			evento.put("source", (venue.getVector()).get(i).getInformations().getSource());
 			evento.put("id", (venue.getVector()).get(i).getId());
 			evento.put("info", (venue.getVector()).get(i).getInfo());
