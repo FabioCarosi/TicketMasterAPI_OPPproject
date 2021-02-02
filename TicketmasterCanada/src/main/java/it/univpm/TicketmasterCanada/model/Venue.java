@@ -3,9 +3,6 @@
  */
 package it.univpm.TicketmasterCanada.model;
 
-import java.util.Vector;
-
-
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
@@ -17,8 +14,7 @@ public class Venue {
 	State state;
 	Market market;
 	Country country;
-	
-	private Vector<Event> vectorEvent = new Vector<Event>();
+
 
 	/**
 	 * Ritorna la citta'
@@ -85,20 +81,6 @@ public class Venue {
 	}
 
 	/**
-	 * @return the vectorEvent
-	 */
-	public Vector<Event> getVectorEvent() {
-		return vectorEvent;
-	}
-
-	/**
-	 * @param vectorEvent the vectorEvent to set
-	 */
-	public void setVectorEvent(Vector<Event> vectorEvent) {
-		this.vectorEvent = vectorEvent;
-	}
-
-	/**
 	 * Costruttore vuoto
 	 */
 	public Venue() {
@@ -141,13 +123,6 @@ public class Venue {
 		this.country = country;
 	}
 
-	/**
-	 * @param vectorEvent
-	 */
-	public Venue(Vector<Event> vectorEvent) {
-		super();
-		this.vectorEvent = vectorEvent;
-	}
 
 	/**
 	 * Costruttore con tutti i parametri
@@ -155,15 +130,13 @@ public class Venue {
 	 * @param state
 	 * @param market
 	 * @param country
-	 * @param vectorEvent
 	 */
-	public Venue(City city, State state, Market market, Country country, Vector<Event> vectorEvent) {
+	public Venue(City city, State state, Market market, Country country) {
 		super();
 		this.city = city;
 		this.state = state;
 		this.market = market;
 		this.country = country;
-		this.vectorEvent = vectorEvent;
 	}
 	
 
@@ -196,28 +169,15 @@ public class Venue {
 				return false;
 		} else if (!state.equals(other.state))
 			return false;
-		if (vectorEvent == null) {
-			if (other.vectorEvent != null)
-				return false;
-		} else if (!vectorEvent.equals(other.vectorEvent))
-			return false;
 		return true;
 	}
-	/**
-     * Metodo che scrive il vettore come una stringa.
-     * @return Stringa che rappresenta il vettore di eventi
-     */
-	public String VectorString() {
-		String Stringa="";
-		for (int i=0; i<vectorEvent.size(); i++)
-			Stringa += vectorEvent.get(i).toString();
-		return Stringa;
-	}
 
+	/**
+	 * Override del metodo toString
+	 */
 	@Override
 	public String toString() {
-		return "Venue [city=" + city + ", state=" + state + ", market=" + market + ", country=" + country
-				+ ", vectorEvent=" + VectorString() + "]";
+		return "city=" + city + ", state=" + state + ", market=" + market + ", country=" + country;
 	}
 	
 	

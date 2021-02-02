@@ -16,6 +16,7 @@ public class Event {
 	private Date date;
 	private Informations informations;
 	private Genre genre;
+	private Venue venue;
 
 	
 	/**
@@ -30,11 +31,13 @@ public class Event {
 		this.date = null;
 		this.informations = null;
 		this.genre = null;
+		this.venue = null;
 	}
 	
 	
+	
 	/**
-	 * Costruttore completo:
+	 * Costruttore completo con parametri:
 	 * @param id
 	 * @param name
 	 * @param url
@@ -42,9 +45,10 @@ public class Event {
 	 * @param date
 	 * @param informations
 	 * @param genre
+	 * @param venue
 	 */
-	public Event(String id, String name, String url, String info, Date date, Informations informations,
-			Genre genre) {
+	public Event(String id, String name, String url, String info, Date date, Informations informations, Genre genre,
+			Venue venue) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -53,8 +57,26 @@ public class Event {
 		this.date = date;
 		this.informations = informations;
 		this.genre = genre;
+		this.venue = venue;
 	}
+	
+	
 
+	/**
+	 * Costruttore con parametro:
+	 * @param venue
+	 */
+	public Event(Venue venue) {
+		super();
+		this.id = null;
+		this.name = null;
+		this.url = null;
+		this.info = null;
+		this.date = null;
+		this.informations = null;
+		this.genre = null;
+		this.venue = venue;
+	}
 	
 	/**
 	 * Costrutture con parametro:
@@ -109,6 +131,23 @@ public class Event {
 		this.date = date;
 		this.informations = informations;
 		this.genre = genre;
+		this.venue = null;
+	}
+	
+	/**
+	 * Metodo che ritorna il:
+	 * @return the venue
+	 */
+	public Venue getVenue() {
+		return venue;
+	}
+
+	/**
+	 * Metodo che setta il:
+	 * @param venue the venue to set
+	 */
+	public void setVenue(Venue venue) {
+		this.venue = venue;
 	}
 
 	/**
@@ -231,7 +270,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "id=" + id + ", name=" + name + ", url=" + url + ", info=" + info + ", date=" + date
-				+ ", informations=" + informations + ", genre=" + genre;
+				+ ", informations=" + informations + ", genre=" + genre + ", venue=" + venue ;
 	}
 
 	/**
@@ -281,7 +320,12 @@ public class Event {
 				return false;
 		} else if (!url.equals(other.url))
 			return false;
+		if (venue == null) {
+			if (other.venue != null)
+				return false;
+		} else if (!venue.equals(other.venue))
+			return false;
 		return true;
 	}
-
+	
 }
