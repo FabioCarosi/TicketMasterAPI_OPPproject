@@ -80,7 +80,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	}
 		
 		
-	public Venue getVenueInformationsFromAPI (String code) {	
+	public Venue getCountryInformationsFromAPI (String code) {	
 		
 		JSONObject countryObj = getCountryEvents(code);
 		
@@ -145,7 +145,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		Venue venue = new Venue(country);
 		
-		venue = getVenueInformationsFromAPI(countryCode);
+		venue = getCountryInformationsFromAPI(countryCode);
 		
 		
 		JSONArray eventsArray = countryAPIObj.getJSONArray("events");
@@ -201,5 +201,6 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		return venue;
 	}
+
 
 }
