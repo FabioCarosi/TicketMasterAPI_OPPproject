@@ -146,7 +146,7 @@ public class EventVector {
 
 	@Override
 	public String toString() {
-		return "EventVector [vector=" + vector + ", code=" + code + ", object=" + object + "]";
+		return "vector=" + vector + ", code=" + code + ", object=" + object;
 	}
 
 	

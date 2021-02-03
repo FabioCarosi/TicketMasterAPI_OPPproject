@@ -15,7 +15,6 @@ import it.univpm.TicketmasterCanada.model.*;
 
 public class JsonCreator {
 	
-	Venue venue = new Venue();
 	
 	/**
 	 * Passato un oggetto Venue restituisce il JSONObject
@@ -36,16 +35,16 @@ public class JsonCreator {
 			object.put("info", (eventVector.getVector()).get(i).getInfo());
 			object.put("name", (eventVector.getVector()).get(i).getName());
 			object.put("url", (eventVector.getVector()).get(i).getUrl());
-			
+			/**
 			object.put("countryCode", (eventVector.getVector()).get(i).getVenue().getCountry().getCountryCode());
 			object.put("countryName", (eventVector.getVector()).get(i).getVenue().getCountry().getCountryName());
-			
+			*/
 			object.put("stateCode", (eventVector.getVector()).get(i).getVenue().getState().getStateCode());
 			object.put("stateName", (eventVector.getVector()).get(i).getVenue().getState().getStateName());
-			
+			/**
 			object.put("marketName", (eventVector.getVector()).get(i).getVenue().getMarket().getMarketName());
 			object.put("marketID", (eventVector.getVector()).get(i).getVenue().getMarket().getMarketID());
-			
+			*/
 			object.put("cityName", (eventVector.getVector()).get(i).getVenue().getCity().getCityName());
 			object.put("address", (eventVector.getVector()).get(i).getVenue().getCity().getAddress());
 			object.put("venueName", (eventVector.getVector()).get(i).getVenue().getCity().getVenueName());
@@ -56,13 +55,12 @@ public class JsonCreator {
 			object.put("segment", (eventVector.getVector()).get(i).getGenre().getSegmentName());
 			object.put("genre", (eventVector.getVector()).get(i).getGenre().getGenreName());
 			object.put("subgenre", (eventVector.getVector()).get(i).getGenre().getSubGenreName());
-			
+			/**
 			object.put("currency", (eventVector.getVector()).get(i).getInformations().getCurrency());
 			object.put("maxPrice", (eventVector.getVector()).get(i).getInformations().getMaxPrice());
 			object.put("minPrice", (eventVector.getVector()).get(i).getInformations().getMinPrice());
-			
 			object.put("source", (eventVector.getVector()).get(i).getInformations().getSource());
-			
+			*/
 			arr.put(object);
 		}
 		

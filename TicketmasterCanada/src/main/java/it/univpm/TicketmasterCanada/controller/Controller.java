@@ -55,13 +55,13 @@ public class Controller{
 	@GetMapping(value = "/events") 
 	public ResponseEntity<Object> getCountryEvent(@RequestParam String countryCode) {
 		
-		EventVector eventsArray = service.getCountryInformationsFromAPI(countryCode);
+		//EventVector eventsArray = service.getCountryInformationsFromAPI(countryCode);
 		
-		JSONObject obj = new JSONObject();
-		JsonCreator jsonconverter = new JsonCreator();
+		//JSONObject obj = new JSONObject();
+		//JsonCreator jsonconverter = new JsonCreator();
 		
-		obj = jsonconverter.jsonCreator(eventsArray);
-		
-		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+		//obj = jsonconverter.jsonCreator(eventsArray);
+		return new ResponseEntity<> (service.getCountryInformationsFromAPI(countryCode).toString(), HttpStatus.OK);
+		//return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
 }
