@@ -49,7 +49,7 @@ public class Controller{
 	return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
 	}
 	*/
-	
+	 
 	
 	@GetMapping(value = "/events") 
 	public ResponseEntity<Object> getCountryEvent(@RequestParam String countryCode) {
@@ -60,7 +60,7 @@ public class Controller{
 		JsonCreator jsonconverter = new JsonCreator();
 		
 		obj = jsonconverter.jsonCreator(eventsArray);
-		//return new ResponseEntity<> (service.getCountryInformationsFromAPI(countryCode).toString(), HttpStatus.OK);
+		
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
 }

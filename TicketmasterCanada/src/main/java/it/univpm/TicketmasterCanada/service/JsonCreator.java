@@ -49,8 +49,8 @@ public class JsonCreator {
 			object.put("address", (eventVector.getVector()).get(i).getVenue().getCity().getAddress());
 			object.put("venueName", (eventVector.getVector()).get(i).getVenue().getCity().getVenueName());
 			
-			//object.put("data", (eventVector.getVector()).get(i).getDate().getData());
-			//object.put("orario", (eventVector.getVector()).get(i).getDate().getOrario());
+			object.put("data", (eventVector.getVector()).get(i).getDate().getData());
+			object.put("orario", (eventVector.getVector()).get(i).getDate().getOrario());
 			
 			object.put("segment", (eventVector.getVector()).get(i).getGenre().getSegmentName());
 			object.put("genre", (eventVector.getVector()).get(i).getGenre().getGenreName());
