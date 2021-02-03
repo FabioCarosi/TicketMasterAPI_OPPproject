@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import it.univpm.TicketmasterCanada.model.*;
@@ -16,6 +17,9 @@ import it.univpm.TicketmasterCanada.model.*;
  * @author Fabio Carosi
  * @author Mattia Girolami
  */
+
+@Service
+
 public class ServiceImplementation implements it.univpm.TicketmasterCanada.service.Service {
 
 	/**
@@ -106,14 +110,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			event.setName(stack.getString("name")); 		//setto il nome dell'evento con la stringa che corrisponde a "name"
 			event.setId(stack.getString("id"));  			//setto l'id dell'evento con la stringa che corrisponde a "id"
 			event.setUrl(stack.getString("url"));			//setto l'url dell'evento con la stringa che corrisponde a "url"
-			event.setInfo(stack.getString("info"));			//setto l'inof dell'evento con la stringa che corrisponde a "info"
+			event.setInfo(stack.getString("info"));			//setto l'info dell'evento con la stringa che corrisponde a "info"
 			
 	
 			Date data = new Date(); 													//creo un nuovo oggetto di tipo data
-			JSONArray datesArray = stack.getJSONArray("dates"); 						//creo un JSONArray che corrisponde all'array "dates"
-			JSONObject datesObject = datesArray.getJSONObject(0);						//creo un JSONObject a partire dal dataArray precedente
-			JSONArray startDateArray = datesObject.getJSONArray("start");				//creo un JSONArray che corrisponde all'array "start"
-			JSONObject startDateObject = startDateArray.getJSONObject(0);				//creo un JSONObject a partire dal startDateArray precedente
+			JSONObject datesObject = stack.getJSONObject("dates"); 						//creo un JSONArray che corrisponde all'array "dates"
+			//JSONObject datesObject = datesObjectUpper.getJSONObject(0);						//creo un JSONObject a partire dal dataArray precedente
+			JSONObject startDateObject = datesObject.getJSONObject("start");				//creo un JSONArray che corrisponde all'array "start"
+			//JSONObject startDateObject = startDateArray.getJSONObject(0);				//creo un JSONObject a partire dal startDateArray precedente
 			data.setData(startDateObject.getString("localDate")); 						//setto la data della data con la stringa che corrisponde a "localDate"
 			data.setOrario(startDateObject.getString("localTime")); 					//setto l'orario della data con la stringa che corrisponde a "localTime"
 			event.setDate(data); 														//setto la data dell'evento con l'oggetto di tipo data appena creato
@@ -129,14 +133,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			Genre genre = new Genre(); 													//creo un ogetto di tipo Genre
 			JSONArray classificationsArray = stack.getJSONArray("classifications");		//creo un JSONArray che corrisponde all'array "classifications"
 			JSONObject classificationsObject = classificationsArray.getJSONObject(0);	//creo un JSONObject a partire dal informationsArray precedente
-			JSONArray segmentsArray = classificationsObject.getJSONArray("segment");	//creo un JSONArray che corrisponde all'array "segment"
-			JSONObject segmentsObject = segmentsArray.getJSONObject(0); 				//creo un JSONObject a partire dal segmentArray precedente
+			JSONObject segmentsObject = classificationsObject.getJSONObject("segment");	//creo un JSONArray che corrisponde all'array "segment"
+			//JSONObject segmentsObject = segmentsArray.getJSONObject(0); 				//creo un JSONObject a partire dal segmentArray precedente
 			genre.setSegmentName(segmentsObject.getString("name")); 					//setto il nome del tipologia con la stringa che corrisponde a "name"
-			JSONArray genresArray = classificationsObject.getJSONArray("genre"); 		//creo un JSONArray che corrisponde all'array "genre"
-			JSONObject genresObject = genresArray.getJSONObject(0);						//creo un JSONObject a partire dal genresArray precedente
+			JSONObject genresObject = classificationsObject.getJSONObject("genre"); 		//creo un JSONArray che corrisponde all'array "genre"
+			//JSONObject genresObject = genresArray.getJSONObject(0);						//creo un JSONObject a partire dal genresArray precedente
 			genre.setGenreName(genresObject.getString("name")); 						//setto il nome del genre con la stringa che corrisponde a "name"
-			JSONArray subGenresArray = classificationsObject.getJSONArray("subGenre");	//creo un JSONArray che corrisponde all'array "subGenre"
-			JSONObject subGenresObject = subGenresArray.getJSONObject(0);				//creo un JSONObject a partire dal subGenreArray precedente
+			JSONObject subGenresObject = classificationsObject.getJSONObject("subGenre");	//creo un JSONArray che corrisponde all'array "subGenre"
+			//JSONObject subGenresObject = subGenresArray.getJSONObject(0);				//creo un JSONObject a partire dal subGenreArray precedente
 			genre.setSubGenreName(subGenresObject.getString("name")); 					//setto il nome del sottogenere con la stringa che corrisponde a "name"
 			event.setGenre(genre);														//setto il genere dell'evento con l'oggetto genre appena creato
 			//
@@ -144,43 +148,43 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			JSONObject firstObject = eventsArray.getJSONObject(i);                     //creo un nuovo JSONObject che contiene l'oggetto i-esimo sul vettore di JSON
 			JSONObject lowerEmbeddedObj = firstObject.getJSONObject("_embedded");      //creo un nuovo JSONObject che contiene l'oggetto l'oggetto _embedded del JSON
 			JSONArray venuesArray = lowerEmbeddedObj.getJSONArray("venues");           //creo un nuovo JSONArray che contiene l'array "venues" del JSON
-			JSONObject lowerFirstObject = venuesArray.getJSONObject(0);                //creo un nuovo JSONObject che contiene l'oggetto i-esimo sul vettore di JSON
+			JSONObject venuesObject = venuesArray.getJSONObject(0);                //creo un nuovo JSONObject che contiene l'oggetto i-esimo sul vettore di JSON
 			
 			Venue venue = new Venue();
 			
 			City city = new City();
-			city.setVenueName(lowerFirstObject.getString("name"));
-			JSONObject cityObject = lowerFirstObject.getJSONObject("city");             //creo un nuovo JSONObject che contiene l'ogetto city del JSON
-			JSONObject cityNameObject = cityObject.getJSONObject("name");               //creo un nuovo JSONObject che contiene l'oggetto name della city del JSON
-			city.setCityName(cityNameObject.getString("name"));                         //setto il nome dell'oggetto city
-			JSONObject addressObject = lowerFirstObject.getJSONObject("address");       //creo un nuovo JSONObject che contiene
-			JSONObject addressNameObject = addressObject.getJSONObject("line1");        //creo un nuovo JSONObject che contiene
-			city.setAddress(addressNameObject.getString("line1"));                      //setto l'indirizzo di city
+			//city.setVenueName(lowerFirstObject.getString("name"));
+			JSONObject cityObject = venuesObject.getJSONObject("city");                 //creo un nuovo JSONObject che contiene l'ogetto city del JSON
+			//JSONObject cityNameObject = cityObject.getJSONObject("name");             //creo un nuovo JSONObject che contiene l'oggetto name della city del JSON
+			city.setCityName(cityObject.getString("name"));                             //setto il nome dell'oggetto city
+			JSONObject addressObject = venuesObject.getJSONObject("address");           //creo un nuovo JSONObject che contiene
+			//JSONObject addressNameObject = addressObject.getJSONObject("line1");      //creo un nuovo JSONObject che contiene
+			city.setAddress(addressObject.getString("line1"));                          //setto l'indirizzo di city
 			venue.setCity(city);                                                        //setto la city di venue con la city creata
 			
 			State state = new State();
-			JSONObject stateObject = lowerFirstObject.getJSONObject("state");           //creo un nuovo JSONObject che contiene l'oggetto state del JSON
-			JSONObject stateNameObject = stateObject.getJSONObject("name");             //creo un nuovo JSONObject che contiene l'oggetto name dello state del JSON
-			JSONObject stateCodeObject = stateObject.getJSONObject("stateCode");        //creo un nuovo JSONObject che contiene l'oggetto code dello state del JSON
-			state.setStateName(stateNameObject.getString("name"));                      //setto lo stateName dello state
-			state.setStateCode(stateCodeObject.getString("stateCode"));                 //setto lo stateCode dello state
+			JSONObject stateObject = venuesObject.getJSONObject("state");              //creo un nuovo JSONObject che contiene l'oggetto state del JSON
+			//JSONObject stateObject = stateObject.getJSONObject("name");             //creo un nuovo JSONObject che contiene l'oggetto name dello state del JSON
+			//JSONObject stateObject = stateObject.getJSONObject("stateCode");        //creo un nuovo JSONObject che contiene l'oggetto code dello state del JSON
+			state.setStateName(stateObject.getString("name"));                      //setto lo stateName dello state
+			state.setStateCode(stateObject.getString("stateCode"));                 //setto lo stateCode dello state
 			venue.setState(state);                                                      //setto lo state di venue passandogli lo stato appena creato
 			
 			Country country = new Country();
-			JSONObject countryObject = lowerFirstObject.getJSONObject("country");      //creo un nuovo JSONObject che contiene l'oggetto country del JSON
-			JSONObject countryNameObject = countryObject.getJSONObject("name");        //creo un nuovo JSONObject che contiene l'oggetto name del country del JSON
-			JSONObject countryCodeObject = countryObject.getJSONObject("countryCode"); //creo un nuovo JSONObject che contiene l'oggetto code del country del JSON
-			country.setCountryName(countryNameObject.getString("name"));               //setto il countryName del country
-			country.setCountryCode(countryCodeObject.getString("countryCode"));        //setto il countryCode del country
+			JSONObject countryObject = venuesObject.getJSONObject("country");      //creo un nuovo JSONObject che contiene l'oggetto country del JSON
+			//JSONObject countryNameObject = countryObject.getJSONObject("name");        //creo un nuovo JSONObject che contiene l'oggetto name del country del JSON
+			//JSONObject countryCodeObject = countryObject.getJSONObject("countryCode"); //creo un nuovo JSONObject che contiene l'oggetto code del country del JSON
+			country.setCountryName(countryObject.getString("name"));               //setto il countryName del country
+			country.setCountryCode(countryObject.getString("countryCode"));        //setto il countryCode del country
 			venue.setCountry(country);                                                 //setto il country di venue passandogli il country appena creato
 			
 			Market market = new Market();
-			JSONArray marketArray = lowerFirstObject.getJSONArray("markets");          //creo un nuovo JSONArray che contiene l'array "markets" del JSON
+			JSONArray marketArray = venuesObject.getJSONArray("markets");          //creo un nuovo JSONArray che contiene l'array "markets" del JSON
 			JSONObject marketObject = marketArray.getJSONObject(0);
-			JSONObject marketNameObject = marketObject.getJSONObject("name");          //creo un nuovo JSONObject che contiene l'oggetto name del market del JSON
-			JSONObject marketIdObject = marketObject.getJSONObject("Id");              //creo un nuovo JSONObject che contiene l'oggetto code del market del JSON
-			market.setMarketName(marketNameObject.getString("name"));                  //setto il nome del market
-			market.setMarketID(marketIdObject.getString("id"));                        //setto l'id del market
+			//JSONObject marketNameObject = marketObject.getJSONObject("name");          //creo un nuovo JSONObject che contiene l'oggetto name del market del JSON
+			//JSONObject marketIdObject = marketObject.getJSONObject("Id");              //creo un nuovo JSONObject che contiene l'oggetto code del market del JSON
+			market.setMarketName(marketObject.getString("name"));                  //setto il nome del market
+			market.setMarketID(marketObject.getString("id"));                        //setto l'id del market
 			venue.setMarket(market); 
 			
 			event.setVenue(venue);
@@ -191,12 +195,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return fullVector;	
 	}
-	
-		
-	public Venue getChosenCountryEventsfromApi(String countryCode)  {
-		
-		return null;
-	}
 
+	
 
 }
