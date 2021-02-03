@@ -110,7 +110,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			event.setName(stack.getString("name")); 		//setto il nome dell'evento con la stringa che corrisponde a "name"
 			event.setId(stack.getString("id"));  			//setto l'id dell'evento con la stringa che corrisponde a "id"
 			event.setUrl(stack.getString("url"));			//setto l'url dell'evento con la stringa che corrisponde a "url"
-			//event.setInfo(stack.getString("info"));			//setto l'info dell'evento con la stringa che corrisponde a "info"
+			event.setInfo(stack.getString("info"));			//setto l'info dell'evento con la stringa che corrisponde a "info"
 			
 	
 			Date data = new Date(); 													//creo un nuovo oggetto di tipo data
@@ -121,7 +121,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			data.setData(startDateObject.getString("localDate")); 						//setto la data della data con la stringa che corrisponde a "localDate"
 			data.setOrario(startDateObject.getString("localTime")); 					//setto l'orario della data con la stringa che corrisponde a "localTime"
 			event.setDate(data); 														//setto la data dell'evento con l'oggetto di tipo data appena creato
-			/**
+			
+			
 			Informations information = new Informations(); 								//creo un ogetto di tipo informations
 			JSONArray informationsArray = stack.getJSONArray("priceRanges");			//creo un JSONArray che corrisponde all'array "priceRanges"
 			JSONObject informationsObject = informationsArray.getJSONObject(0); 		//creo un JSONObject a partire dal informationsArray precedente
@@ -129,7 +130,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			information.setMaxPrice(informationsObject.getDouble("max"));				//setto il prezzo massimo con la stringa che corrisponde a "max"
 			information.setMinPrice(informationsObject.getDouble("min"));				//setto il prezzo minimo con la stringa che corrisponde a "min"
 			event.setInformations(information); 										//setto le informations dell'evento con l'oggetto di tipo infromations appena creato
-			*/
+			
 			Genre genre = new Genre(); 													//creo un ogetto di tipo Genre
 			JSONArray classificationsArray = stack.getJSONArray("classifications");		//creo un JSONArray che corrisponde all'array "classifications"
 			JSONObject classificationsObject = classificationsArray.getJSONObject(0);	//creo un JSONObject a partire dal informationsArray precedente
@@ -153,7 +154,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			Venue venue = new Venue();
 			
 			City city = new City();
-			//city.setVenueName(lowerFirstObject.getString("name"));
+			//city.setVenueName(venuesObject.getString("name"));
 			JSONObject cityObject = venuesObject.getJSONObject("city");                 //creo un nuovo JSONObject che contiene l'ogetto city del JSON
 			//JSONObject cityNameObject = cityObject.getJSONObject("name");             //creo un nuovo JSONObject che contiene l'oggetto name della city del JSON
 			city.setCityName(cityObject.getString("name"));                             //setto il nome dell'oggetto city
@@ -178,7 +179,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			country.setCountryCode(countryObject.getString("countryCode"));        //setto il countryCode del country
 			venue.setCountry(country);                                                 //setto il country di venue passandogli il country appena creato
 			
-			/**
+			
 			Market market = new Market();
 			JSONArray marketArray = venuesObject.getJSONArray("markets");          //creo un nuovo JSONArray che contiene l'array "markets" del JSON
 			JSONObject marketObject = marketArray.getJSONObject(0);
@@ -187,7 +188,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			market.setMarketName(marketObject.getString("name"));                  //setto il nome del market
 			market.setMarketID(marketObject.getString("id"));                        //setto l'id del market
 			venue.setMarket(market); 
-			*/
+			
 			event.setVenue(venue);
 	
 			

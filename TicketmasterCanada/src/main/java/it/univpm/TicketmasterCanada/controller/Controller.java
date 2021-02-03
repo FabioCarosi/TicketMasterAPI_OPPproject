@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import org.json.JSONObject;
+import org.json.*;
 
 import it.univpm.TicketmasterCanada.model.*;
-import it.univpm.TicketmasterCanada.service.JsonCreator;
 import it.univpm.TicketmasterCanada.service.*;
 
 
@@ -55,13 +54,13 @@ public class Controller{
 	@GetMapping(value = "/events") 
 	public ResponseEntity<Object> getCountryEvent(@RequestParam String countryCode) {
 		
-		//EventVector eventsArray = service.getCountryInformationsFromAPI(countryCode);
+		EventVector eventsArray = service.getCountryInformationsFromAPI(countryCode);
 		
-		//JSONObject obj = new JSONObject();
-		//JsonCreator jsonconverter = new JsonCreator();
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
 		
-		//obj = jsonconverter.jsonCreator(eventsArray);
-		return new ResponseEntity<> (service.getCountryInformationsFromAPI(countryCode).toString(), HttpStatus.OK);
-		//return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+		obj = jsonconverter.jsonCreator(eventsArray);
+		//return new ResponseEntity<> (service.getCountryInformationsFromAPI(countryCode).toString(), HttpStatus.OK);
+		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
 }

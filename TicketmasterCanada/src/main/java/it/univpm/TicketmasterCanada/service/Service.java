@@ -3,6 +3,8 @@
  */
 package it.univpm.TicketmasterCanada.service;
 
+import java.util.Vector;
+
 import org.json.JSONObject;
 
 import it.univpm.TicketmasterCanada.model.*;
@@ -15,10 +17,11 @@ import it.univpm.TicketmasterCanada.model.*;
  */
 public interface Service {
 	
-		public abstract EventVector getCountryInformationsFromAPI   (String code);
+		public abstract EventVector getCountryInformationsFromAPI   (String code);   
 		//public abstract Venue getChosenCountryEventsfromApi (String countryCode);
 		public abstract JSONObject getStateEvents(String stateCode);
 		public abstract Venue getStateEventsfromApi(String stateCode);
+		public abstract Vector<Event> vectorFiller(JSONObject object);
 }
 
 
