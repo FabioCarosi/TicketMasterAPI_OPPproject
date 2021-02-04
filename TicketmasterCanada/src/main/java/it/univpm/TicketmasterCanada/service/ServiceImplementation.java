@@ -52,7 +52,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	
 	public JSONObject getCountryEvents(String countryCode) {
 		
-		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&countryCode="+ countryCode + "&size=200";
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?&size=200&apikey=" + apiKey + "&countryCode="+ countryCode + "";
 		RestTemplate rTemplate = new RestTemplate();
 		JSONObject CountryEventsObj;
 		CountryEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
@@ -97,11 +97,19 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		JSONObject stack;
 		
+		JSONObject pageObject = object.getJSONObject("page");
 		JSONObject embeddedObject = object.getJSONObject("_embedded");
 		JSONArray eventsArray = embeddedObject.getJSONArray("events");
 		Vector<Event> fullVector = new Vector<Event>(eventsArray.length());
+        
+		pageObject = object.getJSONObject("page");
+		int totalElements = pageObject.getInt("totalElements");
+		int dimMax = 0;
 		
-		for (int i = 0; i<eventsArray.length(); i++) {
+		if(totalElements < 200) dimMax = totalElements;
+		else dimMax = 200;
+		
+		for (int i = 0; i<dimMax; i++) {
 		//for (int i = eventsArray.length(); i>=0; i--) {
 			
 			Event event = new Event();              		//creo un nuovo oggetto di tipo event
