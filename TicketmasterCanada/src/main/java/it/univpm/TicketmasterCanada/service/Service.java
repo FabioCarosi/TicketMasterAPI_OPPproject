@@ -17,10 +17,13 @@ import it.univpm.TicketmasterCanada.model.*;
  */
 public interface Service {
 	
-		public abstract EventVector getCountryInformationsFromAPI   (String code);   
-		//public abstract Venue getChosenCountryEventsfromApi (String countryCode);
+		public abstract EventVector getCountryEventsFromAPI (String countryCode);
+		public abstract EventVector getStateEventsFromAPI (String stateCode);
+		public abstract EventVector getMarketEventsFromAPI (String marketCode);
+		
+		
 		public abstract JSONObject getStateEvents(String stateCode);
-		public abstract Venue getStateEventsfromApi(String stateCode);
+		
 		public abstract Vector<Event> vectorFiller(JSONObject object);
 }
 

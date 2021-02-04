@@ -36,7 +36,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	public JSONObject getStateEvents(String stateCode) {
 		
 		
-		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&stateCode="+ stateCode;
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?&size=200&apikey=" + apiKey + "&stateCode="+ stateCode;
 		RestTemplate rTemplate = new RestTemplate();
 		JSONObject StateEventsObj;
 		StateEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
@@ -52,7 +52,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	
 	public JSONObject getCountryEvents(String countryCode) {
 		
-		String request = "https://app.ticketmaster.com/discovery/v2/events.json?&size=200&apikey=" + apiKey + "&countryCode="+ countryCode + "";
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=" + apiKey + "&countryCode="+ countryCode;
 		RestTemplate rTemplate = new RestTemplate();
 		JSONObject CountryEventsObj;
 		CountryEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
@@ -68,7 +68,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	
 	public JSONObject getMarketEvents(String marketID) {
 		
-		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&marketId="+ marketID;
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=" + apiKey + "&marketId="+ marketID;
 		RestTemplate rTemplate = new RestTemplate();
 		JSONObject MarketEventsObj;
 		MarketEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
@@ -77,19 +77,32 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	}
 
 
-	public Venue getStateEventsfromApi(String stateCode) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 		
 		
-	public EventVector getCountryInformationsFromAPI (String code) {	
+	public EventVector getCountryEventsFromAPI (String code) {	
 		EventVector countryInfo = new EventVector();
 		JSONObject countryObj = getCountryEvents(code);
 		Vector<Event> countryVector = vectorFiller(countryObj);
 		countryInfo.setVector(countryVector);
 		return countryInfo;
 	}
+	
+	public EventVector getStateEventsFromAPI (String code) {	
+		EventVector stateInfo = new EventVector();
+		JSONObject stateObj = getCountryEvents(code);
+		Vector<Event> stateVector = vectorFiller(stateObj);
+		stateInfo.setVector(stateVector);
+		return stateInfo;
+	}
+	public EventVector getMarketEventsFromAPI (String code) {	
+		EventVector marketInfo = new EventVector();
+		JSONObject marketObj = getCountryEvents(code);
+		Vector<Event> stateVector = vectorFiller(marketObj);
+		marketInfo.setVector(stateVector);
+		return marketInfo;
+	}
+	
 	
 	
 	public Vector<Event> vectorFiller(JSONObject object) {
@@ -157,14 +170,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			event.setDate(data); 	//setto la data dell'evento con l'oggetto di tipo data appena creato													
 			
 			
-			Informations information = new Informations(); 								//creo un ogetto di tipo informations
+			Informations information = new Informations();			//creo un ogetto di tipo informations
 			try {
-				JSONArray informationsArray = stack.getJSONArray("priceRanges");			//creo un JSONArray che corrisponde all'array "priceRanges"
-				JSONObject informationsObject = informationsArray.getJSONObject(0); 		//creo un JSONObject a partire dal informationsArray precedente
-				information.setCurrency(informationsObject.getString("currency")); 			//setto la valuta con la stringa che corrisponde a "currency"
-				information.setMaxPrice(informationsObject.getDouble("max"));				//setto il prezzo massimo con la stringa che corrisponde a "max"
-				information.setMinPrice(informationsObject.getDouble("min"));				//setto il prezzo minimo con la stringa che corrisponde a "min"
-				event.setInformations(information); 										//setto le informations dell'evento con l'oggetto di tipo infromations appena creato
+				JSONArray informationsArray = stack.getJSONArray("priceRanges");		//creo un JSONArray che corrisponde all'array "priceRanges"
+				JSONObject informationsObject = informationsArray.getJSONObject(0);		//creo un JSONObject a partire dal informationsArray precedente
+				information.setCurrency(informationsObject.getString("currency"));		//setto la valuta con la stringa che corrisponde a "currency"
+				information.setMaxPrice(informationsObject.getDouble("max"));			//setto il prezzo massimo con la stringa che corrisponde a "max"
+				information.setMinPrice(informationsObject.getDouble("min"));			//setto il prezzo minimo con la stringa che corrisponde a "min"
+				event.setInformations(information); 									//setto le informations dell'evento con l'oggetto di tipo infromations appena creato
 			}
 			catch(Exception e) {
 				e.printStackTrace();
@@ -173,14 +186,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			
 			Genre genre = new Genre(); 													//creo un ogetto di tipo Genre
 			try {
-				JSONArray classificationsArray = stack.getJSONArray("classifications");		//creo un JSONArray che corrisponde all'array "classifications"
-				JSONObject classificationsObject = classificationsArray.getJSONObject(0);	//creo un JSONObject a partire dal informationsArray precedente
-				JSONObject segmentsObject = classificationsObject.getJSONObject("segment");	//creo un JSONArray che corrisponde all'array "segment"
-				genre.setSegmentName(segmentsObject.getString("name")); 					//setto il nome del tipologia con la stringa che corrisponde a "name"
-				JSONObject genresObject = classificationsObject.getJSONObject("genre"); 		//creo un JSONArray che corrisponde all'array "genre"
-				genre.setGenreName(genresObject.getString("name")); 						//setto il nome del genre con la stringa che corrisponde a "name"
+				JSONArray classificationsArray = stack.getJSONArray("classifications");			//creo un JSONArray che corrisponde all'array "classifications"
+				JSONObject classificationsObject = classificationsArray.getJSONObject(0);		//creo un JSONObject a partire dal informationsArray precedente
+				JSONObject segmentsObject = classificationsObject.getJSONObject("segment");		//creo un JSONArray che corrisponde all'array "segment"
+				genre.setSegmentName(segmentsObject.getString("name"));							//setto il nome del tipologia con la stringa che corrisponde a "name"
+				JSONObject genresObject = classificationsObject.getJSONObject("genre");			//creo un JSONArray che corrisponde all'array "genre"
+				genre.setGenreName(genresObject.getString("name"));								//setto il nome del genre con la stringa che corrisponde a "name"
 				JSONObject subGenresObject = classificationsObject.getJSONObject("subGenre");	//creo un JSONArray che corrisponde all'array "subGenre"
-				genre.setSubGenreName(subGenresObject.getString("name")); 					//setto il nome del sottogenere con la stringa che corrisponde a "name"
+				genre.setSubGenreName(subGenresObject.getString("name"));						//setto il nome del sottogenere con la stringa che corrisponde a "name"
 			}
 			catch(Exception e) {
 				e.printStackTrace();
@@ -198,7 +211,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			try {
 				City city = new City();
 				try {
-					JSONObject cityObject = venuesObject.getJSONObject("city");                 //creo un nuovo JSONObject che contiene l'ogetto city del JSON
+					JSONObject cityObject = venuesObject.getJSONObject("city");					//creo un nuovo JSONObject che contiene l'ogetto city del JSON
 					city.setCityName(cityObject.getString("name"));                             //setto il nome dell'oggetto city
 					JSONObject addressObject = venuesObject.getJSONObject("address");           //creo un nuovo JSONObject che contiene
 					city.setAddress(addressObject.getString("line1"));                          //setto l'indirizzo di city
