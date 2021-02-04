@@ -200,7 +200,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			JSONObject venuesObject = venuesArray.getJSONObject(0);                //creo un nuovo JSONObject che contiene l'oggetto i-esimo sul vettore di JSON
 			
 			Venue venue = new Venue();
-			
+			try {
 			City city = new City();
 			try {
 			//city.setVenueName(venuesObject.getString("name"));
@@ -259,7 +259,11 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			catch(Exception e) {
 				e.printStackTrace();
 			}
-			venue.setMarket(market); 
+			venue.setMarket(market);
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
 		
 			event.setVenue(venue);
 	
