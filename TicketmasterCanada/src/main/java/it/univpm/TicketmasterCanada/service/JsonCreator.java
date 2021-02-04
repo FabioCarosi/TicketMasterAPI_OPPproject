@@ -30,11 +30,12 @@ public class JsonCreator {
 		JSONObject evento = new JSONObject();
 		
 		for(int i=0 ; i < (eventVector.getVector()).size(); i++) {
-		//for(int i=(eventVector.getVector()).size() ; i >= 0; i--) {
-			
 			JSONObject object = new JSONObject();
+			
+			try {
+			
 			object.put("id", (eventVector.getVector()).get(i).getId());
-			//object.put("info", (eventVector.getVector()).get(i).getInfo());
+			object.put("info", (eventVector.getVector()).get(i).getInfo());
 			object.put("name", (eventVector.getVector()).get(i).getName());
 			object.put("url", (eventVector.getVector()).get(i).getUrl());
 			
@@ -44,8 +45,8 @@ public class JsonCreator {
 			object.put("stateCode", (eventVector.getVector()).get(i).getVenue().getState().getStateCode());
 			object.put("stateName", (eventVector.getVector()).get(i).getVenue().getState().getStateName());
 			
-			//object.put("marketName", (eventVector.getVector()).get(i).getVenue().getMarket().getMarketName());
-			//object.put("marketID", (eventVector.getVector()).get(i).getVenue().getMarket().getMarketID());
+			object.put("marketName", (eventVector.getVector()).get(i).getVenue().getMarket().getMarketName());
+			object.put("marketID", (eventVector.getVector()).get(i).getVenue().getMarket().getMarketID());
 			
 			object.put("cityName", (eventVector.getVector()).get(i).getVenue().getCity().getCityName());
 			object.put("address", (eventVector.getVector()).get(i).getVenue().getCity().getAddress());
@@ -58,11 +59,13 @@ public class JsonCreator {
 			object.put("genre", (eventVector.getVector()).get(i).getGenre().getGenreName());
 			object.put("subgenre", (eventVector.getVector()).get(i).getGenre().getSubGenreName());
 			
-			//object.put("currency", (eventVector.getVector()).get(i).getInformations().getCurrency());
-			//object.put("maxPrice", (eventVector.getVector()).get(i).getInformations().getMaxPrice());
-			//object.put("minPrice", (eventVector.getVector()).get(i).getInformations().getMinPrice());
-			//object.put("source", (eventVector.getVector()).get(i).getInformations().getSource());
-			
+			object.put("currency", (eventVector.getVector()).get(i).getInformations().getCurrency());
+			object.put("maxPrice", (eventVector.getVector()).get(i).getInformations().getMaxPrice());
+			object.put("minPrice", (eventVector.getVector()).get(i).getInformations().getMinPrice());
+			object.put("source", (eventVector.getVector()).get(i).getInformations().getSource());
+			 } catch(Exception e) {
+					e.printStackTrace();
+				}
 			arr.put(object);
 		}
 		
