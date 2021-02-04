@@ -19,7 +19,6 @@ import it.univpm.TicketmasterCanada.model.*;
  */
 
 @Service
-
 public class ServiceImplementation implements it.univpm.TicketmasterCanada.service.Service {
 
 	/**
@@ -100,10 +99,10 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		JSONObject embeddedObject = object.getJSONObject("_embedded");
 		JSONArray eventsArray = embeddedObject.getJSONArray("events");
-		
 		Vector<Event> fullVector = new Vector<Event>(eventsArray.length());
 		
 		for (int i = 0; i<eventsArray.length(); i++) {
+		//for (int i = eventsArray.length(); i>=0; i--) {
 			
 			Event event = new Event();              		//creo un nuovo oggetto di tipo event
 			stack = eventsArray.getJSONObject(i); 			//i-esimo blocco nel vettore degli eventi
@@ -192,6 +191,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			*/
 			event.setVenue(venue);
 	
+
 			
 			fullVector.add(event);
 		}

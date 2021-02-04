@@ -25,12 +25,14 @@ public class JsonCreator {
 	
 	public JSONObject jsonCreator(EventVector eventVector) {
 		
-		JSONObject object = new JSONObject();
+		
 		JSONArray arr = new JSONArray();
 		JSONObject evento = new JSONObject();
 		
 		for(int i=0 ; i < (eventVector.getVector()).size(); i++) {
+		//for(int i=(eventVector.getVector()).size() ; i >= 0; i--) {
 			
+			JSONObject object = new JSONObject();
 			object.put("id", (eventVector.getVector()).get(i).getId());
 			//object.put("info", (eventVector.getVector()).get(i).getInfo());
 			object.put("name", (eventVector.getVector()).get(i).getName());
