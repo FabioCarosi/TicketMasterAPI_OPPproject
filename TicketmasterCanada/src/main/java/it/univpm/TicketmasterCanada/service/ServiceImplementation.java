@@ -34,8 +34,6 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 */
 	@Override
 	public JSONObject getStateEvents(String stateCode) {
-		
-		
 		String request = "https://app.ticketmaster.com/discovery/v2/events.json?&size=200&apikey=" + apiKey + "&stateCode="+ stateCode;
 		RestTemplate rTemplate = new RestTemplate();
 		JSONObject StateEventsObj;
@@ -75,11 +73,19 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		return MarketEventsObj;
 	}
+	
+	@Override
+	public JSONObject getSourceEvents(String source) {
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?&size=200&apikey=" + apiKey + "&source="+ source;
+		RestTemplate rTemplate = new RestTemplate();
+		JSONObject SourceEventsObj;
+		SourceEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		
+		return SourceEventsObj;
+	}
 
 
 	
-		
-		
 	public EventVector getCountryEventsFromAPI (String code) {	
 		EventVector countryInfo = new EventVector();
 		JSONObject countryObj = getCountryEvents(code);
@@ -98,9 +104,16 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	public EventVector getMarketEventsFromAPI (String code) {	
 		EventVector marketInfo = new EventVector();
 		JSONObject marketObj = getCountryEvents(code);
-		Vector<Event> stateVector = vectorFiller(marketObj);
-		marketInfo.setVector(stateVector);
+		Vector<Event> marketVector = vectorFiller(marketObj);
+		marketInfo.setVector(marketVector);
 		return marketInfo;
+	}
+	public EventVector getSourceEventsFromAPI (String code) {	
+		EventVector sourceInfo = new EventVector();
+		JSONObject sourceObj = getCountryEvents(code);
+		Vector<Event> sourceVector = vectorFiller(sourceObj);
+		sourceInfo.setVector(sourceVector);
+		return sourceInfo;
 	}
 	
 	
