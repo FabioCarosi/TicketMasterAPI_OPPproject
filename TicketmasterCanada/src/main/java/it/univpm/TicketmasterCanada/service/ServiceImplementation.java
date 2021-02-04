@@ -52,7 +52,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	
 	public JSONObject getCountryEvents(String countryCode) {
 		
-		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&countryCode="+ countryCode;
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + apiKey + "&countryCode="+ countryCode + "&size=200";
 		RestTemplate rTemplate = new RestTemplate();
 		JSONObject CountryEventsObj;
 		CountryEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
