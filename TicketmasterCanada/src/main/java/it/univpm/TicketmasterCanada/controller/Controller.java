@@ -31,30 +31,10 @@ public class Controller{
 	@Autowired
 	Service service;
 	
-	/**
-	@GetMapping(value = "/events")
-	public ResponseEntity<Object> getStateEvents(@RequestParam String stateCode){
-		Venue venue = service.getStateEventsfromApi(stateCode);
-		
-		JSONObject obj = new JSONObject();
-		
-		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
-	*/
-	/**	
-	@GetMapping(value = "/pacca")
-	public ResponseEntity<Object> getCountryInformationsFromAPI(@RequestParam String stateCode){
-			
-	JSONObject obj = new JSONObject();
-			
-	return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
-	}
-	*/
-	 
-	
-	@GetMapping(value = "/events") 
+	@GetMapping(value = "/countryEvents") 
 	public ResponseEntity<Object> getCountryEvent(@RequestParam String countryCode) {
 		
-		EventVector eventsArray = service.getCountryInformationsFromAPI(countryCode);
+		EventVector eventsArray = service.getCountryEventsFromAPI(countryCode);
 		
 		JSONObject obj = new JSONObject();
 		JsonCreator jsonconverter = new JsonCreator();
@@ -63,4 +43,45 @@ public class Controller{
 		
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
+	
+	@GetMapping(value = "/stateEvents") 
+	public ResponseEntity<Object> getStateEvent(@RequestParam String stateCode) {
+		
+		EventVector eventsArray = service.getStateEventsFromAPI(stateCode);
+		
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
+		
+		obj = jsonconverter.jsonCreator(eventsArray);
+		
+		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+    }
+	
+	@GetMapping(value = "/marketEvents") 
+	public ResponseEntity<Object> getMarketEvent(@RequestParam String marketID) {
+		
+		EventVector eventsArray = service.getMarketEventsFromAPI(marketID);
+		
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
+		
+		obj = jsonconverter.jsonCreator(eventsArray);
+		
+		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+    }
+	
+	@GetMapping(value = "/sourceEvents") 
+	public ResponseEntity<Object> getSourceEvent(@RequestParam String source) {
+		
+		EventVector eventsArray = service.getSourceEventsFromAPI(source);
+		
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
+		
+		obj = jsonconverter.jsonCreator(eventsArray);
+		
+		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+    }
+	
+	
 }
