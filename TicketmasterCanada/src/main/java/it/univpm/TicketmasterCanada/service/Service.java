@@ -27,8 +27,6 @@ public interface Service {
 		public abstract JSONObject getMarketEvents(String marketID);
 		public abstract JSONObject getSourceEvents(String source);
 		
-		
-		
 		public abstract Vector<Event> vectorFiller(JSONObject object);
 }
 
