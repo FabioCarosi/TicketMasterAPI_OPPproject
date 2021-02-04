@@ -180,7 +180,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 				e.printStackTrace();
 			}
 			
-			event.setDate(data); 	//setto la data dell'evento con l'oggetto di tipo data appena creato													
+			event.setDate(data);									//setto la data dell'evento con l'oggetto di tipo data appena creato													
 			
 			
 			Informations information = new Informations();			//creo un ogetto di tipo informations
