@@ -7,7 +7,7 @@ package it.univpm.TicketmasterCanada.exception;
  * @author caros
  *
  */
-public class WrongParameterException {
+public class WrongParameterException extends Exception{
 
 	String message;
 	
