@@ -1,12 +1,11 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.filters;
 
 import java.time.LocalDate;
 import java.util.Vector;
 
 import org.json.JSONObject;
+
+import it.univpm.TicketmasterCanada.exception.WrongPeriodException;
 
 /**
  * @author Mattia Girolami
@@ -26,7 +25,7 @@ public class Filters {
 	 * @param country		country su cui si vuole effettuare il filtraggio
 	 * @param parameter		parametro per poter effettuare il filtraggio
 	 * @param data			contiene la data di oggi
-	 * @param period		lasso di tempo utilizzato per filtrare
+	 * @param period		lasso di tempo in mesi utilizzato per filtrare
 	 */
 	public Filters(Vector<String> states, String country, String parameter, LocalDate data, int period) {
 		super();
@@ -37,9 +36,32 @@ public class Filters {
 		this.period = period;
 	}
 	
-	public JSONObject filtersImplementation() {
+	public JSONObject filtersImplementation() throws WrongPeriodException{
 		
 		JSONObject object = new JSONObject();
+		
+		if (period == 1) {
+			
+			data.plusMonths(period);
+			
+		}
+		else if (period == 3) {
+			
+			data.plusMonths(period);
+			
+		}
+		else if (period == 6) {
+			
+			data.plusMonths(period);
+			
+		}
+		else if (period == 12) {
+			
+			data.plusMonths(period);
+			
+		}
+		
+		else throw new WrongPeriodException(period + "non è ammesso. Inserisci un period uguale a 1,3,6 o 12");
 		
 		return object;
 		
