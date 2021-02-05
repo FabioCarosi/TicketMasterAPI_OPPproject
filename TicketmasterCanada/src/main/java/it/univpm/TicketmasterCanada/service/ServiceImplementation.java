@@ -127,7 +127,6 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		JSONArray eventsArray = embeddedObject.getJSONArray("events");
 		Vector<Event> fullVector = new Vector<Event>(eventsArray.length());
         
-		pageObject = object.getJSONObject("page");
 		int totalElements = pageObject.getInt("totalElements");
 		int dimMax = 0;
 		
