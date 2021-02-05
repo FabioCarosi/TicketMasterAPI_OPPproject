@@ -22,16 +22,28 @@ public class StateStats {
 		JSONObject pageObject = stateObj.getJSONObject("page");
 		int totalElements = pageObject.getInt("totalElements");
 		
-		return "Eventi totali:" + totalElements;
+		return "Eventi totali in "+ stateCode + ": " + totalElements;
 	}
 	
-	
-	
-
-
-
-	public StateStats() {
-		// TODO Auto-generated constructor stub
+	public String TotalSourceEvents(String stateCode, String param) {
+		
+		JSONObject stateObj = serviceImplementation.getStateEvents(stateCode);
+		// Il JSON va filtrato qui
+		JSONObject pageObject = stateObj.getJSONObject("page");
+		int totalElements = pageObject.getInt("totalElements");
+		
+		return "Eventi in " + stateCode + "per il  source " + param + ": " + totalElements;
 	}
+	
+	public String TotalGenreEvents(String stateCode, String param) {
+		
+		JSONObject stateObj = serviceImplementation.getStateEvents(stateCode);
+		// Il JSON va filtrato qui
+		JSONObject pageObject = stateObj.getJSONObject("page");
+		int totalElements = pageObject.getInt("totalElements");
+		
+		return "Eventi in " + stateCode + "per il  genere " + param + ": " + totalElements;
+	}
+	
 
 }
