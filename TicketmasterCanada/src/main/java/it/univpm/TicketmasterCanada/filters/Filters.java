@@ -61,7 +61,7 @@ public class Filters {
 			
 		}
 		
-		else throw new WrongPeriodException(period + "non è ammesso. Inserisci un period uguale a 1,3,6 o 12.");
+		else throw new WrongPeriodException(period + "non è ammesso. Inserisci un period uguale a 1,3,6 o 12");
 		
 		return object;
 		
