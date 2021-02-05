@@ -33,6 +33,14 @@ public class JsonCreator {
 			JSONObject object = new JSONObject();
 			
 			try {
+			
+				try {
+				
+					object.put("source", (eventVector.getVector()).get(i).getInformations().getSource());
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+				
 				try {
 					object.put("id", (eventVector.getVector()).get(i).getId());
 				} catch(Exception e) {

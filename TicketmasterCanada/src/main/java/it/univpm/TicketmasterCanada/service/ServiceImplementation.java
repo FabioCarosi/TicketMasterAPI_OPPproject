@@ -158,6 +158,16 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			catch(Exception e) {
 				e.printStackTrace();
 			}
+		
+			Informations information = new Informations();			//creo un ogetto di tipo informations
+			String url = stack.getString("url");
+			String source = null;
+			if(url.contains("universe")) source = "universe";
+			else if(url.contains("ticketmaster")) source = "ticketmaster";
+			else if(url.contains("tmr")) source = "tmr";
+			else if(url.contains("frontgate")) source = "frontgate";
+			//else throw new 
+			information.setSource(source);			
 			
 			try {
 				event.setInfo(stack.getString("info"));			//setto l'info dell'evento con la stringa che corrisponde a "info"
@@ -182,7 +192,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			event.setDate(data);									//setto la data dell'evento con l'oggetto di tipo data appena creato													
 			
 			
-			Informations information = new Informations();			//creo un ogetto di tipo informations
+		
 			try {
 				JSONArray informationsArray = stack.getJSONArray("priceRanges");		//creo un JSONArray che corrisponde all'array "priceRanges"
 				JSONObject informationsObject = informationsArray.getJSONObject(0);		//creo un JSONObject a partire dal informationsArray precedente
