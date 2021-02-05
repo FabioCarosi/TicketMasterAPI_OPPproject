@@ -34,7 +34,7 @@ public class Controller{
 	@GetMapping(value = "/countryEvents") 
 	public ResponseEntity<Object> getCountryEvent(@RequestParam String countryCode) {
 		
-		EventVector eventsArray = service.getCountryEventsFromAPI(countryCode);
+		EventVector eventsArray = service.getEventsFromAPI(countryCode);
 		
 		JSONObject obj = new JSONObject();
 		JsonCreator jsonconverter = new JsonCreator();
