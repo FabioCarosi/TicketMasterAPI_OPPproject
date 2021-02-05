@@ -9,18 +9,18 @@ package it.univpm.TicketmasterCanada.exception;
  */
 public class WrongPeriodException extends Exception{
 	
-	String message;
+	String messagex;
 	
-	public WrongPeriodException(String message) {
+	public WrongPeriodException(String messagex) {
 		
-		this.message = message;
+		this.messagex = messagex;
 	}
 
 	/**
 	 * @return the message
 	 */
-	public String getMessage() {
-		return message;
+	public String getMessagex() {
+		return messagex;
 	}
 	
 
