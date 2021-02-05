@@ -43,25 +43,60 @@ public class Filters {
 		if (period == 1) {
 			
 			data.plusMonths(period);
-			
+			if(parameter.equals("source")) {
+				
+			} 
+			else if (parameter.equals("genre")) {
+				
+			}
+			else if (parameter.equals("market")) {
+				
+			}
 		}
 		else if (period == 3) {
 			
 			data.plusMonths(period);
+			if(parameter.equals("source")) {
+				
+			} 
+			else if (parameter.equals("genre")) {
+				
+			}
+			else if (parameter.equals("market")) {
+				
+			}
 			
 		}
 		else if (period == 6) {
 			
 			data.plusMonths(period);
+			if(parameter.equals("source")) {
+				
+			} 
+			else if (parameter.equals("genre")) {
+				
+			}
+			else if (parameter.equals("market")) {
+				
+			}
 			
 		}
 		else if (period == 12) {
 			
 			data.plusMonths(period);
+			if(parameter.equals("source")) {
+				
+			} 
+			else if (parameter.equals("genre")) {
+				
+			}
+			else if (parameter.equals("market")) {
+				
+			}
 			
 		}
 		
-		else throw new WrongPeriodException(period + "non è ammesso. Inserisci un period uguale a 1,3,6 o 12");
+		else throw new WrongPeriodException(period + " non è ammesso. Inserisci un period uguale a 1, 3, 6 o 12");
 		
 		return object;
 		
