@@ -28,7 +28,7 @@ public class StateStats {
 	public String TotalSourceEvents(String stateCode, String param) {
 		
 		JSONObject stateObj = serviceImplementation.getStateEvents(stateCode);
-		// Il JSON va filtrato qui
+		// Il JSONObject va filtrato qui
 		JSONObject pageObject = stateObj.getJSONObject("page");
 		int totalElements = pageObject.getInt("totalElements");
 		
@@ -38,7 +38,7 @@ public class StateStats {
 	public String TotalGenreEvents(String stateCode, String param) {
 		
 		JSONObject stateObj = serviceImplementation.getStateEvents(stateCode);
-		// Il JSON va filtrato qui
+		// Il JSONObject va filtrato qui
 		JSONObject pageObject = stateObj.getJSONObject("page");
 		int totalElements = pageObject.getInt("totalElements");
 		
