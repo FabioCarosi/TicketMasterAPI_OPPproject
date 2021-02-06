@@ -29,6 +29,7 @@ public class Filters {
 	 * @param parameter		parametro per poter effettuare il filtraggio
 	 * @param data			contiene la data di oggi
 	 * @param period		lasso di tempo in mesi utilizzato per filtrare
+	 * @param value			valore assunto dal parametro
 	 */
 	public Filters(Vector<String> states, String country, String parameter, LocalDate data, int period, String value) {
 		super();
