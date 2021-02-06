@@ -13,7 +13,7 @@ import it.univpm.TicketmasterCanada.stats.StateStats;
  * @author Mattia Girolami
  */
 
-public class FilterSegment {
+public class FilterSubGenre {
 	
 	StateStats stats = new StateStats();
 	

@@ -1,6 +1,7 @@
 package it.univpm.TicketmasterCanada.filters;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.Vector;
 
 import org.json.JSONArray;
@@ -8,6 +9,7 @@ import org.json.JSONObject;
 
 import it.univpm.TicketmasterCanada.exception.WrongParameterException;
 import it.univpm.TicketmasterCanada.exception.WrongPeriodException;
+import it.univpm.TicketmasterCanada.stats.StateStats;
 
 /**
  * @author Mattia Girolami
@@ -21,6 +23,20 @@ public class Filters {
 	private LocalDate data = java.time.LocalDate.now();
 	private int period;
 	private String value;
+	
+	
+	
+	/**
+	 * Costruttore vuoto
+	 */
+	public Filters() {
+		super();
+	}
+
+
+	StateStats stats = new StateStats();
+	
+	
 	
 	/**
 	 * Costruttore con parametri:
@@ -67,7 +83,7 @@ public class Filters {
 				FilterSubGenre filter = new FilterSubGenre();
 				array = filter.oneMonth(states, value);	
 			}
-			else throw new WrongParameterException(parameter + "non è accettato. Scegli tra: marketID, source, genre e market.");
+			else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 		}
 		else if (period == 3) {
 		
@@ -91,7 +107,7 @@ public class Filters {
 				FilterSubGenre filter = new FilterSubGenre();
 				array = filter.threeMonth(states, value);	
 			}
-			else throw new WrongParameterException(parameter + "non è accettato. Scegli tra: marketID, source, genre e market.");
+			else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 		}
 		else if (period == 6) {
 					
@@ -115,7 +131,7 @@ public class Filters {
 				FilterSubGenre filter = new FilterSubGenre();
 				array = filter.sixMonth(states, value);	
 			}
-			else throw new WrongParameterException(parameter + "non è accettato. Scegli tra: marketID, source, genre e market.");
+			else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 		}
 		else if (period == 12) {
 			
@@ -139,7 +155,7 @@ public class Filters {
 				FilterSubGenre filter = new FilterSubGenre();
 				array = filter.oneYear(states, value);	
 			}
-			else throw new WrongParameterException(parameter + "non è accettato. Scegli tra: marketID, source, genre e market.");
+			else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 		}
 		
 		else throw new WrongPeriodException(period + " non è ammesso. Inserisci un period uguale a 1, 3, 6 o 12");
@@ -149,9 +165,56 @@ public class Filters {
 	}
 	
 	
-	
-	
-	
+	public JSONArray filterFiller(Vector<String> states, String value) {
+		
+		JSONArray array = new JSONArray();
+		
+		Vector<JSONObject> countryVector = new Vector<JSONObject>();
+		Vector<Integer> totalEvents = new Vector<Integer>();
+		Vector<JSONObject> coupleObject = new Vector<JSONObject>();
+		
+		Iterator<String> iter = states.iterator();
+		
+		int j = 0;
+		String max = null;
+		String min = null;
+		int maxevent = 0;
+		int minevent = 9999;
+		
 
-
+		while(iter.hasNext()) {
+			JSONObject obj = new JSONObject();
+			obj = stats.totalGenreEvents(iter.next(), value);
+			countryVector.add(obj);	
+			int totalElements = obj.getInt("totalElements");
+			totalEvents.add(totalElements);
+			
+			JSONObject couple = new JSONObject();
+			couple.put("State: ", states.get(j));
+			couple.put("Total elements: ", totalElements);
+			coupleObject.add(couple);
+			array.put(couple);
+			if(totalElements <= minevent) {
+				minevent = totalElements;
+				min = states.get(j);
+			}
+			if(totalElements >= maxevent) {
+				maxevent = totalElements;
+				max = states.get(j);
+			}
+			
+			j++;
+		}
+		
+		JSONObject highest = new JSONObject();
+		JSONObject lower = new JSONObject();
+		highest.put("Stato con il maggior numero di eventi: ", max);
+		highest.put("Numero di eventi: ", maxevent);
+		lower.put("Stato con il minor numero di eventi: ", min);
+		lower.put("Numero di eventi: ", minevent);
+		array.put(highest);
+		array.put(lower);
+			
+		return array;
+	}
 }
