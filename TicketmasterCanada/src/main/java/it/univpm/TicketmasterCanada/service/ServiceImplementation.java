@@ -83,6 +83,15 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 		return SourceEventsObj;
 	}
+	
+	public JSONObject getCountrySourceEvents(String source, String countryCode) {
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?&size=200&apikey=" + apiKey + "&source="+ source+ "&countryCode="+ countryCode;
+		RestTemplate rTemplate = new RestTemplate();
+		JSONObject SourceEventsObj;
+		SourceEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		
+		return SourceEventsObj;
+	}
 
 
 	
@@ -96,21 +105,28 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	
 	public EventVector getStateEventsFromAPI (String code) {	
 		EventVector stateInfo = new EventVector();
-		JSONObject stateObj = getCountryEvents(code);
+		JSONObject stateObj = getStateEvents(code);
 		Vector<Event> stateVector = vectorFiller(stateObj);
 		stateInfo.setVector(stateVector);
 		return stateInfo;
 	}
 	public EventVector getMarketEventsFromAPI (String code) {	
 		EventVector marketInfo = new EventVector();
-		JSONObject marketObj = getCountryEvents(code);
+		JSONObject marketObj = getMarketEvents(code);
 		Vector<Event> marketVector = vectorFiller(marketObj);
 		marketInfo.setVector(marketVector);
 		return marketInfo;
 	}
 	public EventVector getSourceEventsFromAPI (String code) {	
 		EventVector sourceInfo = new EventVector();
-		JSONObject sourceObj = getCountryEvents(code);
+		JSONObject sourceObj = getSourceEvents(code);
+		Vector<Event> sourceVector = vectorFiller(sourceObj);
+		sourceInfo.setVector(sourceVector);
+		return sourceInfo;
+	}
+	public EventVector getCountrySourceEventsFromAPI (String source, String countryCode) {	
+		EventVector sourceInfo = new EventVector();
+		JSONObject sourceObj = getCountrySourceEvents(source, countryCode);
 		Vector<Event> sourceVector = vectorFiller(sourceObj);
 		sourceInfo.setVector(sourceVector);
 		return sourceInfo;
@@ -164,7 +180,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 			String source = null;
 			if(url.contains("universe")) source = "universe";
 			else if(url.contains("ticketmaster")) source = "ticketmaster";
-			else if(url.contains("tmr")) source = "tmr";
+			else if(url.contains("ticketsnow")) source = "tmr";
 			else if(url.contains("frontgate")) source = "frontgate";
 			//else throw new 
 			information.setSource(source);			
@@ -294,4 +310,5 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return fullVector;	
 	}
+
 }

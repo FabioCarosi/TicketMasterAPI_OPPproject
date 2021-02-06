@@ -83,5 +83,18 @@ public class Controller{
 		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
     }
 	
+	@GetMapping(value = "/country-sourceEvents") 
+	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String countryCode) {
+		
+		EventVector eventsArray = service.getCountrySourceEventsFromAPI(source, countryCode);
+		
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
+		
+		obj = jsonconverter.jsonCreator(eventsArray);
+		
+		return new ResponseEntity<> (obj.toString(), HttpStatus.OK);
+    }
+	
 	
 }
