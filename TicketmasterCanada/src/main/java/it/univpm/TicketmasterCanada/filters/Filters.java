@@ -1,6 +1,5 @@
 package it.univpm.TicketmasterCanada.filters;
 
-import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -20,7 +19,6 @@ public class Filters {
 	private Vector<String> states = new Vector<String>();
 	private String country;
 	private String parameter;
-	private LocalDate data = java.time.LocalDate.now();
 	private int period;
 	private String value;
 	
@@ -47,12 +45,11 @@ public class Filters {
 	 * @param period		lasso di tempo in mesi utilizzato per filtrare
 	 * @param value			valore assunto dal parametro
 	 */
-	public Filters(Vector<String> states, String country, String parameter, LocalDate data, int period, String value) {
+	public Filters(Vector<String> states, String country, String parameter, int period, String value) {
 		super();
 		this.states = states;
 		this.country = country;
 		this.parameter = parameter;
-		this.data = data;
 		this.period = period;
 		this.value = value;
 	}
@@ -60,7 +57,6 @@ public class Filters {
 	public JSONArray filtersImplementation() throws WrongPeriodException, WrongParameterException{
 		
 		JSONArray array = new JSONArray();
-		data.plusMonths(period);
 		
 		if(period == 1) {
 			if(parameter.equals("marketID")) {
@@ -89,23 +85,23 @@ public class Filters {
 		
 			if(parameter.equals("marketID")) {
 				FilterMarketID filter = new FilterMarketID();
-				array = filter.threeMonth(states, value);	
+				array = filter.threeMonths(states, value);	
 			}			
 			else if(parameter.equals("source")) {
 				FilterSource filter = new FilterSource();
-				array = filter.threeMonth(states, value);
+				array = filter.threeMonths(states, value);
 			} 
 			else if (parameter.equals("genre")) {
 				FilterGenre filter = new FilterGenre();
-				array = filter.threeMonth(states, value);		
+				array = filter.threeMonths(states, value);		
 			}
 			else if (parameter.equals("segment")) {
 				FilterSegment filter = new FilterSegment();
-				array = filter.threeMonth(states, value);	
+				array = filter.threeMonths(states, value);	
 			}
 			else if (parameter.equals("subgenre")) {
 				FilterSubGenre filter = new FilterSubGenre();
-				array = filter.threeMonth(states, value);	
+				array = filter.threeMonths(states, value);	
 			}
 			else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 		}
@@ -113,23 +109,23 @@ public class Filters {
 					
 			if(parameter.equals("marketID")) {
 				FilterMarketID filter = new FilterMarketID();
-				array = filter.sixMonth(states, value);	
+				array = filter.sixMonths(states, value);	
 			}			
 			else if(parameter.equals("source")) {
 				FilterSource filter = new FilterSource();
-				array = filter.sixMonth(states, value);
+				array = filter.sixMonths(states, value);
 			} 
 			else if (parameter.equals("genre")) {
 				FilterGenre filter = new FilterGenre();
-				array = filter.sixMonth(states, value);		
+				array = filter.sixMonths(states, value);		
 			}
 			else if (parameter.equals("segment")) {
 				FilterSegment filter = new FilterSegment();
-				array = filter.sixMonth(states, value);	
+				array = filter.sixMonths(states, value);	
 			}
 			else if (parameter.equals("subgenre")) {
 				FilterSubGenre filter = new FilterSubGenre();
-				array = filter.sixMonth(states, value);	
+				array = filter.sixMonths(states, value);	
 			}
 			else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 		}

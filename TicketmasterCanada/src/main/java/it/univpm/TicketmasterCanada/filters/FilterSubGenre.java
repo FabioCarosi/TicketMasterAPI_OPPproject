@@ -22,12 +22,12 @@ public class FilterSubGenre {
 		return filters.filterFiller(states, value);
 	}
 	
-	public JSONArray threeMonth(Vector<String> states, String value) {
+	public JSONArray threeMonths(Vector<String> states, String value) {
 		Filters filters = new Filters();
 		return filters.filterFiller(states, value);
 	}
 	
-	public JSONArray sixMonth(Vector<String> states, String value) {
+	public JSONArray sixMonths(Vector<String> states, String value) {
 		Filters filters = new Filters();
 		return filters.filterFiller(states, value);
 	}
