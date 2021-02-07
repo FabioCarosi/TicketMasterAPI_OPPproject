@@ -8,7 +8,7 @@ package it.univpm.TicketmasterCanada.exception;
  * @author Mattia Girolami
  *
  */
-public class WrongValueException {
+public class WrongValueException extends Exception {
 
 	String message;
 	
