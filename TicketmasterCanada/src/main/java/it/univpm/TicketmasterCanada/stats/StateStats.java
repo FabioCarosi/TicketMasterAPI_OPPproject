@@ -9,7 +9,6 @@ import it.univpm.TicketmasterCanada.service.*;
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
- *
  */
 
 public class StateStats {
