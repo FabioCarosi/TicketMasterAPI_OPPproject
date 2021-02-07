@@ -11,12 +11,13 @@ import org.json.JSONObject;
  */
 public interface Stats {
 	
-	public abstract JSONObject getSegmentEvents (String countryCode);
-	public abstract JSONObject getGenreEvents (String countryCode);
-	public abstract JSONObject getSubGenreEvents (String countryCode);
-	public abstract JSONObject getSourceEvents (String countryCode);
-	public abstract JSONObject getMarketEvents (String marketID);
-	
+	public abstract JSONObject getCountryEvents(String countryCode, int period);
+	public abstract JSONObject getStateEvents(String stateCode, int period);
+	public abstract JSONObject getMarketEvents(String stateCode, int period);
+	public abstract JSONObject getSourceEvents(String stateCode, String source, int period);
+	public abstract JSONObject getSegmentEvents(String stateCode, String segment, int period);
+	public abstract JSONObject getGenreEvents(String stateCode, String genre, int period);
+	public abstract JSONObject getSubGenreEvents(String stateCode, String subgenre, int period);
 
 	
 }
