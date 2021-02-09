@@ -418,7 +418,7 @@ public class Filters {
 			JSONObject obj = new JSONObject();
 			obj = stats.totalGenreEvents(iter.next(), value);
 			countryVector.add(obj);
-			int totalElements = obj.getInt("totalElements");
+			int totalElements = obj.getInt("totalEvents");
 			totalEvents.add(totalElements);
 			
 
