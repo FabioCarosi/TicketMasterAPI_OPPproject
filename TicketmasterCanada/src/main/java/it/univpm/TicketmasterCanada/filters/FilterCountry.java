@@ -51,10 +51,6 @@ public class FilterCountry implements MarketCountryInterface{
 		
 		JSONArray countryEvents = new JSONArray();
 	
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> country_totalEvents = new Vector<JSONObject>();
-	
 		Iterator<String> it = countries.iterator();
 	
 		int i = 0;
@@ -68,14 +64,11 @@ public class FilterCountry implements MarketCountryInterface{
 	
 			JSONObject object = new JSONObject();
 			object = stats.getCountryEvents(it.next(), period);
-			countryVector.add(object);
 			int totalElements = object.getInt("totalEvents");
-			totalEvents.add(totalElements);
 	
 			JSONObject couple = new JSONObject();
 			couple.put("Country: ", countries.get(i));
 			couple.put("totalEvents: ", totalElements);
-			country_totalEvents.add(couple);
 			countryEvents.put(couple);
 	
 			if(totalElements <= minEvent) {

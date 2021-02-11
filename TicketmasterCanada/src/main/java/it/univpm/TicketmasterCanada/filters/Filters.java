@@ -7,7 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import it.univpm.TicketmasterCanada.exception.*;
-import it.univpm.TicketmasterCanada.stats.StateStats;
+import it.univpm.TicketmasterCanada.stats.Stats;
+import it.univpm.TicketmasterCanada.stats.StatsImplementation;
 
 /**
  * @author Mattia Girolami
@@ -28,7 +29,7 @@ public class Filters {
 		super();
 	}
 
-	StateStats stats = new StateStats();
+	Stats stats = new StatsImplementation();
 
 	/**
 	 * Costruttore con parametri:
@@ -66,16 +67,16 @@ public class Filters {
 					array = filter.OneMonthCountryMarket(states);
 				} else if (parameter.equals("source")) {
 					FilterSource filter = new FilterSource();
-					array = filter.oneMonth(states, value);
+					array = filter.oneMonth(states, value, period);
 				} else if (parameter.equals("genre")) {
 					FilterGenre filter = new FilterGenre();
-					array = filter.oneMonth(states, value);
+					array = filter.oneMonth(states, value, period);
 				} else if (parameter.equals("segment")) {
 					FilterSegment filter = new FilterSegment();
-					array = filter.oneMonth(states, value);
+					array = filter.oneMonth(states, value, period);
 				} else if (parameter.equals("subgenre")) {
 					FilterSubGenre filter = new FilterSubGenre();
-					array = filter.oneMonth(states, value);
+					array = filter.oneMonth(states, value, period);
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 				
 			} else if (period == 3) {
@@ -88,16 +89,16 @@ public class Filters {
 					array = filter.ThreeMonthsCountryMarket(states);
 				} else if (parameter.equals("source")) {
 					FilterSource filter = new FilterSource();
-					array = filter.threeMonths(states, value);
+					array = filter.threeMonths(states, value, period);
 				} else if (parameter.equals("genre")) {
 					FilterGenre filter = new FilterGenre();
-					array = filter.threeMonths(states, value);
+					array = filter.threeMonths(states, value, period);
 				} else if (parameter.equals("segment")) {
 					FilterSegment filter = new FilterSegment();
-					array = filter.threeMonths(states, value);
+					array = filter.threeMonths(states, value, period);
 				} else if (parameter.equals("subgenre")) {
 					FilterSubGenre filter = new FilterSubGenre();
-					array = filter.threeMonths(states, value);
+					array = filter.threeMonths(states, value, period);
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 				
 			} else if (period == 6) {
@@ -110,16 +111,16 @@ public class Filters {
 					array = filter.SixMonthsCountryMarket(states);
 				} else if (parameter.equals("source")) {
 					FilterSource filter = new FilterSource();
-					array = filter.sixMonths(states, value);
+					array = filter.sixMonths(states, value, period);
 				} else if (parameter.equals("genre")) {
 					FilterGenre filter = new FilterGenre();
-					array = filter.sixMonths(states, value);
+					array = filter.sixMonths(states, value, period);
 				} else if (parameter.equals("segment")) {
 					FilterSegment filter = new FilterSegment();
-					array = filter.sixMonths(states, value);
+					array = filter.sixMonths(states, value, period);
 				} else if (parameter.equals("subgenre")) {
 					FilterSubGenre filter = new FilterSubGenre();
-					array = filter.sixMonths(states, value);
+					array = filter.sixMonths(states, value, period);
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 				
 			} else if (period == 12) {
@@ -132,16 +133,16 @@ public class Filters {
 					array = filter.OneYearCountryMarket(states);
 				} else if (parameter.equals("source")) {
 					FilterSource filter = new FilterSource();
-					array = filter.oneYear(states, value);
+					array = filter.oneYear(states, value, period);
 				} else if (parameter.equals("genre")) {
 					FilterGenre filter = new FilterGenre();
-					array = filter.oneYear(states, value);
+					array = filter.oneYear(states, value, period);
 				} else if (parameter.equals("segment")) {
 					FilterSegment filter = new FilterSegment();
-					array = filter.oneYear(states, value);
+					array = filter.oneYear(states, value, period);
 				} else if (parameter.equals("subgenre")) {
 					FilterSubGenre filter = new FilterSubGenre();
-					array = filter.oneYear(states, value);
+					array = filter.oneYear(states, value, period);
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 			}
 
@@ -398,13 +399,9 @@ public class Filters {
 		return array;
 	}
 
-	public JSONArray filterFiller(Vector<String> states, String value) {
+	public JSONArray filterFiller(Vector<String> states, String value, int period) {
 
 		JSONArray array = new JSONArray();
-
-		Vector<JSONObject> countryVector = new Vector<JSONObject>();
-		Vector<Integer> totalEvents = new Vector<Integer>();
-		Vector<JSONObject> coupleObject = new Vector<JSONObject>();
 
 		Iterator<String> iter = states.iterator();
 
@@ -416,16 +413,13 @@ public class Filters {
 
 		while (iter.hasNext()) {
 			JSONObject obj = new JSONObject();
-			obj = stats.totalGenreEvents(iter.next(), value);
-			countryVector.add(obj);
+			obj = stats.getGenreEvents(iter.next(), value, period);
 			int totalElements = obj.getInt("totalEvents");
-			totalEvents.add(totalElements);
 			
 
 			JSONObject couple = new JSONObject();
 			couple.put("State: ", states.get(j));
 			couple.put("Total elements: ", totalElements);
-			coupleObject.add(couple);
 			array.put(couple);
 			if (totalElements <= minevent) {
 				minevent = totalElements;
