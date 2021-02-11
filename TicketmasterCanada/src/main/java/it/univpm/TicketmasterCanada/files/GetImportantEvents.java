@@ -226,7 +226,7 @@ public class GetImportantEvents {
 	
 	
 
-	public String SaveImportantEvents(String countryCode, String segment) throws IOException {
+	public String SaveImportantCountryEvents(String countryCode, String segment) throws IOException {
 
 		EventVector eventsArray = getSelectedImportantEventsFromAPI(countryCode, segment);
 

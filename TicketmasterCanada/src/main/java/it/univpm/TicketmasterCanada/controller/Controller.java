@@ -13,16 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.qos.logback.core.spi.FilterAttachableImpl;
-
+import java.io.IOException;
 import java.util.Vector;
 
 import org.json.*;
 
-import it.univpm.TicketmasterCanada.exception.WrongComparatorException;
-import it.univpm.TicketmasterCanada.exception.WrongParameterException;
-import it.univpm.TicketmasterCanada.exception.WrongPeriodException;
-import it.univpm.TicketmasterCanada.exception.WrongValueException;
+import it.univpm.TicketmasterCanada.exception.*;
+import it.univpm.TicketmasterCanada.files.GetImportantEvents;
 import it.univpm.TicketmasterCanada.filters.Filters;
 import it.univpm.TicketmasterCanada.model.*;
 import it.univpm.TicketmasterCanada.service.*;
@@ -142,4 +139,16 @@ public class Controller {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@GetMapping(value = "/saveCountryEvents") 
+	public ResponseEntity<Object> saveCountryEvents(@RequestParam String stateCode) throws IOException {
+		
+		GetImportantEvents save = new GetImportantEvents();
+		
+        String path = save.StoreStateEvents(stateCode);
+		
+		return new ResponseEntity<>(path, HttpStatus.OK);
+		
+    }
+	
 }
