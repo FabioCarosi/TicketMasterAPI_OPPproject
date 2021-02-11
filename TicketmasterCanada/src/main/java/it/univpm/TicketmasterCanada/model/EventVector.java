@@ -2,7 +2,6 @@ package it.univpm.TicketmasterCanada.model;
 
 import java.util.Vector;
 
-import org.json.JSONObject;
 
 /**
  * @author Mattia Girolami
@@ -10,6 +9,9 @@ import org.json.JSONObject;
  */
 
 public class EventVector {
+	
+	private int eventsNumber;
+	private int showedEvents;
 	
 	Vector<Event> vector = new Vector<Event>();
 
@@ -41,13 +43,35 @@ public class EventVector {
 	public EventVector() {
 		super();
 	}
-/**
-	@Override
-	public String toString() {
-		return "" + vector;
+
+	/**
+	 * @return the eventsNumber
+	 */
+	public int getEventsNumber() {
+		return eventsNumber;
 	}
-*/	
-	
+
+	/**
+	 * @param eventsNumber the eventsNumber to set
+	 */
+	public void setEventsNumber(int eventsNumber) {
+		this.eventsNumber = eventsNumber;
+	}
+
+	/**
+	 * @return the showedEvents
+	 */
+	public int getShowedEvents() {
+		return showedEvents;
+	}
+
+	/**
+	 * @param showedEvents the showedEvents to set
+	 */
+	public void setShowedEvents(int showedEvents) {
+		this.showedEvents = showedEvents;
+	}
+
 	
 	
 	
