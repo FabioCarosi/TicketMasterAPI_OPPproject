@@ -4,6 +4,7 @@
 package it.univpm.TicketmasterCanada.stats;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
@@ -11,11 +12,21 @@ import org.springframework.web.client.RestTemplate;
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
- *
  */
 public class StatsImplementation implements Stats{
-private LocalDate datanow = java.time.LocalDate.now();
 	
+	private static LocalDate datanow = java.time.LocalDate.now();
+	
+	LocalDateTime nunc = LocalDateTime.now();
+	
+	int hour = nunc.getHour();
+	int minute = nunc.getMinute();
+	int second = nunc.getSecond();
+	
+	String tempus = "T" + hour + ":" + minute + ":" + second + "Z";
+	
+
+
 	/**
 	 * Chiave API per accedere ai servizi Ticketmaster
 	 */
@@ -27,7 +38,7 @@ private LocalDate datanow = java.time.LocalDate.now();
 		JSONObject countryObject;
 		
         String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + countryCode 
-                   + "&=endDateTime" + datanow.plusMonths(period) + "&apiKey="+ apiKey;
+        		 + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apiKey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -50,7 +61,7 @@ private LocalDate datanow = java.time.LocalDate.now();
 		JSONObject stateObject;
 		
         String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode 
-                   + "&=endDateTime" + datanow.plusMonths(period) + "&apiKey="+ apiKey;
+        		 + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apiKey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -74,7 +85,7 @@ private LocalDate datanow = java.time.LocalDate.now();
 		JSONObject marketObject;
 		
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&marketId=" + marketId 
-				   + "&=endDateTime" + datanow.plusMonths(period) + "&apikey="+ apiKey;
+				 + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -98,7 +109,7 @@ private LocalDate datanow = java.time.LocalDate.now();
 		JSONObject segmentObject;
 		
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-	              + countryCode + "&segmentName="+ segment + "&=endDateTime" + datanow.plusMonths(period) + "&apikey="+ apiKey;
+	              + countryCode + "&segmentName="+ segment + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -169,7 +180,7 @@ private LocalDate datanow = java.time.LocalDate.now();
 		JSONObject genreEventsObject;
 		
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-		              + countryCode + "&genreId="+ genreId + "&=endDateTime" + datanow.plusMonths(period) + "&apikey="+ apiKey;
+		              + countryCode + "&genreId="+ genreId  + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -261,7 +272,7 @@ private LocalDate datanow = java.time.LocalDate.now();
 		JSONObject subGenreEventsObject;
 		
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-		              + countryCode + "&subGenreId="+ subGenreId + "&=endDateTime" + datanow.plusMonths(period) + "&apikey="+ apiKey;
+		              + countryCode + "&subGenreId="+ subGenreId + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -284,7 +295,7 @@ private LocalDate datanow = java.time.LocalDate.now();
 		JSONObject sourceObject;
 		
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode="
-	              + stateCode + "&source="+ source + "&=endDateTime" + datanow.plusMonths(period) + "&apikey="+ apiKey;
+	              + stateCode + "&source="+ source  + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
