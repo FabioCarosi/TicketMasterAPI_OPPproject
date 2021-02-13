@@ -185,7 +185,7 @@ public class Filters {
 			if (period == 1) {
 				if (parameter.equals("state")) {
 					SourceComparator filter = new SourceComparator();
-					array = filter.OneMonth(states, value);
+					array = filter.period(states, value, period);
 				} else
 					throw new WrongParameterException(
 							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa country.");
@@ -193,7 +193,7 @@ public class Filters {
 
 				if (parameter.equals("state")) {
 					SourceComparator filter = new SourceComparator();
-					array = filter.ThreeMonths(states, value);
+					array = filter.period(states, value, period);
 				} else
 					throw new WrongParameterException(
 							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa country.");
@@ -203,7 +203,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SourceComparator filter = new SourceComparator();
-					array = filter.SixMonths(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -216,7 +216,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SourceComparator filter = new SourceComparator();
-					array = filter.OneYear(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -232,7 +232,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SegmentComparator filter = new SegmentComparator();
-					array = filter.OneMonth(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -244,7 +244,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SegmentComparator filter = new SegmentComparator();
-					array = filter.ThreeMonths(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -256,7 +256,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SegmentComparator filter = new SegmentComparator();
-					array = filter.SixMonths(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -269,7 +269,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SegmentComparator filter = new SegmentComparator();
-					array = filter.OneYear(states, value);
+					array = filter.period(states, value, period);
 				} else
 					throw new WrongParameterException(
 							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -284,7 +284,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					GenreComparator filter = new GenreComparator();
-					array = filter.OneMonth(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -297,7 +297,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					GenreComparator filter = new GenreComparator();
-					array = filter.ThreeMonths(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -310,7 +310,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					GenreComparator filter = new GenreComparator();
-					array = filter.SixMonths(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -323,7 +323,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					GenreComparator filter = new GenreComparator();
-					array = filter.OneYear(states, value);
+					array = filter.period(states, value, period);
 				} else
 					throw new WrongParameterException(
 							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
@@ -338,7 +338,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SubGenreComparator filter = new SubGenreComparator();
-					array = filter.OneMonth(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -351,7 +351,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SubGenreComparator filter = new SubGenreComparator();
-					array = filter.ThreeMonths(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -364,7 +364,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SubGenreComparator filter = new SubGenreComparator();
-					array = filter.SixMonths(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
@@ -377,7 +377,7 @@ public class Filters {
 
 				if (parameter.equals("country")) {
 					SubGenreComparator filter = new SubGenreComparator();
-					array = filter.OneYear(states, value);
+					array = filter.period(states, value, period);
 				}
 
 				else
