@@ -19,19 +19,32 @@ import org.junit.jupiter.api.Test;
  * @author Mattia Girolami
  * @author Fabio Carosi
  */
+
 public class GetImportantEventsTest {
 	
 	GetImportantEvents file;
 	
+	/**
+	 * Inizializza le componenti necessarie per i test.
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception {
 		file = new GetImportantEvents();
 		}
 	
+	/**
+	 * Distrugge quello che è stato creato dal BeforeEach.
+	 * @throws Exception
+	 */
 	@AfterEach
 	void tearDown() throws Exception {
 	}
 	
+	/**
+	 * Test che controlla il corretto salvataggio del file.
+	 * @throws IOException
+	 */
 	@Test
 	@DisplayName("Salvataggio del file avvenuto in modo corretto")
 	void fileSaver() throws IOException {
@@ -61,6 +74,10 @@ public class GetImportantEventsTest {
 	}
 	
 	
+	/**
+	 * Test che verifica la corretta creazione della directory.
+	 * @throws IOException
+	 */
 	@Test
 	@DisplayName("Creazione della directory avvenuta in modo corretto")
 	void directorySaver() throws IOException {
