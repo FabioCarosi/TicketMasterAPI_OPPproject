@@ -69,8 +69,8 @@ public class Filters {
 					FilterSource filter = new FilterSource();
 					array = filter.oneMonth(states, value, period);
 				} else if (parameter.equals("genre")) {
-					FilterGenre filter = new FilterGenre();
-					array = filter.oneMonth(states, value, period);
+					GenreFilter filter = new GenreFilter();
+					array = filter.Period(states, value, period);
 				} else if (parameter.equals("segment")) {
 					FilterSegment filter = new FilterSegment();
 					array = filter.oneMonth(states, value, period);
@@ -91,8 +91,8 @@ public class Filters {
 					FilterSource filter = new FilterSource();
 					array = filter.threeMonths(states, value, period);
 				} else if (parameter.equals("genre")) {
-					FilterGenre filter = new FilterGenre();
-					array = filter.threeMonths(states, value, period);
+					GenreFilter filter = new GenreFilter();
+					array = filter.Period(states, value, period);
 				} else if (parameter.equals("segment")) {
 					FilterSegment filter = new FilterSegment();
 					array = filter.threeMonths(states, value, period);
@@ -113,8 +113,8 @@ public class Filters {
 					FilterSource filter = new FilterSource();
 					array = filter.sixMonths(states, value, period);
 				} else if (parameter.equals("genre")) {
-					FilterGenre filter = new FilterGenre();
-					array = filter.sixMonths(states, value, period);
+					GenreFilter filter = new GenreFilter();
+					array = filter.Period(states, value, period);
 				} else if (parameter.equals("segment")) {
 					FilterSegment filter = new FilterSegment();
 					array = filter.sixMonths(states, value, period);
@@ -135,8 +135,8 @@ public class Filters {
 					FilterSource filter = new FilterSource();
 					array = filter.oneYear(states, value, period);
 				} else if (parameter.equals("genre")) {
-					FilterGenre filter = new FilterGenre();
-					array = filter.oneYear(states, value, period);
+					GenreFilter filter = new GenreFilter();
+					array = filter.Period(states, value, period);
 				} else if (parameter.equals("segment")) {
 					FilterSegment filter = new FilterSegment();
 					array = filter.oneYear(states, value, period);

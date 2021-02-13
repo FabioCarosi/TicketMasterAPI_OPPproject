@@ -16,9 +16,6 @@ import it.univpm.TicketmasterCanada.exception.*;
  */
 public interface FilterInterface {
 	
-	public abstract JSONArray OneMonth(Vector<String> countries, String value) throws WrongValueException;
-	public abstract JSONArray ThreeMonths(Vector<String> countries, String value) throws WrongValueException;
-	public abstract JSONArray SixMonths(Vector<String> countries, String value) throws WrongValueException;
-	public abstract JSONArray OneYear(Vector<String> countries, String value) throws WrongValueException;
+	public abstract JSONArray Period(Vector<String> countries, String value, int period) throws WrongValueException;
 
 }
