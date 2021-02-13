@@ -11,11 +11,12 @@ import org.json.JSONArray;
  * @author Fabio Carosi
  * @author Mattia Girolami
  */
+
+/**
+ * Interfaccia che contiene i metodi per il filtraggio deli eventi per country o per market
+ */
 public interface MarketCountryInterface {
 	
-	public abstract JSONArray OneMonthCountryMarket(Vector<String> market_country);
-	public abstract JSONArray ThreeMonthsCountryMarket(Vector<String> market_country);
-	public abstract JSONArray SixMonthsCountryMarket(Vector<String> market_country);
-	public abstract JSONArray NineMonthsCountryMarket(Vector<String> market_country);
-	public abstract JSONArray OneYearCountryMarket(Vector<String> market_country);
+	public abstract JSONArray periodMarketCountry(Vector<String> market_country, int period);
+	
 }

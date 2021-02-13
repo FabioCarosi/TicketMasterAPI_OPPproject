@@ -14,8 +14,13 @@ import it.univpm.TicketmasterCanada.stats.Stats;
 
 
 /**
- * @author Mattia Girolami
  * @author Fabio Carosi
+ * @author Mattia Girolami
+ */
+
+/**
+ * Questa classe implementa period e contiene i metodi per il filtraggio degli eventi di 
+ * un segment in base allo Stato e in funzione del periodo su cui si vuole effettuare tale ricerca
  */
 public class SegmentComparator implements FilterInterface {
 		

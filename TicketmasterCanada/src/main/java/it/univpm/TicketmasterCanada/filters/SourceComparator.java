@@ -18,7 +18,10 @@ import it.univpm.TicketmasterCanada.stats.Stats;
  * @author Mattia Girolami
  * @author Fabio Carosi
  */
-
+/**
+ * Questa classe implementa period e contiene i metodi per il filtraggio degli eventi di 
+ * un source in base allo Stato e in funzione del periodo su cui si vuole effettuare tale ricerca
+ */
 public class SourceComparator implements FilterInterface{
 	Stats stats;
 	

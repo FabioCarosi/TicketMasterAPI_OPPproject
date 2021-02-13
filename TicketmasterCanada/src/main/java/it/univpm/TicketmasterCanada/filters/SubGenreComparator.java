@@ -14,8 +14,12 @@ import it.univpm.TicketmasterCanada.stats.Stats;
 
 
 /**
- * @author mgiro
- *
+ * @author Fabio Carosi
+ * @author Mattia Girolami
+ */
+/**
+ * Questa classe implementa period e contiene i metodi per il filtraggio degli eventi di 
+ * un subGenre in base allo Stato e in funzione del periodo su cui si vuole effettuare tale ricerca
  */
 public class SubGenreComparator implements FilterInterface{
 Stats stats;
