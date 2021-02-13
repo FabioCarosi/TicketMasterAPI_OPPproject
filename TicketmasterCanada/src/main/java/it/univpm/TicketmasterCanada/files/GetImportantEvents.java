@@ -25,8 +25,7 @@ import it.univpm.TicketmasterCanada.service.ServiceImplementation;
 public class GetImportantEvents {
 
 	private String apikey = "Ccg2GNVOGvUUXJeAPtSSAEQZjxbFN75B";
-	
-	
+		
 	public JSONObject ImportantEvents(String countryCode, String segment) {
 		
 		JSONObject importantObject;
@@ -238,10 +237,11 @@ public class GetImportantEvents {
 		String nomeDirectory = "Most_important_event";
 
 		String pathDirectory = System.getProperty("user.dir") + "/" + nomeDirectory;
-
+		
 		String nomeFile = countryCode + "_Most_Important_Event";
 
 		String path = pathDirectory + "/" + nomeFile + ".txt";
+		
 
 		File directory = new File(pathDirectory);
 
