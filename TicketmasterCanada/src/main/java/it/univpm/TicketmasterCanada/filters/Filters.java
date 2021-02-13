@@ -66,17 +66,17 @@ public class Filters {
 					FilterCountry filter = new FilterCountry();
 					array = filter.OneMonthCountryMarket(states);
 				} else if (parameter.equals("source")) {
-					FilterSource filter = new FilterSource();
-					array = filter.oneMonth(states, value, period);
+					SourceFilter filter = new SourceFilter();
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("genre")) {
 					GenreFilter filter = new GenreFilter();
-					array = filter.Period(states, value, period);
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("segment")) {
-					FilterSegment filter = new FilterSegment();
-					array = filter.oneMonth(states, value, period);
+					SegmentFilter filter = new SegmentFilter();
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("subgenre")) {
-					FilterSubGenre filter = new FilterSubGenre();
-					array = filter.oneMonth(states, value, period);
+					SubGenreFilter filter = new SubGenreFilter();
+					array = filter.period(states, value, period);
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 				
 			} else if (period == 3) {
@@ -88,17 +88,17 @@ public class Filters {
 					FilterCountry filter = new FilterCountry();
 					array = filter.ThreeMonthsCountryMarket(states);
 				} else if (parameter.equals("source")) {
-					FilterSource filter = new FilterSource();
-					array = filter.threeMonths(states, value, period);
+					SourceFilter filter = new SourceFilter();
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("genre")) {
 					GenreFilter filter = new GenreFilter();
-					array = filter.Period(states, value, period);
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("segment")) {
-					FilterSegment filter = new FilterSegment();
-					array = filter.threeMonths(states, value, period);
+					SegmentFilter filter = new SegmentFilter();
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("subgenre")) {
-					FilterSubGenre filter = new FilterSubGenre();
-					array = filter.threeMonths(states, value, period);
+					SubGenreFilter filter = new SubGenreFilter();
+					array = filter.period(states, value, period);
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 				
 			} else if (period == 6) {
@@ -110,17 +110,17 @@ public class Filters {
 					FilterCountry filter = new FilterCountry();
 					array = filter.SixMonthsCountryMarket(states);
 				} else if (parameter.equals("source")) {
-					FilterSource filter = new FilterSource();
-					array = filter.sixMonths(states, value, period);
+					SourceFilter filter = new SourceFilter();
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("genre")) {
 					GenreFilter filter = new GenreFilter();
-					array = filter.Period(states, value, period);
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("segment")) {
-					FilterSegment filter = new FilterSegment();
-					array = filter.sixMonths(states, value, period);
+					SegmentFilter filter = new SegmentFilter();
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("subgenre")) {
-					FilterSubGenre filter = new FilterSubGenre();
-					array = filter.sixMonths(states, value, period);
+					SubGenreFilter filter = new SubGenreFilter();
+					array = filter.period(states, value, period);
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 				
 			} else if (period == 12) {
@@ -132,17 +132,17 @@ public class Filters {
 					FilterCountry filter = new FilterCountry();
 					array = filter.OneYearCountryMarket(states);
 				} else if (parameter.equals("source")) {
-					FilterSource filter = new FilterSource();
-					array = filter.oneYear(states, value, period);
+					SourceFilter filter = new SourceFilter();
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("genre")) {
 					GenreFilter filter = new GenreFilter();
-					array = filter.Period(states, value, period);
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("segment")) {
-					FilterSegment filter = new FilterSegment();
-					array = filter.oneYear(states, value, period);
+					SegmentFilter filter = new SegmentFilter();
+					array = filter.period(states, value, period);
 				} else if (parameter.equals("subgenre")) {
-					FilterSubGenre filter = new FilterSubGenre();
-					array = filter.oneYear(states, value, period);
+					SubGenreFilter filter = new SubGenreFilter();
+					array = filter.period(states, value, period);
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 			}
 

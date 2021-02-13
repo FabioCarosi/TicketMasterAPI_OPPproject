@@ -16,13 +16,13 @@ import it.univpm.TicketmasterCanada.stats.StatsImplementation;
  * @author Mattia Girolami
  */
 
-public class GenreFilter {
+public class SegmentFilter {
 	
 	Stats stats = new StatsImplementation();
 	
-	public JSONArray period(Vector<String> states, String genre, int period) {
+	public JSONArray period(Vector<String> states, String segment, int period) {
 		
-		JSONArray genreEvents = new JSONArray();
+		JSONArray segmentEvents = new JSONArray();
 		
 		Iterator<String> it = states.iterator();
 		
@@ -36,13 +36,13 @@ public class GenreFilter {
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.getGenreEvents(it.next(), genre, period);
+			object = stats.getSegmentEvents(it.next(), segment, period);
 			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
 			couple.put("state: ", states.get(i));
 			couple.put("totalEvents: ", totalElements);
-			genreEvents.put(couple);
+			segmentEvents.put(couple);
 			
 			if(totalElements <= minEvent) {
 				minEvent=totalElements;
@@ -65,10 +65,10 @@ public class GenreFilter {
 		minStateEvents.put("State with least events: ", minState);
 		minStateEvents.put("totalEvents: ", minEvent);
 		
-		genreEvents.put(maxStateEvents);
-		genreEvents.put(minStateEvents);
+		segmentEvents.put(maxStateEvents);
+		segmentEvents.put(minStateEvents);
 		
-		return genreEvents;
+		return segmentEvents;
 	}
 	
 }
