@@ -1,10 +1,9 @@
 package it.univpm.TicketmasterCanada.filters;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import it.univpm.TicketmasterCanada.exception.*;
 import it.univpm.TicketmasterCanada.stats.Stats;
@@ -13,8 +12,12 @@ import it.univpm.TicketmasterCanada.stats.StatsImplementation;
 /**
  * @author Mattia Girolami
  * @author Fabio Carosi 
+ */
+
+/**
  * La classe Filters contiene i metodi necessari per poter utilizzare i filtri.
  */
+
 public class Filters {
 	private Vector<String> states = new Vector<String>();
 	private String parameter;
@@ -395,52 +398,6 @@ public class Filters {
 		else
 			throw new WrongComparatorException(comparator + " non è una stringa ammessa. Inserisci una stringa tra "
 					+ "country, market, source, segment, genre o subgenre.");
-
-		return array;
-	}
-
-	public JSONArray filterFiller(Vector<String> states, String value, int period) {
-
-		JSONArray array = new JSONArray();
-
-		Iterator<String> iter = states.iterator();
-
-		int j = 0;
-		String max = null;
-		String min = null;
-		int maxevent = 0;
-		int minevent = 9999;
-
-		while (iter.hasNext()) {
-			JSONObject obj = new JSONObject();
-			obj = stats.getGenreEvents(iter.next(), value, period);
-			int totalElements = obj.getInt("totalEvents");
-			
-
-			JSONObject couple = new JSONObject();
-			couple.put("State: ", states.get(j));
-			couple.put("Total elements: ", totalElements);
-			array.put(couple);
-			if (totalElements <= minevent) {
-				minevent = totalElements;
-				min = states.get(j);
-			}
-			if (totalElements >= maxevent) {
-				maxevent = totalElements;
-				max = states.get(j);
-			}
-
-			j++;
-		}
-
-		JSONObject highest = new JSONObject();
-		JSONObject lower = new JSONObject();
-		highest.put("Stato con il maggior numero di eventi: ", max);
-		highest.put("Numero di eventi: ", maxevent);
-		lower.put("Stato con il minor numero di eventi: ", min);
-		lower.put("Numero di eventi: ", minevent);
-		array.put(highest);
-		array.put(lower);
 
 		return array;
 	}

@@ -14,7 +14,11 @@ import it.univpm.TicketmasterCanada.stats.Stats;
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
- *
+ */
+
+/** 
+ *Implementa MarketCountryInterface e contiene i metodi per filtrare gli eventi in 
+ *un paese in funzione del periodo su cui si vuole effettuare tale ricerca
  */
 public class CountryFilter implements MarketCountryInterface{
 	Stats stats;
