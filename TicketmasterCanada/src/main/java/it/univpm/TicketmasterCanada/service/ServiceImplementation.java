@@ -48,9 +48,9 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @return JSONObject con gli eventi del Paese
 	 */
 	
-	public JSONObject getCountryEvents(String countryCode) {
+	public JSONObject getCountryEvents() {
 		
-		String request = "https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=" + apiKey + "&countryCode="+ countryCode;
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?size=200&apikey=" + apiKey + "&countryCode=CA";
 		RestTemplate rTemplate = new RestTemplate();
 		JSONObject CountryEventsObj;
 		CountryEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
@@ -130,9 +130,9 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	}
 
 	
-	public EventVector getCountryEventsFromAPI (String code) {	
+	public EventVector getCountryEventsFromAPI () {	
 		EventVector countryInfo = new EventVector();
-		JSONObject countryObj = getCountryEvents(code);
+		JSONObject countryObj = getCountryEvents();
 		Vector<Event> countryVector = vectorFiller(countryObj);
 		countryInfo.setVector(countryVector);
 		return countryInfo;
@@ -381,5 +381,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return fullVector;	
 	}
+
+	
 
 }
