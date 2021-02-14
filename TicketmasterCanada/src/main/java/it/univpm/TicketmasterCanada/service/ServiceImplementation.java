@@ -137,8 +137,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		String request = "";
 
 		if (stateCode == "CA") {
-			request = "https://app.ticketmaster.com/discovery/v2/events?size=200&genreId=" + genre
-					+ "&countryCode=CA" + "&apikey=" + apiKey;
+			request = "https://app.ticketmaster.com/discovery/v2/events?size=200&genreId=" + genre + "&countryCode=CA"
+					+ "&apikey=" + apiKey;
 		} else {
 			request = "https://app.ticketmaster.com/discovery/v2/events?size=200&genreId=" + genre + "&stateCode="
 					+ stateCode + "&apikey=" + apiKey;
