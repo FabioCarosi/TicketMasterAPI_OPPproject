@@ -75,23 +75,11 @@ public class Controller {
 		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	}
 
+
 	@GetMapping(value = "/sourceEvents")
-	public ResponseEntity<Object> getSourceEvent(@RequestParam String source) {
-
-		EventVector eventsArray = service.getSourceEventsFromAPI(source);
-
-		JSONObject obj = new JSONObject();
-		JsonCreator jsonconverter = new JsonCreator();
-
-		obj = jsonconverter.jsonCreator(eventsArray);
-
-		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
-	}
-
-	@GetMapping(value = "/state-sourceEvents")
 	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String stateCode) {
 
-		EventVector eventsArray = service.getStateSourceEventsFromAPI(source, stateCode);
+		EventVector eventsArray = service.getSourceEventsFromAPI(source, stateCode);
 
 		JSONObject obj = new JSONObject();
 		JsonCreator jsonconverter = new JsonCreator();
