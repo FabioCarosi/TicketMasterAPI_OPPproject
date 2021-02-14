@@ -88,10 +88,10 @@ public class Controller {
 		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/country-sourceEvents")
-	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String countryCode) {
+	@GetMapping(value = "/state-sourceEvents")
+	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String stateCode) {
 
-		EventVector eventsArray = service.getCountrySourceEventsFromAPI(source, countryCode);
+		EventVector eventsArray = service.getStateSourceEventsFromAPI(source, stateCode);
 
 		JSONObject obj = new JSONObject();
 		JsonCreator jsonconverter = new JsonCreator();
@@ -100,6 +100,70 @@ public class Controller {
 
 		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	}
+	
+	/** Rotta di tipo GET che mostra gli eventi che hanno luogo nel paese scelto tramite la parola chiave inserita dall'utente,
+	 * con le proprie caratteristiche selezionate dallo sviluppatore 
+	 * 
+	 * @param keyword parola chiave
+	 * @param countryCode countryCode rappresenta il codice del paese di cui si vogliono visualizzare gli eventi (sono ammessi solo codici di paesi europei)
+	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto tramite la parola chiave inserita
+	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo (la lista dei codici ammessi è disponibile nel file "Codes and Names")
+	 */
+	@GetMapping(value = "/keywordEvents") 
+	public ResponseEntity<Object> getKeywordEvent(@RequestParam String keyword, String stateCode) {
+		
+		EventVector eventsArray = service.getKeywordEventsFromAPI(keyword, stateCode);		
+        
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
+		
+		obj = jsonconverter.jsonCreator(eventsArray);
+		
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
+	
+    }
+	
+	@GetMapping(value = "/segmentEvents") 
+	public ResponseEntity<Object> getSegmentEvent(@RequestParam String segment, String stateCode) {
+		
+		EventVector eventsArray = service.getSegmentEventsFromAPI(segment, stateCode);		
+        
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
+		
+		obj = jsonconverter.jsonCreator(eventsArray);
+		
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
+	
+    }
+	
+	@GetMapping(value = "/genreEvents") 
+	public ResponseEntity<Object> getGenreEvent(@RequestParam String genre, String stateCode) {
+		
+		EventVector eventsArray = service.getGenreEventsFromAPI(genre, stateCode);		
+        
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
+		
+		obj = jsonconverter.jsonCreator(eventsArray);
+		
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
+	
+    }
+	
+	@GetMapping(value = "/subgenreEvents") 
+	public ResponseEntity<Object> getSubGenreEvent(@RequestParam String subgenre, String stateCode) {
+		
+		EventVector eventsArray = service.getSubGenreEventsFromAPI(subgenre, stateCode);		
+        
+		JSONObject obj = new JSONObject();
+		JsonCreator jsonconverter = new JsonCreator();
+		
+		obj = jsonconverter.jsonCreator(eventsArray);
+		
+		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
+	
+    }
 
 	@PostMapping(value = "/filter")
 	public ResponseEntity<Object> filters(@RequestBody String body)

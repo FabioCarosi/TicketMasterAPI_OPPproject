@@ -84,15 +84,50 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		return SourceEventsObj;
 	}
 	
-	public JSONObject getCountrySourceEvents(String source, String countryCode) {
-		String request = "https://app.ticketmaster.com/discovery/v2/events.json?&size=200&apikey=" + apiKey + "&source="+ source+ "&countryCode="+ countryCode;
+	public JSONObject getStateSourceEvents(String source, String stateCode) {
+		String request = "https://app.ticketmaster.com/discovery/v2/events.json?&size=200&apikey=" + apiKey + "&source="+ source+ "&stateCode="+ stateCode;
 		RestTemplate rTemplate = new RestTemplate();
 		JSONObject SourceEventsObj;
 		SourceEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
 		
 		return SourceEventsObj;
 	}
-
+	
+	public JSONObject getKeywordEvents(String keyword, String stateCode) {
+		String request =  "https://app.ticketmaster.com/discovery/v2/events?size=200&keyword=" + keyword + "&stateCode=" + stateCode + "&apikey="+ apiKey;
+		RestTemplate rTemplate = new RestTemplate();
+		JSONObject KeywordEventsObj;
+		KeywordEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		
+		return KeywordEventsObj;
+	}
+	
+	public JSONObject getSegmentEvents(String segment, String stateCode) {
+		String request =  "https://app.ticketmaster.com/discovery/v2/events?size=200&segmentName="+ segment + "&stateCode=" + stateCode + "&apikey="+ apiKey;
+		RestTemplate rTemplate = new RestTemplate();
+		JSONObject segmentEventsObj;
+		segmentEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		
+		return segmentEventsObj;
+	}
+	
+	public JSONObject getGenreEvents(String genre, String stateCode) {
+		String request =  "https://app.ticketmaster.com/discovery/v2/events?size=200&genreId="+ genre + "&stateCode=" + stateCode + "&apikey="+ apiKey;
+		RestTemplate rTemplate = new RestTemplate();
+		JSONObject genreEventsObj;
+		genreEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		
+		return genreEventsObj;
+	}
+	
+	public JSONObject getSubGenreEvents(String subgenre, String stateCode) {
+		String request =  "https://app.ticketmaster.com/discovery/v2/events?size=200&subGenreId="+ subgenre + "&stateCode=" + stateCode + "&apikey="+ apiKey;
+		RestTemplate rTemplate = new RestTemplate();
+		JSONObject subgenreEventsObj;
+		subgenreEventsObj = new JSONObject(rTemplate.getForObject(request, String.class));
+		
+		return subgenreEventsObj;
+	}
 
 	
 	public EventVector getCountryEventsFromAPI (String code) {	
@@ -103,6 +138,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		return countryInfo;
 	}
 	
+	
 	public EventVector getStateEventsFromAPI (String code) {	
 		EventVector stateInfo = new EventVector();
 		JSONObject stateObj = getStateEvents(code);
@@ -110,6 +146,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		stateInfo.setVector(stateVector);
 		return stateInfo;
 	}
+	
 	public EventVector getMarketEventsFromAPI (String code) {	
 		EventVector marketInfo = new EventVector();
 		JSONObject marketObj = getMarketEvents(code);
@@ -117,6 +154,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		marketInfo.setVector(marketVector);
 		return marketInfo;
 	}
+	
 	public EventVector getSourceEventsFromAPI (String code) {	
 		EventVector sourceInfo = new EventVector();
 		JSONObject sourceObj = getSourceEvents(code);
@@ -124,12 +162,45 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		sourceInfo.setVector(sourceVector);
 		return sourceInfo;
 	}
-	public EventVector getCountrySourceEventsFromAPI (String source, String countryCode) {	
+	
+	public EventVector getStateSourceEventsFromAPI (String source, String stateCode) {	
 		EventVector sourceInfo = new EventVector();
-		JSONObject sourceObj = getCountrySourceEvents(source, countryCode);
+		JSONObject sourceObj = getStateSourceEvents(source, stateCode);
 		Vector<Event> sourceVector = vectorFiller(sourceObj);
 		sourceInfo.setVector(sourceVector);
 		return sourceInfo;
+	}
+	
+	public EventVector getKeywordEventsFromAPI (String keyword, String stateCode) {	
+		EventVector keywordInfo = new EventVector();
+		JSONObject keywordObj = getKeywordEvents(keyword,stateCode);
+		Vector<Event> keywordVector = vectorFiller(keywordObj);
+		keywordInfo.setVector(keywordVector);
+		return keywordInfo;
+	}
+	
+	public EventVector getSegmentEventsFromAPI (String segment, String stateCode) {	
+		EventVector segmentInfo = new EventVector();
+		JSONObject segmentObj = getKeywordEvents(segment,stateCode);
+		Vector<Event> segmentVector = vectorFiller(segmentObj);
+		segmentInfo.setVector(segmentVector);
+		return segmentInfo;
+	}
+	
+	public EventVector getGenreEventsFromAPI (String genre, String stateCode) {	
+		EventVector genreInfo = new EventVector();
+		JSONObject genreObj = getKeywordEvents(genre,stateCode);
+		Vector<Event> genreVector = vectorFiller(genreObj);
+		genreInfo.setVector(genreVector);
+		return genreInfo;
+	}
+	
+	public EventVector getSubGenreEventsFromAPI (String subgenre, String stateCode) {	
+		EventVector subgenreInfo = new EventVector();
+		JSONObject subgenreObj = getKeywordEvents(subgenre,stateCode);
+		Vector<Event> subgenreVector = vectorFiller(subgenreObj);
+		subgenreInfo.setVector(subgenreVector);
+		return subgenreInfo;
 	}
 	
 	
