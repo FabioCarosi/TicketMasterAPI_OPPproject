@@ -4,16 +4,15 @@
 package it.univpm.TicketmasterCanada.exception;
 
 /**
- * @author Fabio Carosi
  * @author Mattia Girolami
- *
+ * @author Fabio Carosi
  */
-public class EmptyString {
-
-String message;
+public class WrongStateException extends Exception{
 	
-	public EmptyString(String message) {
-		
+	String message;
+
+	public WrongStateException(String message) {
+
 		this.message = message;
 	}
 

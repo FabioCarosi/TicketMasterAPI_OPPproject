@@ -8,7 +8,7 @@ package it.univpm.TicketmasterCanada.exception;
  * @author Mattia Girolami
  *
  */
-public class WrongMarketCodeException {
+public class WrongMarketCodeException extends Exception {
 
 String message;
 	
