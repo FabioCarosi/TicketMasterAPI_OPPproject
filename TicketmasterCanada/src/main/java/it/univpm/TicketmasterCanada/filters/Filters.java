@@ -158,14 +158,14 @@ public class Filters {
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
 					array = filter.periodMarketCountry(states,period);
-				} else throw new WrongParameterException(parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa total.");
+				} else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 			} else if (period == 3) {
 
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
 					array = filter.periodMarketCountry(states,period);
 				} else
-					throw new WrongParameterException(parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa total.");
+					throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 				
 			} else if (period == 6) {
 
@@ -174,12 +174,12 @@ public class Filters {
 					array = filter.periodMarketCountry(states,period);
 				}
 
-				else throw new WrongParameterException(parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa total.");
+				else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 			} else if (period == 12) {
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
 					array = filter.periodMarketCountry(states,period);
-				} else throw new WrongParameterException(parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa total.");
+				} else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 			} else throw new WrongPeriodException(period + " non è un numero ammesso. Inserisci un numero tra 1, 3, 6 oppure 12.");
 		}
 
