@@ -91,6 +91,23 @@ public class FiltersTest {
     
         assertEquals("Paccasassi non è una stringa ammessa. Inserisci una stringa tra country, market, source, segment, genre o subgenre.", e.getMessage());    
     }
+    
+    /**
+	 * Questo Test verifica se viene generata correttamente l'eccezione WrongMarketCode.
+	 */
+    @Test
+    @DisplayName("Corretta generazione dell'eccezione WrongMarketCodeException.")
+    void filtersImplementation_WrongMarketCode() {
+		
+    	elements.add("ON");
+        elements.add("MB");
+        
+        filters = new Filters("Paccasassi" ,elements, "segment", "Music", 12);
+    	
+        WrongComparatorException e = assertThrows(WrongComparatorException.class, () -> {filters.filtersImplementation();});
+    
+        assertEquals("Paccasassi non è una stringa ammessa. Inserisci una stringa tra country, market, source, segment, genre o subgenre.", e.getMessage());    
+    }
 	
 	
 
