@@ -82,7 +82,9 @@ public class StatsImplementation implements Stats{
 	}
 	
 	
-	public JSONObject getMarketEvents(String marketId, int period) throws WrongStateException{
+	public JSONObject getMarketEvents(String marketId, int period) throws WrongMarketCodeException{
+		
+		exc.marketStringException(marketId);
 
 		JSONObject marketObject;
 		
@@ -106,31 +108,37 @@ public class StatsImplementation implements Stats{
 	}
 	
 	
-   public JSONObject getSegmentEvents(String countryCode, String segment, int period) throws WrongStateException, WrongValueException{
-		
+	public JSONObject getSegmentEvents(String stateCode, String segment, int period) throws WrongStateException, WrongValueException {
+
+		exc.segmentStringException(segment);
+		exc.stateStringException(stateCode);
+
 		JSONObject segmentObject;
-		
-		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-	              + countryCode + "&segmentName="+ segment + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
-		
+
+		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode + "&segmentName="
+				+ segment + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
+
 		RestTemplate restTemplate = new RestTemplate();
-		
+
 		segmentObject = new JSONObject(restTemplate.getForObject(url, String.class));
-		
+
 		JSONObject pageObject = segmentObject.getJSONObject("page");
 		int totalElements = pageObject.getInt("totalElements");
-		
+
 		JSONObject finalObject = new JSONObject();
-		
-		finalObject.put("Country: ", segment);
+
+		finalObject.put("State: ", stateCode);
 		finalObject.put("totalEvents: ", totalElements);
 
 		return finalObject;
-		
+
 	}
 	
 	
-	public JSONObject getGenreEvents(String countryCode, String genre, int period) throws WrongStateException, WrongValueException{
+	public JSONObject getGenreEvents(String stateCode, String genre, int period) throws WrongStateException, WrongValueException{
+		
+		exc.stateStringException(stateCode);
+		exc.genreStringException(genre);
 		
 		String genreId = genre;
 		
@@ -181,7 +189,7 @@ public class StatsImplementation implements Stats{
 		JSONObject genreEventsObject;
 		
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-		              + countryCode + "&genreId="+ genreId  + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
+		              + stateCode + "&genreId="+ genreId  + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -192,7 +200,7 @@ public class StatsImplementation implements Stats{
 		
 		JSONObject finalObject = new JSONObject();
 		
-		finalObject.put("Country: ", countryCode);
+		finalObject.put("State: ", stateCode);
 		finalObject.put("totalEvents: ", totalElements);
 
 		return finalObject;
@@ -200,8 +208,10 @@ public class StatsImplementation implements Stats{
 	}
 
 
-	public JSONObject getSubGenreEvents(String countryCode, String subGenre, int period) throws WrongStateException, WrongValueException{
+	public JSONObject getSubGenreEvents(String stateCode, String subGenre, int period) throws WrongStateException, WrongValueException{
 
+		exc.stateStringException(stateCode);
+		exc.subgenreStringException(subGenre);
         String subGenreId = subGenre;
 		
 		if (subGenre.equals("Adult Contemporary")) subGenreId = "KZazBEonSMnZfZ7vk1l";
@@ -273,7 +283,7 @@ public class StatsImplementation implements Stats{
 		JSONObject subGenreEventsObject;
 		
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
-		              + countryCode + "&subGenreId="+ subGenreId + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
+		              + stateCode + "&subGenreId="+ subGenreId + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -284,7 +294,7 @@ public class StatsImplementation implements Stats{
 		
 		JSONObject finalObject = new JSONObject();
 		
-		finalObject.put("Country: ", countryCode);
+		finalObject.put("State: ", stateCode);
 		finalObject.put("totalEvents: ", totalElements);
 
 		return finalObject;
@@ -292,6 +302,9 @@ public class StatsImplementation implements Stats{
 	}
 
 	public JSONObject getSourceEvents(String stateCode, String source, int period) throws WrongStateException, WrongValueException{
+		
+		exc.stateStringException(stateCode);
+		exc.sourceStringException(source);
 		
 		JSONObject sourceObject;
 		

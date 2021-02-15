@@ -12,6 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import it.univpm.TicketmasterCanada.exception.WrongStateException;
+import it.univpm.TicketmasterCanada.exception.WrongValueException;
 
 
 /**
@@ -39,6 +40,9 @@ public class StatsImplementationTest {
 	void tearDown() throws Exception{
 	}
 	
+	/**
+	 * Test che verifica la corretta esecuzione dell'eccezione WrongStateException.
+	 */
 	@Test
 	@DisplayName("Corretta generazione dell'eccezione WrongStateException")
 	void WrongStateExceptionTest() {
@@ -46,6 +50,18 @@ public class StatsImplementationTest {
 		 WrongStateException e = assertThrows(WrongStateException.class, () -> {stats.getStateEvents("NA", 3);});
 		    
 	     assertEquals("NA non è un valore ammesso.", e.getMessage());
+	}
+	
+	/**
+	 * Test che verifica la corretta esecuzione dell'eccezione WrongValueException.
+	 */
+	@Test
+	@DisplayName("Corretta generazione dell'eccezione WrongValueException")
+	void WrongValueExceptionTest() {
+		
+		WrongValueException e = assertThrows(WrongValueException.class, () -> {stats.getSegmentEvents("ON", "Ruby", 12);});
+		
+		assertEquals("Ruby non è un valore ammesso.", e.getMessage());
 	}
 	
 	

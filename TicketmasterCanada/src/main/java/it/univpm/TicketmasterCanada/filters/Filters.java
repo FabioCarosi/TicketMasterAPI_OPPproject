@@ -54,7 +54,7 @@ public class Filters {
 		this.period = period;
 	}
 
-	public JSONArray filtersImplementation()throws WrongPeriodException, WrongParameterException, WrongValueException, WrongComparatorException, WrongStateException {
+	public JSONArray filtersImplementation()throws WrongPeriodException, WrongParameterException, WrongValueException, WrongComparatorException, WrongStateException, WrongMarketCodeException {
 
 		JSONArray array = new JSONArray();
 
