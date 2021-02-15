@@ -155,7 +155,7 @@ public class Controller {
 
 	@PostMapping(value = "/filter")
 	public ResponseEntity<Object> filters(@RequestBody String body)
-			throws WrongPeriodException, WrongValueException, WrongComparatorException, WrongComparatorException, WrongStateException, WrongMarketCodeException {
+			throws WrongPeriodException, WrongValueException, WrongComparatorException, WrongComparatorException, WrongStateException {
 
 		JSONObject object = new JSONObject(body);
 		JSONArray array = new JSONArray();
@@ -189,9 +189,7 @@ public class Controller {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		} catch (WrongComparatorException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		} catch (WrongMarketCodeException e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
+		} 
 	}
 	
 	@GetMapping(value = "/saveCountryEvents") 

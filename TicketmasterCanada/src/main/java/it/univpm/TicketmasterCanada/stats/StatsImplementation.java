@@ -82,7 +82,7 @@ public class StatsImplementation implements Stats{
 	}
 	
 	
-	public JSONObject getMarketEvents(String marketId, int period) throws WrongMarketCodeException{
+	public JSONObject getMarketEvents(String marketId, int period) throws WrongValueException{
 		
 		exc.marketStringException(marketId);
 

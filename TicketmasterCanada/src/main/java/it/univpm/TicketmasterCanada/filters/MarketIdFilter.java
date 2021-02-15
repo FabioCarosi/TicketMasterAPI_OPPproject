@@ -9,8 +9,8 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import it.univpm.TicketmasterCanada.exception.WrongMarketCodeException;
 import it.univpm.TicketmasterCanada.exception.WrongStateException;
+import it.univpm.TicketmasterCanada.exception.WrongValueException;
 import it.univpm.TicketmasterCanada.stats.Stats;
 /**
  * @author Fabio Carosi
@@ -23,7 +23,7 @@ import it.univpm.TicketmasterCanada.stats.Stats;
 public class MarketIdFilter {
 	Stats stats;
 
-	public JSONArray periodMarketCountry(Vector<String> markets, int period) throws WrongStateException, WrongMarketCodeException {
+	public JSONArray periodMarketCountry(Vector<String> markets, int period) throws WrongStateException, WrongValueException {
 		
         JSONArray marketEvents = new JSONArray();
 		

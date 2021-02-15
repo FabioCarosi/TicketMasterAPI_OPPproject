@@ -14,7 +14,7 @@ public interface Stats {
 	
 	public abstract JSONObject getCountryEvents(int period);
 	public abstract JSONObject getStateEvents(String stateCode, int period) throws WrongStateException;
-	public abstract JSONObject getMarketEvents(String marketId, int period) throws WrongMarketCodeException;
+	public abstract JSONObject getMarketEvents(String marketId, int period) throws WrongValueException;
 	public abstract JSONObject getSourceEvents(String stateCode, String source, int period) throws WrongStateException, WrongValueException;
 	public abstract JSONObject getSegmentEvents(String stateCode, String segment, int period) throws WrongStateException, WrongValueException;
 	public abstract JSONObject getGenreEvents(String stateCode, String genre, int period) throws WrongStateException, WrongValueException;

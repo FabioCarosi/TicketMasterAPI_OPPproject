@@ -56,13 +56,13 @@ public class SummonException {
 	 * @param marketsId vettore di market inserito dall'utente all'interno della rotta /filters
 	 * @throws WrongValueException se viene inserito un market non ammesso
      */
-    public void marketVectorException(Vector<String> marketsId) throws WrongMarketCodeException {
+    public void marketVectorException(Vector<String> marketsId) throws WrongValueException {
     	
     	if (!marketsId.contains("102") && !marketsId.contains("103") && !marketsId.contains("106") && !marketsId.contains("107")
     		&& !marketsId.contains("108") && !marketsId.contains("110") && !marketsId.contains("111") && !marketsId.contains("112")
     		&& !marketsId.contains("120")) 
     		
-		throw new WrongMarketCodeException(marketsId + " non è un valore ammesso.");
+		throw new WrongValueException(marketsId + " non è un valore ammesso.");
     	
     }
     
@@ -73,13 +73,13 @@ public class SummonException {
      * @param marketId market inserito dall'utente all'interno delle varie rotte di GET
 	 * @throws WrongValueException se viene inserito un market non ammesso
      */
-    public void marketStringException(String marketId) throws WrongMarketCodeException {
+    public void marketStringException(String marketId) throws WrongValueException {
     	
     	if (!marketId.equals("102") && !marketId.equals("103") && !marketId.equals("106") && !marketId.equals("107")
         		&& !marketId.equals("108") && !marketId.equals("110") && !marketId.equals("111") && !marketId.equals("112")
         		&& !marketId.equals("120"))
     		
-		throw new WrongMarketCodeException(marketId + " non è un valore ammesso.");
+		throw new WrongValueException(marketId + " non è un valore ammesso.");
     	
     }
     
