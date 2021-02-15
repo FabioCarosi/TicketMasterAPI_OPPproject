@@ -23,6 +23,8 @@ import it.univpm.TicketmasterCanada.stats.Stats;
 public class CountryFilter implements MarketCountryInterface{
 	Stats stats;
 	
+	
+	
 	public JSONArray periodMarketCountry(Vector<String> countries, int period) {
 	
         JSONArray countryEvents = new JSONArray();
