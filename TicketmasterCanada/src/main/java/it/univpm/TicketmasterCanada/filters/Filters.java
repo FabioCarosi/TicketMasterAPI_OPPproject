@@ -83,7 +83,6 @@ public class Filters {
 				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
 				
 			} else if (period == 3) {
-
 				if (parameter.equals("marketID")) {
 					MarketIdFilter filter = new MarketIdFilter();
 					array = filter.periodMarketCountry(states,period);
