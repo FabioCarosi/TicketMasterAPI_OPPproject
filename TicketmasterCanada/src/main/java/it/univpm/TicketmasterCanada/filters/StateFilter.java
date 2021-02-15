@@ -9,6 +9,7 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import it.univpm.TicketmasterCanada.exception.WrongStateException;
 import it.univpm.TicketmasterCanada.stats.Stats;
 
 /**
@@ -23,7 +24,7 @@ import it.univpm.TicketmasterCanada.stats.Stats;
 public class StateFilter implements MarketCountryInterface{
 	Stats stats;
 	
-	public JSONArray periodMarketCountry(Vector<String> states, int period) {
+	public JSONArray periodMarketCountry(Vector<String> states, int period) throws WrongStateException {
 	
         JSONArray stateEvents = new JSONArray();	//creo un array
 				

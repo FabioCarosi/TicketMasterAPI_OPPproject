@@ -1,6 +1,3 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.stats;
 
 import java.time.LocalDate;
@@ -8,6 +5,8 @@ import java.time.LocalDateTime;
 
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
+
+import it.univpm.TicketmasterCanada.exception.*;
 
 /**
  * @author Fabio Carosi
@@ -30,14 +29,14 @@ public class StatsImplementation implements Stats{
 	/**
 	 * Chiave API per accedere ai servizi Ticketmaster
 	 */
-	private String apiKey = "WBy9EacSF1P9BRG8WENKrcXEcTHy5dMt";
+	private String apiKey = "Ccg2GNVOGvUUXJeAPtSSAEQZjxbFN75B";
 	
 	
-	public JSONObject getCountryEvents(String countryCode, int period) {
+	public JSONObject getCountryEvents(int period){
 
 		JSONObject countryObject;
-		
-        String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + countryCode 
+
+        String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=CA" 
         		 + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apiKey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
@@ -49,14 +48,14 @@ public class StatsImplementation implements Stats{
 		
 		JSONObject finalObject = new JSONObject();
 		
-		finalObject.put("Country: ", countryCode);
+		finalObject.put("Country: ", "CA");
 		finalObject.put("totalEvents: ", totalElements);
 
 		return finalObject;
 		
 	}
 	
-	public JSONObject getStateEvents(String stateCode, int period) {
+	public JSONObject getStateEvents(String stateCode, int period) throws WrongStateException{
 
 		JSONObject stateObject;
 		
@@ -80,7 +79,7 @@ public class StatsImplementation implements Stats{
 	}
 	
 	
-	public JSONObject getMarketEvents(String marketId, int period) {
+	public JSONObject getMarketEvents(String marketId, int period) throws WrongStateException{
 
 		JSONObject marketObject;
 		
@@ -104,7 +103,7 @@ public class StatsImplementation implements Stats{
 	}
 	
 	
-   public JSONObject getSegmentEvents(String countryCode, String segment, int period) {
+   public JSONObject getSegmentEvents(String countryCode, String segment, int period) throws WrongStateException, WrongValueException{
 		
 		JSONObject segmentObject;
 		
@@ -128,11 +127,10 @@ public class StatsImplementation implements Stats{
 	}
 	
 	
-	public JSONObject getGenreEvents(String countryCode, String genre, int period) {
+	public JSONObject getGenreEvents(String countryCode, String genre, int period) throws WrongStateException, WrongValueException{
 		
-		String genreId = null;
+		String genreId = genre;
 		
-		//equals?
 		if (genre.equals("Alternative") ) genreId = "KnvZfZ7vAvv";
 		else if (genre.equals("Aquatics"))genreId = "KnvZfZ7vAeI";
 		else if (genre.equals("Athletic Races"))genreId = "KnvZfZ7vAet";
@@ -199,9 +197,9 @@ public class StatsImplementation implements Stats{
 	}
 
 
-	public JSONObject getSubGenreEvents(String countryCode, String subGenre, int period) {
+	public JSONObject getSubGenreEvents(String countryCode, String subGenre, int period) throws WrongStateException, WrongValueException{
 
-        String subGenreId = null;
+        String subGenreId = subGenre;
 		
 		if (subGenre.equals("Adult Contemporary")) subGenreId = "KZazBEonSMnZfZ7vk1l";
 		else if (subGenre.equals("Alternative")) subGenreId = "KZazBEonSMnZfZ7vAvJ";
@@ -290,7 +288,7 @@ public class StatsImplementation implements Stats{
 		
 	}
 
-	public JSONObject getSourceEvents(String stateCode, String source, int period) {
+	public JSONObject getSourceEvents(String stateCode, String source, int period) throws WrongStateException, WrongValueException{
 		
 		JSONObject sourceObject;
 		

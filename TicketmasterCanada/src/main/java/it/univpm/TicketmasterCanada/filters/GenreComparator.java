@@ -22,7 +22,7 @@ public class GenreComparator implements FilterInterface{
 	Stats stats;
 	
 
-	public JSONArray period(Vector<String> genres, String state, int period) throws WrongValueException {
+	public JSONArray period(Vector<String> genres, String state, int period) throws WrongValueException, WrongStateException{
 		
 		JSONArray genreEvents = new JSONArray();
 		

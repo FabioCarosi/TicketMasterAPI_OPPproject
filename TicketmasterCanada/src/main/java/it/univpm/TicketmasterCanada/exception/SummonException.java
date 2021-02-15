@@ -13,14 +13,7 @@ import java.util.Vector;
  */
 
 public class SummonException {
-	
-	
-	public void countryStringException(String countryCode) throws WrongCountryCodeException{
 		
-		if (!countryCode.equals("CA"))  
-			throw new WrongCountryCodeException(countryCode + " non è un valore ammesso.");
-	}
-	
 	/** Questo metodo serve a valutare se il vettore di state inserito dall'utente è ammesso oppure no, ossia se gli stateCode
 	 * inseriti appartengono ad uno stato del Canada. Nel caso in cui uno di questi non sia ammesso viene lanciata la relativa eccezione
 	 * 
@@ -32,7 +25,7 @@ public class SummonException {
 		if (!states.contains("BC") && !states.contains("AB") && !states.contains("SK") && !states.contains("MB")
 			&& !states.contains("ON") && !states.contains("QC") && !states.contains("NB") && !states.contains("NS")
 			&& !states.contains("PE") && !states.contains("NL") && !states.contains("YT") && !states.contains("NT")
-			&& !states.contains("NU"))
+			&& !states.contains("NU") && !states.contains("CA"))
 			
 		 throw new WrongStateException(states + " non è un valore ammesso.");
 		
@@ -50,7 +43,7 @@ public class SummonException {
 		if (!state.equals("BC") && !state.equals("AB") && !state.equals("SK") && !state.equals("MB")
 			&& !state.equals("ON") && !state.equals("QC") && !state.equals("NB") && !state.equals("NS")
 			&& !state.equals("PE") && !state.equals("NL") && !state.equals("YT") && !state.equals("NT")
-			&& !state.equals("NU"))
+			&& !state.equals("NU") && !state.equals("CA"))
 				
 			 throw new WrongStateException(state + " non è un valore ammesso.");
 
@@ -254,7 +247,7 @@ public class SummonException {
     	if (!sources.contains("ticketmaster") && !sources.contains("universe") && !sources.contains("frontgate") 
     		&& !sources.contains("tmr"))
     		
-		throw new WrongValueException(sources + " non è un valore ammesso PACCA VIVE.");
+		throw new WrongValueException(sources + " non è un valore ammesso.");
 
     }
     

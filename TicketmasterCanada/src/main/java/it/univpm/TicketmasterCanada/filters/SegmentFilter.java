@@ -9,6 +9,8 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import it.univpm.TicketmasterCanada.exception.WrongStateException;
+import it.univpm.TicketmasterCanada.exception.WrongValueException;
 import it.univpm.TicketmasterCanada.stats.Stats;
 import it.univpm.TicketmasterCanada.stats.StatsImplementation;
 /**
@@ -20,7 +22,7 @@ public class SegmentFilter {
 	
 	Stats stats = new StatsImplementation();
 	
-	public JSONArray period(Vector<String> states, String segment, int period) {
+	public JSONArray period(Vector<String> states, String segment, int period) throws WrongStateException, WrongValueException {
 		
 		JSONArray segmentEvents = new JSONArray();
 		

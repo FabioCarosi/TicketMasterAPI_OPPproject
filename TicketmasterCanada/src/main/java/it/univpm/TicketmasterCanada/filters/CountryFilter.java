@@ -39,7 +39,7 @@ public class CountryFilter implements MarketCountryInterface{
 		while(it.hasNext()) {
 			
 			JSONObject object = new JSONObject();
-			object = stats.getCountryEvents(it.next(), period);
+			object = stats.getCountryEvents(period);
 			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();

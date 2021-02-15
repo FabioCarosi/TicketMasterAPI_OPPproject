@@ -25,7 +25,7 @@ public class SubGenreComparator implements FilterInterface{
 Stats stats;
 	
 
-	public JSONArray period(Vector<String> subgenres, String state, int period) throws WrongValueException {
+	public JSONArray period(Vector<String> subgenres, String state, int period) throws WrongValueException, WrongStateException {
 		
 		JSONArray subgenreEvents = new JSONArray();
 		

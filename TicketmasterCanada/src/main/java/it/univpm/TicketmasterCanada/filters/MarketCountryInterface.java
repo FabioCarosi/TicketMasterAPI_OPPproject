@@ -7,6 +7,8 @@ import java.util.Vector;
 
 import org.json.JSONArray;
 
+import it.univpm.TicketmasterCanada.exception.WrongStateException;
+
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
@@ -17,6 +19,6 @@ import org.json.JSONArray;
  */
 public interface MarketCountryInterface {
 	
-	public abstract JSONArray periodMarketCountry(Vector<String> market_country, int period);
+	public abstract JSONArray periodMarketCountry(Vector<String> market_country, int period) throws WrongStateException;
 	
 }

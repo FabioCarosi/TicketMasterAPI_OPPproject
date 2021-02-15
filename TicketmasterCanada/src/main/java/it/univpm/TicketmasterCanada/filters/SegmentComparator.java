@@ -27,7 +27,7 @@ public class SegmentComparator implements FilterInterface {
 		Stats stats;
 		
 
-		public JSONArray period(Vector<String> segments, String state, int period) throws WrongValueException {
+		public JSONArray period(Vector<String> segments, String state, int period) throws WrongValueException, WrongStateException {
 			
 			JSONArray segmentEvents = new JSONArray();
 			

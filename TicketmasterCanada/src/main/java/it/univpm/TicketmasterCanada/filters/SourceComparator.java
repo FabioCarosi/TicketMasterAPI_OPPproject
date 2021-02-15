@@ -26,7 +26,7 @@ public class SourceComparator implements FilterInterface{
 	Stats stats;
 	
 
-	public JSONArray period(Vector<String> sources, String state, int period) throws WrongValueException {
+	public JSONArray period(Vector<String> sources, String state, int period) throws WrongValueException, WrongStateException {
 		
 		JSONArray sourceEvents = new JSONArray();
 		
