@@ -14,6 +14,7 @@ import it.univpm.TicketmasterCanada.exception.*;
  */
 public class StatsImplementation implements Stats{
 	
+	SummonException exc = new SummonException();
 	private static LocalDate datanow = java.time.LocalDate.now();
 	
 	LocalDateTime nunc = LocalDateTime.now();
@@ -57,10 +58,12 @@ public class StatsImplementation implements Stats{
 	
 	public JSONObject getStateEvents(String stateCode, int period) throws WrongStateException{
 
+		exc.stateStringException(stateCode);
+		
 		JSONObject stateObject;
 		
-        String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode 
-        		 + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apiKey="+ apiKey;
+        String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode 
+        		 + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey="+ apiKey;
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
