@@ -13,6 +13,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
 
+import it.univpm.TicketmasterCanada.exception.SummonException;
+import it.univpm.TicketmasterCanada.exception.WrongStateException;
 import it.univpm.TicketmasterCanada.model.*;
 import it.univpm.TicketmasterCanada.service.JsonCreator;
 import it.univpm.TicketmasterCanada.service.ServiceImplementation;
@@ -23,6 +25,8 @@ import it.univpm.TicketmasterCanada.service.ServiceImplementation;
  */
 
 public class GetImportantEvents {
+	
+	SummonException exc = new SummonException();
 
 	private String apikey = "Ccg2GNVOGvUUXJeAPtSSAEQZjxbFN75B";
 		
@@ -275,7 +279,9 @@ public class GetImportantEvents {
 
 	}
 	
-	public String StoreStateEvents(String stateCode) throws IOException {
+	public String StoreStateEvents(String stateCode) throws IOException, WrongStateException {
+		
+		exc.stateStringException(stateCode);
 
 		ServiceImplementation service = new ServiceImplementation();
 

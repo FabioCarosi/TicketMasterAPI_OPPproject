@@ -32,6 +32,8 @@ import it.univpm.TicketmasterCanada.service.*;
 @RestController
 
 public class Controller {
+	
+	SummonException exc = new SummonException();
 
 	@Autowired
 	Service service;
@@ -50,7 +52,9 @@ public class Controller {
 	}
 
 	@GetMapping(value = "/stateEvents")
-	public ResponseEntity<Object> getStateEvent(@RequestParam String stateCode) {
+	public ResponseEntity<Object> getStateEvent(@RequestParam String stateCode) throws WrongStateException {
+		
+		exc.stateStringException(stateCode);
 
 		EventVector eventsArray = service.getStateEventsFromAPI(stateCode);
 
@@ -63,7 +67,9 @@ public class Controller {
 	}
 
 	@GetMapping(value = "/marketEvents")
-	public ResponseEntity<Object> getMarketEvent(@RequestParam String marketID) {
+	public ResponseEntity<Object> getMarketEvent(@RequestParam String marketID) throws WrongValueException {
+		
+		exc.marketStringException(marketID);
 
 		EventVector eventsArray = service.getMarketEventsFromAPI(marketID);
 
@@ -77,7 +83,10 @@ public class Controller {
 
 
 	@GetMapping(value = "/sourceEvents")
-	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String stateCode) {
+	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String stateCode) throws WrongValueException, WrongStateException {
+		
+		exc.stateStringException(stateCode);
+		exc.sourceStringException(source);
 
 		EventVector eventsArray = service.getSourceEventsFromAPI(source, stateCode);
 
@@ -95,10 +104,13 @@ public class Controller {
 	 * @param keyword parola chiave
 	 * @param countryCode countryCode rappresenta il codice del paese di cui si vogliono visualizzare gli eventi (sono ammessi solo codici di paesi europei)
 	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto tramite la parola chiave inserita
+	 * @throws WrongStateException 
 	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo (la lista dei codici ammessi è disponibile nel file "Codes and Names")
 	 */
 	@GetMapping(value = "/keywordEvents") 
-	public ResponseEntity<Object> getKeywordEvent(@RequestParam String keyword, String stateCode) {
+	public ResponseEntity<Object> getKeywordEvent(@RequestParam String keyword, String stateCode) throws WrongStateException {
+		
+		exc.stateStringException(stateCode);
 		
 		EventVector eventsArray = service.getKeywordEventsFromAPI(keyword, stateCode);		
         
@@ -112,7 +124,10 @@ public class Controller {
     }
 	
 	@GetMapping(value = "/segmentEvents") 
-	public ResponseEntity<Object> getSegmentEvent(@RequestParam String segment, String stateCode) {
+	public ResponseEntity<Object> getSegmentEvent(@RequestParam String segment, String stateCode) throws WrongStateException, WrongValueException {
+		
+		exc.stateStringException(stateCode);
+		exc.segmentStringException(segment);
 		
 		EventVector eventsArray = service.getSegmentEventsFromAPI(segment, stateCode);		
         
@@ -126,7 +141,10 @@ public class Controller {
     }
 	
 	@GetMapping(value = "/genreEvents") 
-	public ResponseEntity<Object> getGenreEvent(@RequestParam String genre, String stateCode) {
+	public ResponseEntity<Object> getGenreEvent(@RequestParam String genre, String stateCode) throws WrongStateException, WrongValueException {
+		
+		exc.stateStringException(stateCode);
+		exc.genreStringException(genre);
 		
 		EventVector eventsArray = service.getGenreEventsFromAPI(genre, stateCode);		
         
@@ -140,7 +158,10 @@ public class Controller {
     }
 	
 	@GetMapping(value = "/subgenreEvents") 
-	public ResponseEntity<Object> getSubGenreEvent(@RequestParam String subgenre, String stateCode) {
+	public ResponseEntity<Object> getSubGenreEvent(@RequestParam String subgenre, String stateCode) throws WrongStateException, WrongValueException {
+		
+		exc.subgenreStringException(subgenre);
+		exc.stateStringException(stateCode);
 		
 		EventVector eventsArray = service.getSubGenreEventsFromAPI(subgenre, stateCode);		
         
@@ -193,7 +214,9 @@ public class Controller {
 	}
 	
 	@GetMapping(value = "/saveCountryEvents") 
-	public ResponseEntity<Object> saveCountryEvents(@RequestParam String stateCode) throws IOException {
+	public ResponseEntity<Object> saveCountryEvents(@RequestParam String stateCode) throws IOException, WrongStateException {
+		
+		exc.stateStringException(stateCode);
 		
 		GetImportantEvents save = new GetImportantEvents();
 		
