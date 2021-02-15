@@ -17,6 +17,8 @@ import it.univpm.TicketmasterCanada.model.*;
  * @author Mattia Girolami
  */
 
+//Questa è la classe che implenta Service
+
 @Service
 public class ServiceImplementation implements it.univpm.TicketmasterCanada.service.Service {
 
@@ -45,11 +47,9 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	}
 
 	/**
-	 * Metodo che restituisce gli eventi da Ticketmaster passando il countryCode
-	 * come parametro
+	 * Metodo che restituisce gli eventi in Canada da Ticketmaster
 	 * 
-	 * @param countryCode dello Stato interassato
-	 * @return JSONObject con gli eventi del Paese
+	 * @return JSONObject con gli eventi del Canada
 	 */
 
 	public JSONObject getCountryEvents() {
@@ -81,7 +81,15 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return MarketEventsObj;
 	}
-
+	
+	/**
+	 * Metodo che restituisce gli eventi da Ticketmaster passando il source come
+	 * parametro e lo stateCode dello Stato 
+	 * 
+	 * @param source desiderato
+	 * @param stateCode dello Stato desiderato
+	 * @return JSONObject con gli eventi del source all'interno dello Stato indicato
+	 */
 	public JSONObject getSourceEvents(String source, String stateCode) {
 		String request = "";
 		if (stateCode == "CA") {
@@ -98,7 +106,15 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return SourceEventsObj;
 	}
-
+	
+	/**
+	 * Metodo che restituisce gli eventi da Ticketmaster passando la keyword come
+	 * parametro e lo stateCode dello Stato 
+	 * 
+	 * @param keyword desiderato
+	 * @param stateCode dello Stato desiderato
+	 * @return JSONObject con gli eventi della keyword all'interno dello Stato indicato
+	 */
 	public JSONObject getKeywordEvents(String keyword, String stateCode) {
 		String request = "";
 
@@ -115,7 +131,15 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return KeywordEventsObj;
 	}
-
+	
+	/**
+	 * Metodo che restituisce gli eventi da Ticketmaster passando il segment come
+	 * parametro e lo stateCode dello Stato 
+	 * 
+	 * @param segment desiderato
+	 * @param stateCode dello Stato desiderato
+	 * @return JSONObject con gli eventi del segment all'interno dello Stato indicato
+	 */
 	public JSONObject getSegmentEvents(String segment, String stateCode) {
 		String request = "";
 
@@ -132,7 +156,15 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return segmentEventsObj;
 	}
-
+	
+	/**
+	 * Metodo che restituisce gli eventi da Ticketmaster passando il genre come
+	 * parametro e lo stateCode dello Stato 
+	 * 
+	 * @param genre desiderato
+	 * @param stateCode dello Stato desiderato
+	 * @return JSONObject con gli eventi del genre all'interno dello Stato indicato
+	 */
 	public JSONObject getGenreEvents(String genre, String stateCode) {
 		String request = "";
 
@@ -149,7 +181,15 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return genreEventsObj;
 	}
-
+	
+	/**
+	 * Metodo che restituisce gli eventi da Ticketmaster passando il subgenre come
+	 * parametro e lo stateCode dello Stato 
+	 * 
+	 * @param subgenre desiderato
+	 * @param stateCode dello Stato desiderato
+	 * @return JSONObject con gli eventi del subgenre all'interno dello Stato indicato
+	 */
 	public JSONObject getSubGenreEvents(String subgenre, String stateCode) {
 		String request = "";
 
@@ -166,7 +206,11 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 
 		return subgenreEventsObj;
 	}
-
+	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in Canada, utilizzando il getCountryEvents e il vectorFiller
+	 * 
+	 * @return un JSONObject con tutti gli eventi che si svolgono in Canada e tutte le relative informazioni
+	 */
 	public EventVector getCountryEventsFromAPI() {
 		EventVector countryInfo = new EventVector();
 		JSONObject countryObj = getCountryEvents();
@@ -174,7 +218,12 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		countryInfo.setVector(countryVector);
 		return countryInfo;
 	}
-
+	
+	/** Questo metodo va a prendere da Ticketmaster gli eventi in una Provincia del Canada tramite il codice di tale state, utilizzando il getStateEvents e il vectorFiller
+	 * 
+	 * @param stateCode codice della provincia del Canada in cui ha luogo l'evento
+	 * @return un JSONObject contenente tutti gli eventi che si svolgono nella provincia del Canada e tutte le relative informazioni
+	 */
 	public EventVector getStateEventsFromAPI(String code) {
 		EventVector stateInfo = new EventVector();
 		JSONObject stateObj = getStateEvents(code);
@@ -182,7 +231,13 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		stateInfo.setVector(stateVector);
 		return stateInfo;
 	}
-
+	
+	/**
+	 * Questo metodo prende le informazioni degli eventi utilizzando il metodo getMarketEvents e il vectorFiller
+	 * 
+	 * @param code : cioe' il MarketId del market desiderato
+	 * @return un EventVector contente tutte le informazioni utili degli eventi nel marketId selezionato
+	 */
 	public EventVector getMarketEventsFromAPI(String code) {
 		EventVector marketInfo = new EventVector();
 		JSONObject marketObj = getMarketEvents(code);
@@ -190,7 +245,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		marketInfo.setVector(marketVector);
 		return marketInfo;
 	}
-
+	
+	/**
+	 * Questo metodo prende le informazioni degli eventi utilizzando il metodo getSourceEvents e il vectorFiller
+	 * 
+	 * @param source desiderato
+	 * @param stateCode, codice dello state (o intero Canada) desiderato
+	 * @return un EventVector contente tutte le informazioni utili degli eventi nel source e state selezionati
+	 */
 	public EventVector getSourceEventsFromAPI(String source, String stateCode) {
 		EventVector sourceInfo = new EventVector();
 		JSONObject sourceObj = getSourceEvents(source, stateCode);
@@ -198,7 +260,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		sourceInfo.setVector(sourceVector);
 		return sourceInfo;
 	}
-
+	
+	/**
+	 * Questo metodo prende le informazioni degli eventi utilizzando il metodo getKeywordEvents e il vectorFiller
+	 * 
+	 * @param keyword, parola chiave ricercata
+	 * @param stateCode, codice dello state (o intero Canada) desiderato
+	 * @return un EventVector contente tutte le informazioni utili degli eventi con la keyword e state selezionati
+	 */
 	public EventVector getKeywordEventsFromAPI(String keyword, String stateCode) {
 		EventVector keywordInfo = new EventVector();
 		JSONObject keywordObj = getKeywordEvents(keyword, stateCode);
@@ -206,7 +275,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		keywordInfo.setVector(keywordVector);
 		return keywordInfo;
 	}
-
+	
+	/**
+	 * Questo metodo prende le informazioni degli eventi utilizzando il metodo getSegmentEvents e il vectorFiller
+	 * 
+	 * @param segment, tipologia di evento ricercata
+	 * @param stateCode, codice dello state (o intero Canada) desiderato
+	 * @return un EventVector contente tutte le informazioni utili degli eventi con il segment e state selezionati
+	 */
 	public EventVector getSegmentEventsFromAPI(String segment, String stateCode) {
 		EventVector segmentInfo = new EventVector();
 		JSONObject segmentObj = getKeywordEvents(segment, stateCode);
@@ -214,7 +290,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		segmentInfo.setVector(segmentVector);
 		return segmentInfo;
 	}
-
+	
+	/**
+	 * Questo metodo prende le informazioni degli eventi utilizzando il metodo getGenreEvents e il vectorFiller
+	 * 
+	 * @param genre, genere dell'evento ricercato
+	 * @param stateCode, codice dello state (o intero Canada) desiderato
+	 * @return un EventVector contente tutte le informazioni utili degli eventi con il genre e state selezionati
+	 */
 	public EventVector getGenreEventsFromAPI(String genre, String stateCode) {
 		EventVector genreInfo = new EventVector();
 		JSONObject genreObj = getKeywordEvents(genre, stateCode);
@@ -222,7 +305,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		genreInfo.setVector(genreVector);
 		return genreInfo;
 	}
-
+	
+	/**
+	 * Questo metodo prende le informazioni degli eventi utilizzando il metodo getSubGenreEvents e il vectorFiller
+	 * 
+	 * @param subgenre, sottogenere dell'evento
+	 * @param stateCode, codice dello state (o intero Canada) desiderato
+	 * @return un EventVector contente tutte le informazioni utili degli eventi con il sottogenere e state selezionati
+	 */
 	public EventVector getSubGenreEventsFromAPI(String subgenre, String stateCode) {
 		EventVector subgenreInfo = new EventVector();
 		JSONObject subgenreObj = getKeywordEvents(subgenre, stateCode);
@@ -230,7 +320,13 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		subgenreInfo.setVector(subgenreVector);
 		return subgenreInfo;
 	}
-
+	
+	/**
+	 * Metodo che restitusce un vettore di Event con tutte le informazioni del singolo evento a partite dal JSONObject ricevuto dei metodi get*Events
+	 * 
+	 * @param JSONOject creato precedentemente dai metodi get*Events (getStateEvents, getSegmentEvents, getMarketEvents...)
+	 *@return fullVector cioè un vettore di Event con tutti gli eventi e le rispettive informazioni
+	 */
 	public Vector<Event> vectorFiller(JSONObject object) {
 
 		JSONObject stack;

@@ -14,6 +14,8 @@ import it.univpm.TicketmasterCanada.model.*;
  * @author Mattia Girolami
  *
  */
+
+//Questa classe fa da interfaccia alla classe ServiceImplementation, con alcuni metodi richiamati dal Controller
 public interface Service {
 
 	public abstract EventVector getCountryEventsFromAPI();
