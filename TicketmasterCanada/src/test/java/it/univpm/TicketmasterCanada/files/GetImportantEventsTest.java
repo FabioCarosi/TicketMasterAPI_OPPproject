@@ -14,6 +14,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import it.univpm.TicketmasterCanada.exception.WrongStateException;
+import it.univpm.TicketmasterCanada.exception.WrongValueException;
+
 
 /**
  * @author Mattia Girolami
@@ -44,10 +47,12 @@ public class GetImportantEventsTest {
 	/**
 	 * Test che controlla il corretto salvataggio del file.
 	 * @throws IOException
+	 * @throws WrongValueException 
+	 * @throws WrongStateException 
 	 */
 	@Test
 	@DisplayName("Salvataggio del file avvenuto in modo corretto")
-	void fileSaver() throws IOException {
+	void fileSaver() throws IOException, WrongStateException, WrongValueException {
 		
 		String countryCode = "CA";
 		
@@ -70,27 +75,29 @@ public class GetImportantEventsTest {
 		} catch (IOException e) {
 			System.out.println(e);
 		}		
-		assertEquals(pathFile, file.SaveImportantCountryEvents(countryCode, segment));			
+		assertEquals(pathFile, file.SaveImportantStateEvents(countryCode, segment));			
 	}
 	
 	
 	/**
 	 * Test che verifica la corretta creazione della directory.
 	 * @throws IOException
+	 * @throws WrongValueException 
+	 * @throws WrongStateException 
 	 */
 	@Test
 	@DisplayName("Creazione della directory avvenuta in modo corretto")
-	void directorySaver() throws IOException {
+	void directorySaver() throws IOException, WrongStateException, WrongValueException {
 		
 		String countryCode = "CA";
 		
 		String segment = "Sports";
 		
-		String path = file.SaveImportantCountryEvents(countryCode, segment);
+		String path = file.SaveImportantStateEvents(countryCode, segment);
 		
 		path.replaceAll("/CA_Most_Important_Event", "");
 				
-		assertEquals(path, file.SaveImportantCountryEvents(countryCode, segment));
+		assertEquals(path, file.SaveImportantStateEvents(countryCode, segment));
 		
 	}
 }
