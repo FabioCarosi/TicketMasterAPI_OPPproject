@@ -16,7 +16,7 @@ import it.univpm.TicketmasterCanada.service.ServiceImplementation;
 public class StatsImplementation implements Stats {
 
 	SummonException exc = new SummonException();
-	private static LocalDate datanow = java.time.LocalDate.now();
+	private static LocalDate datanow = LocalDate.now();
 
 	LocalDateTime nunc = LocalDateTime.now();
 
@@ -35,8 +35,8 @@ public class StatsImplementation implements Stats {
 
 		JSONObject countryObject;
 
-		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=CA" + "&endDateTime="
-				+ datanow.plusMonths(period) + tempus + "&apiKey=" + apiKey;
+		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=CA&endDateTime="
+				+ datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
 
