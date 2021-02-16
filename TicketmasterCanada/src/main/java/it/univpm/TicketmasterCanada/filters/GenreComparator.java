@@ -17,11 +17,24 @@ import it.univpm.TicketmasterCanada.stats.StatsImplementation;
  * @author Mattia Girolami
  * @author Fabio Carosi
  *
+ *Classe che implementa FilterInterface
+ *Contiene i metodi per filtare gli eventi di un genre analizzando per paese e dividendo per periodo
  */
 public class GenreComparator implements FilterInterface {
 
 	Stats stats = new StatsImplementation();
-
+	
+	/**
+	 *  Metodo calcola il numero totale di eventi considerando un genere e un paese in un dato periodo.
+	 * Restituisce un JSONArray contenente JSONObject che rappresentano i generi e il numero totale di eventi di ciascuno, 
+	 *Inoltre mostra il maggiore e il minor numero di eventi
+	 * 
+	 * @param genres vettore di generi
+	 * @param country paese in cui si svolgono gli eventi
+	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
+	 * @throws WrongValueException se inserito genere di evento non ammesso
+	 * @throws WrongStateException se inserito provincia non Canadese
+	 */
 	public JSONArray period(Vector<String> genres, String state, int period)
 			throws WrongValueException, WrongStateException {
 

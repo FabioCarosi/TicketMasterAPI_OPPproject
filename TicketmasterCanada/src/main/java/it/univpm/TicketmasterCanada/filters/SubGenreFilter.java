@@ -23,6 +23,20 @@ public class SubGenreFilter {
 
 	Stats stats = new StatsImplementation();
 
+	/**
+	 * Metodo calcola il numero totale di eventi considerando un state e un subgenre
+	 * in un dato periodo. Restituisce un JSONArray contenente JSONObject che
+	 * rappresentano i generi e il numero totale di eventi di ciascuno, Inoltre
+	 * mostra il maggiore e il minor numero di eventi
+	 * 
+	 * @param states   vettori di stati
+	 * @param subgenre sottogenere
+	 * @param period   indica il periodo temporale (in mesi) su cui si vuole
+	 *                 effettuare il confronto
+	 * @throws WrongValueException se inserito genere di evento non ammesso
+	 * @throws WrongStateException se inserito provincia non Canadese
+	 */
+
 	public JSONArray period(Vector<String> states, String subgenre, int period)
 			throws WrongStateException, WrongValueException {
 

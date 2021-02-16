@@ -37,9 +37,7 @@ public class Filters {
 	 * Costruttore con parametri:
 	 * 
 	 * @parameter states Vector di stinghe contenente i nomi degli stati da filtrare
-	 * @parameter country country su cui si vuole effettuare il filtraggio
 	 * @parameter parameter parameteretro per poter effettuare il filtraggio
-	 * @parameter data contiene la data di oggi
 	 * @parameter period lasso di tempo in mesi utilizzato per filtrare
 	 * @parameter value valore assunto dal parameteretro
 	 * @parameter comparator String che permette all'utente di poter scegliere cosa
