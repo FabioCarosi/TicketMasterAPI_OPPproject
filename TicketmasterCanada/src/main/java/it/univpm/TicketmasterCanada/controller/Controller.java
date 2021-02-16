@@ -37,7 +37,13 @@ public class Controller {
 
 	@Autowired
 	Service service;
+	
 
+	/** 
+	 * Rotta di tipo GET che mostra gli eventi che hanno luogo in CANADA
+	 * 
+	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto
+	 */
 	@GetMapping(value = "/countryEvents")
 	public ResponseEntity<Object> getCountryEvent() {
 
@@ -50,7 +56,13 @@ public class Controller {
 
 		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	}
-
+	
+	/** Rotta di tipo GET che mostra gli eventi nella Provicia Canadese inserita dall'utente
+	 * 
+	 * @param stateCode rappresenta il codice dello Stato di cui si vogliono visualizzare gli eventi (sono ammessi solo le Province canadesi)
+	 * @return gli eventi in ordine di importanza che hanno luogo nello State scelto
+	 * @throws WrongValueException se viene inserito il codice di uno State non canadese
+	 */
 	@GetMapping(value = "/stateEvents")
 	public ResponseEntity<Object> getStateEvent(@RequestParam String stateCode) throws WrongStateException {
 		
@@ -65,7 +77,13 @@ public class Controller {
 
 		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	}
-
+	
+	/** Rotta di tipo GET che mostra gli eventi nel Market inserita dall'utente
+	 * 
+	 * @param marketID rappresenta il codice dello Market di cui si vogliono visualizzare gli eventi (sono ammessi solo i market canadesi)
+	 * @return gli eventi in ordine di importanza che hanno luogo nello State scelto
+	 * @throws WrongValueException se viene inserito il codice di un market non canadese
+	 */
 	@GetMapping(value = "/marketEvents")
 	public ResponseEntity<Object> getMarketEvent(@RequestParam String marketID) throws WrongValueException {
 		
@@ -81,7 +99,12 @@ public class Controller {
 		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	}
 
-
+	/** Rotta di tipo GET che mostra gli eventi del source inserita dall'utente
+	 * 
+	 * @param source rappresenta il nome del source di cui si vogliono visualizzare gli eventi (universe,frontgate, tmr e ticketmaster)
+	 * @return gli eventi in ordine di importanza che hanno luogo nello State scelto
+	 * @throws WrongValueException se viene inserito il codice di un source diverso (universe,frontgate, tmr e ticketmaster)
+	 */
 	@GetMapping(value = "/sourceEvents")
 	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String stateCode) throws WrongValueException, WrongStateException {
 		
@@ -102,10 +125,9 @@ public class Controller {
 	 * con le proprie caratteristiche selezionate dallo sviluppatore 
 	 * 
 	 * @param keyword parola chiave
-	 * @param countryCode countryCode rappresenta il codice del paese di cui si vogliono visualizzare gli eventi (sono ammessi solo codici di paesi europei)
+	 * @param stateCode  rappresenta il codice dello State di cui si vogliono visualizzare gli eventi (sono ammessi solo codici gli state canadesi)
 	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto tramite la parola chiave inserita
-	 * @throws WrongStateException 
-	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo (la lista dei codici ammessi è disponibile nel file "Codes and Names")
+	 * @throws WrongStateException se stateCode diverso dal quelli canadesi
 	 */
 	@GetMapping(value = "/keywordEvents") 
 	public ResponseEntity<Object> getKeywordEvent(@RequestParam String keyword, String stateCode) throws WrongStateException {
@@ -123,6 +145,15 @@ public class Controller {
 	
     }
 	
+	/**
+	 * Rotta di tipo GET che mostra gli eventi che hanno luogo nel paese scelto tramiteil segment inserita dall'utente,
+	 * con le proprie caratteristiche selezionate dallo sviluppatore 
+	 * 
+	 * @param segment tipologia dell'evento
+	 * @param stateCode  rappresenta il codice dello State di cui si vogliono visualizzare gli eventi (sono ammessi solo codici gli state canadesi)
+	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto tramite la parola chiave inserita
+	 * @throws WrongStateException se stateCode diverso dal quelli canadesi
+	 */
 	@GetMapping(value = "/segmentEvents") 
 	public ResponseEntity<Object> getSegmentEvent(@RequestParam String segment, String stateCode) throws WrongStateException, WrongValueException {
 		
@@ -140,6 +171,15 @@ public class Controller {
 	
     }
 	
+	/**
+	 * Rotta di tipo GET che mostra gli eventi che hanno luogo nel paese scelto tramite il genre inserita dall'utente,
+	 * con le proprie caratteristiche selezionate dallo sviluppatore 
+	 * 
+	 * @param genre: genere dell'evento
+	 * @param stateCode  rappresenta il codice dello State di cui si vogliono visualizzare gli eventi (sono ammessi solo codici gli state canadesi)
+	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto tramite la parola chiave inserita
+	 * @throws WrongStateException se stateCode diverso dal quelli canadesi
+	 */
 	@GetMapping(value = "/genreEvents") 
 	public ResponseEntity<Object> getGenreEvent(@RequestParam String genre, String stateCode) throws WrongStateException, WrongValueException {
 		
@@ -157,6 +197,15 @@ public class Controller {
 	
     }
 	
+	/**
+	 * Rotta di tipo GET che mostra gli eventi che hanno luogo nel paese scelto tramite il subgenre inserita dall'utente,
+	 * con le proprie caratteristiche selezionate dallo sviluppatore 
+	 * 
+	 * @param subgenre sottogenere dell'evento
+	 * @param stateCode  rappresenta il codice dello State di cui si vogliono visualizzare gli eventi (sono ammessi solo codici gli state canadesi)
+	 * @return gli eventi in ordine cronologico che hanno luogo nel paese scelto tramite la parola chiave inserita
+	 * @throws WrongStateException se stateCode diverso dal quelli canadesi
+	 */
 	@GetMapping(value = "/subgenreEvents") 
 	public ResponseEntity<Object> getSubGenreEvent(@RequestParam String subgenre, String stateCode) throws WrongStateException, WrongValueException {
 		
@@ -173,7 +222,66 @@ public class Controller {
 		return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
 	
     }
+	
 
+	/** Rotta di tipo POST che filtra gli eventi in base alle richieste dell'utente
+	 * 
+	 * L'utente deve inserire un JSONObject del tipo riportato nei seguenti esempi:
+	 * 
+	 * {
+	 *     "comparator": "states",
+     *     "elements": [
+     *        {
+     *          "name": "AB"
+     *        },
+     *        {
+     *          "name": "BC"
+     *        },
+     *        {
+     *          "name": "ON"
+     *        }
+     *      ],
+     *     "parameter": "segment",
+     *     "value": "Sports",
+     *     "period": 6
+     *  }
+     *  
+     *  - oppure - 
+     *  
+     *  {
+	 *     "comparator": "market",
+     *     "elements": [
+     *        {
+     *          "name": "120"
+     *        },
+     *        {
+     *          "name": "108"
+     *      ],
+     *     "parameter": "total",
+     *     "value": "",
+     *     "period": 3
+     *  }
+     *  
+     * PARAM - camparation: rappresenta che tipo di elementi si vogliono confrontare tra loro: si possono confrontare tra loro: state,
+     * market, segment, genre, subGenre o source.
+     * PARAM elements: sono gli elementi che si vogliono confrontare. 
+     * PARAM - parameter: rappresenta il parametro su cui si vuole effettuare il confronto (è uno tra segment, genre, subGenre, source, state o market); 
+     * nel caso in cui comparator sia state oppure market, allora parameter può assumere il valore total ad indicare la scelta di
+     * voler conoscere il numero totale di eventi; nel caso in cui caomparator non sia né state né market, allora parameter può assumere
+     * solamente il valore state).
+     * PARAM - value: rappresenta il valore del parametro su cui si vuole effettuare il confronto.
+	 * PARAM - period: indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto (può essere un 
+	 * valore tra 1, 3, 6 oppure 12).
+     *  	 
+	 * @param body è un JSONObject del tipo riportato sopra
+	 * @return un JSONArray di JSONObject che mostrano i vari elements con il relativo numero di eventi e infine quali tra
+	 * questi presentano il maggiore ed il minor numero di eventi
+	 * @throws WrongComparisonException se viene inserito un comparison diverso da country, market, source, segment, genre o subgenre
+	 * @throws WrongPeriodException se il periodo inserito non è uno tra 1, 3, 6 o 12
+	 * @throws WrongParameterException se il parametro inserito non è uno tra country, segment, genre, subGenre, source
+	 * @throws WrongValueException se viene inserito un valore di param non ammesso
+	 */
+	
 	@PostMapping(value = "/filter")
 	public ResponseEntity<Object> filters(@RequestBody String body)
 			throws WrongPeriodException, WrongValueException, WrongComparatorException, WrongComparatorException, WrongStateException {
@@ -212,6 +320,13 @@ public class Controller {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		} 
 	}
+	
+	/** Rotta di tipo GET che salva gli eventi che hanno luogo nello stato inserito dall'utente
+	 * 
+	 * @param stateCode  rappresenta il codice dello  di cui si vogliono visualizzare gli eventi (sono ammessi solo codici di stati canadesi)
+	 * @return gli eventi che hanno luogo nello stato inserito dall'utente
+	 * @throws IOException se si verificano errori di output su file
+	 */
 	
 	@GetMapping(value = "/saveEvents") 
 	public ResponseEntity<Object> saveCountryEvents(@RequestParam String stateCode) throws IOException, WrongStateException {
