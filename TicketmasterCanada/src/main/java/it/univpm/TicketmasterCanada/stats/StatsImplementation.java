@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
 
 import it.univpm.TicketmasterCanada.exception.*;
+import it.univpm.TicketmasterCanada.service.ServiceImplementation;
 
 /**
  * @author Fabio Carosi
@@ -139,8 +140,10 @@ public class StatsImplementation implements Stats{
 		
 		exc.stateStringException(stateCode);
 		exc.genreStringException(genre);
+		String genreId = ServiceImplementation.genreConverter(genre);
 		
-		String genreId = genre;
+		/*
+		String genreId = null;
 		
 		if (genre.equals("Alternative") ) genreId = "KnvZfZ7vAvv";
 		else if (genre.equals("Aquatics"))genreId = "KnvZfZ7vAeI";
@@ -179,13 +182,13 @@ public class StatsImplementation implements Stats{
 		else if (genre.equals("Rugby") ) genreId = "KnvZfZ7vA71";
 		else if (genre.equals("R&B") ) genreId = "KnvZfZ7vAee";
 		else if (genre.equals("Spectacular") ) genreId = "KnvZfZ7v7la";
-		else if (genre.equals("Theatre") ) genreId = "KnvZfZ7v7l1";
+		else if (genre.equals("Theatre")  ) genreId = "KnvZfZ7v7l1";
 		else if (genre.equals("Undefined") ) genreId = "KnvZfZ7v7ll";
 		else if (genre.equals("Variety") ) genreId = "KnvZfZ7v7lJ";
 		else if (genre.equals("Volleyball") ) genreId = "KnvZfZ7vAA7";
 		else if (genre.equals("World") ) genreId = "KnvZfZ7vAeF";
 		else if (genre.equals("Wrestling") ) genreId = "KnvZfZ7vAAk";
-		
+		*/
 		JSONObject genreEventsObject;
 		
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode="
