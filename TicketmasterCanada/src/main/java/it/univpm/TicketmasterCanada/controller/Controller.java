@@ -81,7 +81,7 @@ public class Controller {
 	/** Rotta di tipo GET che mostra gli eventi nel Market inserita dall'utente
 	 * 
 	 * @param marketID rappresenta il codice dello Market di cui si vogliono visualizzare gli eventi (sono ammessi solo i market canadesi)
-	 * @return gli eventi in ordine di importanza che hanno luogo nello State scelto
+	 * @return gli eventi in ordine di importanza che hanno luogo nello market scelto
 	 * @throws WrongValueException se viene inserito il codice di un market non canadese
 	 */
 	@GetMapping(value = "/marketEvents")
