@@ -18,9 +18,9 @@ import it.univpm.TicketmasterCanada.model.*;
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
+ * 
+ * Questa è la classe che implementa l'interfaccia Service
  */
-
-//Questa è la classe che implenta Service
 
 @Service
 public class ServiceImplementation implements it.univpm.TicketmasterCanada.service.Service {
@@ -32,14 +32,14 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * Chiave API per accedere ai servizi Ticketmaster
 	 */
 	private String apiKey = "Ccg2GNVOGvUUXJeAPtSSAEQZjxbFN75B";
-	// private String apiKey = "WBy9EacSF1P9BRG8WENKrcXEcTHy5dMt";
+
 
 	/**
-	 * Metodo che restituisce gli eventi da Ticketmaster passando lo stateCode come
-	 * parametro
+	 * Metodo che restituisce gli eventi da Ticketmaster passando lo stateCode come parametro
 	 * 
 	 * @param stateCode dello Stato interassato
 	 * @return JSONObject con gli eventi dello Stato
+	 * @throws WrongStateException	se viene inserito uno stateCode non canadese
 	 */
 	@Override
 	public JSONObject getStateEvents(String stateCode) throws WrongStateException {
@@ -85,6 +85,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * 
 	 * @param marketID dello Stato interassato
 	 * @return JSONObject con gli eventi del Market
+	 * @throws WrongValueException se viene inserito un marketID non esistente o errato
 	 */
 
 	public JSONObject getMarketEvents(String marketID) throws WrongValueException {
@@ -107,6 +108,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param source desiderato
 	 * @param stateCode dello Stato desiderato
 	 * @return JSONObject con gli eventi del source all'interno dello Stato indicato
+	 * @throws WrongValueException se viene inserito un marketID non esistente o errato
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese
 	 */
 	public JSONObject getSourceEvents(String source, String stateCode) throws WrongValueException, WrongStateException{
 		
@@ -136,6 +139,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param keyword desiderato
 	 * @param stateCode dello Stato desiderato
 	 * @return JSONObject con gli eventi della keyword all'interno dello Stato indicato
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese
 	 */
 	public JSONObject getKeywordEvents(String keyword, String stateCode) throws WrongStateException {
 		
@@ -164,6 +168,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param segment desiderato
 	 * @param stateCode dello Stato desiderato
 	 * @return JSONObject con gli eventi del segment all'interno dello Stato indicato
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese
+	 * @throws WrongValueException se viene inserito un segment non valido
 	 */
 	public JSONObject getSegmentEvents(String segment, String stateCode) throws WrongStateException, WrongValueException {
 		
@@ -193,6 +199,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param genre desiderato
 	 * @param stateCode dello Stato desiderato
 	 * @return JSONObject con gli eventi del genre all'interno dello Stato indicato
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese
+	 * @throws WrongValueException se viene inserito un genre non valido
 	 */
 	public JSONObject getGenreEvents(String genre, String stateCode) throws WrongStateException, WrongValueException{
 		
@@ -222,6 +230,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param subgenre desiderato
 	 * @param stateCode dello Stato desiderato
 	 * @return JSONObject con gli eventi del subgenre all'interno dello Stato indicato
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese
+	 * @throws WrongValueException se viene inserito un subgenre non valido
 	 */
 	public JSONObject getSubGenreEvents(String subgenre, String stateCode) throws WrongStateException, WrongValueException{
 		
@@ -261,7 +271,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * 
 	 * @param stateCode codice della provincia del Canada in cui ha luogo l'evento
 	 * @return un JSONObject contenente tutti gli eventi che si svolgono nella provincia del Canada e tutte le relative informazioni
-	 * @throws WrongStateException 
+	 * @throws WrongStateException se viene inserito un code non canadese
 	 */
 	public EventVector getStateEventsFromAPI(String code) throws WrongStateException {
 		EventVector stateInfo = new EventVector();
@@ -274,9 +284,9 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	/**
 	 * Questo metodo prende le informazioni degli eventi utilizzando il metodo getMarketEvents e il vectorFiller
 	 * 
-	 * @param code : cioe' il MarketId del market desiderato
+	 * @param code  ovvero il MarketId del market desiderato
 	 * @return un EventVector contente tutte le informazioni utili degli eventi nel marketId selezionato
-	 * @throws WrongValueException 
+	 * @throws WrongValueException se viene inserito un code non valido
 	 */
 	public EventVector getMarketEventsFromAPI(String code) throws WrongValueException {
 		EventVector marketInfo = new EventVector();
@@ -292,8 +302,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param source desiderato
 	 * @param stateCode, codice dello state (o intero Canada) desiderato
 	 * @return un EventVector contente tutte le informazioni utili degli eventi nel source e state selezionati
-	 * @throws WrongStateException 
-	 * @throws WrongValueException 
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese
+	 * @throws WrongValueException se viene inserito un source non valido
 	 */
 	public EventVector getSourceEventsFromAPI(String source, String stateCode) throws WrongValueException, WrongStateException {
 		EventVector sourceInfo = new EventVector();
@@ -309,7 +319,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param keyword, parola chiave ricercata
 	 * @param stateCode, codice dello state (o intero Canada) desiderato
 	 * @return un EventVector contente tutte le informazioni utili degli eventi con la keyword e state selezionati
-	 * @throws WrongStateException 
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese
 	 */
 	public EventVector getKeywordEventsFromAPI(String keyword, String stateCode) throws WrongStateException {
 		EventVector keywordInfo = new EventVector();
@@ -325,7 +335,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param segment, tipologia di evento ricercata
 	 * @param stateCode, codice dello state (o intero Canada) desiderato
 	 * @return un EventVector contente tutte le informazioni utili degli eventi con il segment e state selezionati
-	 * @throws WrongStateException 
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese 
 	 */
 	public EventVector getSegmentEventsFromAPI(String segment, String stateCode) throws WrongStateException, WrongValueException{
 		EventVector segmentInfo = new EventVector();
@@ -341,8 +351,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param genre, genere dell'evento ricercato
 	 * @param stateCode, codice dello state (o intero Canada) desiderato
 	 * @return un EventVector contente tutte le informazioni utili degli eventi con il genre e state selezionati
-	 * @throws WrongValueException 
-	 * @throws WrongStateException 
+	 * @throws WrongValueException se viene inserito un genre non valido
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese 
 	 */
 	public EventVector getGenreEventsFromAPI(String genre, String stateCode) throws WrongStateException, WrongValueException {
 		EventVector genreInfo = new EventVector();
@@ -358,8 +368,8 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * @param subgenre, sottogenere dell'evento
 	 * @param stateCode, codice dello state (o intero Canada) desiderato
 	 * @return un EventVector contente tutte le informazioni utili degli eventi con il sottogenere e state selezionati
-	 * @throws WrongValueException 
-	 * @throws WrongStateException 
+	 * @throws WrongValueException se viene inserito un subgenre non valido
+	 * @throws WrongStateException se viene inserito uno stateCode non canadese 
 	 */
 	public EventVector getSubGenreEventsFromAPI(String subgenre, String stateCode) throws WrongStateException, WrongValueException {
 		EventVector subgenreInfo = new EventVector();
@@ -373,7 +383,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	 * Metodo che restitusce un vettore di Event con tutte le informazioni del singolo evento a partite dal JSONObject ricevuto dei metodi get*Events
 	 * 
 	 * @param JSONOject creato precedentemente dai metodi get*Events (getStateEvents, getSegmentEvents, getMarketEvents...)
-	 *@return fullVector cioè un vettore di Event con tutti gli eventi e le rispettive informazioni
+	 * @return fullVector cioè un vettore di Event con tutti gli eventi e le rispettive informazioni
 	 */
 	public Vector<Event> vectorFiller(JSONObject object) {
 
@@ -577,6 +587,13 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		return fullVector;
 	}
 	
+	
+	/*
+	 * Metodo che converte la string genre in un'altra string corrispondente al genreId
+	 * 
+	 * @param la string Contenente il genre
+	 * @return una String contenente il genre convertito in genreId
+	 */
 	public static String genreConverter(String genre) {
 		
 		String genreId = genre;
@@ -628,6 +645,12 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		
 	}
 	
+	/*
+	 * Metodo che converte la string subGenre in un'altra string corrispondente al subGenreId
+	 * 
+	 * @param la string Contenente il subGenre
+	 * @return una String contenente il subGenre convertito in subGenre
+	 */
 	public String subGenreConverter(String subGenre) {
 
 		String subGenreId = subGenre;

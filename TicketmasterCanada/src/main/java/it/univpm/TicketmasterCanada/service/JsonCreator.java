@@ -17,12 +17,11 @@ public class JsonCreator {
 	
 	
 	/**
-	 * Passato un oggetto Venue restituisce il JSONObject
+	 * Passato un oggetto eventVector restituisce il JSONObject corrispondente all'oggetto eventVector fornito in ingresso
 	 * 
-	 * @param venue che si vuole trasformare in JSONObject.
-	 * @return JSONObject del venue.
-	 */
-	
+	 * @param eventVector che si vuole trasformare in JSONObject.
+	 * @return JSONObject dell' eventVector.
+	 */	
 	public JSONObject jsonCreator(EventVector eventVector) {
 		
 		
@@ -169,7 +168,9 @@ public class JsonCreator {
 			arr.put(object);
 		}
 		
-		evento.put("Evento", arr );		
+		evento.put("Evento", arr );
+		evento.put("totalEvents", eventVector.getEventsNumber());
+		evento.put("showedEvents", eventVector.getShowedEvents());
 		return evento;
 	}
 
