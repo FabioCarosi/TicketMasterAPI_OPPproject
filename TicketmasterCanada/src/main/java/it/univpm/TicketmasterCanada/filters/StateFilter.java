@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import it.univpm.TicketmasterCanada.exception.WrongStateException;
 import it.univpm.TicketmasterCanada.stats.Stats;
+import it.univpm.TicketmasterCanada.stats.StatsImplementation;
 
 /**
  * @author Fabio Carosi
@@ -21,11 +22,11 @@ import it.univpm.TicketmasterCanada.stats.Stats;
  *Implementa MarketCountryInterface e contiene i metodi per filtrare gli eventi in 
  *uno Stato in funzione del periodo su cui si vuole effettuare tale ricerca
  */
-public class StateFilter implements MarketCountryInterface{
-	Stats stats;
+public class StateFilter implements MarketStateInterface{
+	Stats stats = new StatsImplementation();
 	
-	public JSONArray periodMarketCountry(Vector<String> states, int period) throws WrongStateException {
-	
+	public JSONArray periodMarketState(Vector<String> states, int period) throws WrongStateException {
+		
         JSONArray stateEvents = new JSONArray();	//creo un array
 				
 		Iterator<String> it = states.iterator();	//inizializzo un iteratore con gli stati passati come paramentri
@@ -44,8 +45,8 @@ public class StateFilter implements MarketCountryInterface{
 			int totalElements = object.getInt("totalEvents");
 			
 			JSONObject couple = new JSONObject();
-			couple.put("state: ", states.get(i));			//Inserisco il codice dello Stato esaminato nel coppia stato-numero eventi
-			couple.put("totalEvents: ", totalElements);		//Inserisco il numero di eventi dello Stato esaminato nel coppia stato-numero eventi
+			couple.put("state ", states.get(i));			//Inserisco il codice dello Stato esaminato nel coppia stato-numero eventi
+			couple.put("totalEvents ", totalElements);		//Inserisco il numero di eventi dello Stato esaminato nel coppia stato-numero eventi
 			
 			stateEvents.put(couple);
 			

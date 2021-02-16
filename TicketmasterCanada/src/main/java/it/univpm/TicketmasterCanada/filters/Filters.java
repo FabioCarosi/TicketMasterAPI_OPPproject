@@ -58,16 +58,13 @@ public class Filters {
 
 		JSONArray array = new JSONArray();
 
-		if (comparator.equals("country")) {
-			
+		if (comparator.equals("states")) {
+
 			if (period == 1) {
-				
-				if (parameter.equals("marketID")) {
-					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketCountry(states,period);
-				} else if (parameter.equals("country")) {
-					CountryFilter filter = new CountryFilter();
-					array = filter.periodMarketCountry(states,period);
+
+				if (parameter.equals("total")) {
+					StateFilter filter = new StateFilter();
+					array = filter.periodMarketState(states, period);
 				} else if (parameter.equals("source")) {
 					SourceFilter filter = new SourceFilter();
 					array = filter.period(states, value, period);
@@ -80,15 +77,17 @@ public class Filters {
 				} else if (parameter.equals("subgenre")) {
 					SubGenreFilter filter = new SubGenreFilter();
 					array = filter.period(states, value, period);
-				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
-				
+				} else
+					throw new WrongParameterException(
+							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
+
 			} else if (period == 3) {
 				if (parameter.equals("marketID")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketCountry(states,period);
-				} else if (parameter.equals("country")) {
-					CountryFilter filter = new CountryFilter();
-					array = filter.periodMarketCountry(states,period);
+					array = filter.periodMarketState(states,period);
+				} else if (parameter.equals("state")) {
+					StateFilter filter = new StateFilter();
+					array = filter.periodMarketState(states,period);
 				} else if (parameter.equals("source")) {
 					SourceFilter filter = new SourceFilter();
 					array = filter.period(states, value, period);
@@ -107,10 +106,10 @@ public class Filters {
 
 				if (parameter.equals("marketID")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketCountry(states,period);
-				} else if (parameter.equals("country")) {
-					CountryFilter filter = new CountryFilter();
-					array = filter.periodMarketCountry(states,period);
+					array = filter.periodMarketState(states,period);
+				} else if (parameter.equals("state")) {
+					StateFilter filter = new StateFilter();
+					array = filter.periodMarketState(states,period);
 				} else if (parameter.equals("source")) {
 					SourceFilter filter = new SourceFilter();
 					array = filter.period(states, value, period);
@@ -129,10 +128,10 @@ public class Filters {
 
 				if (parameter.equals("marketID")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketCountry(states,period);
+					array = filter.periodMarketState(states,period);
 				} else if (parameter.equals("country")) {
-					CountryFilter filter = new CountryFilter();
-					array = filter.periodMarketCountry(states,period);
+					StateFilter filter = new StateFilter();
+					array = filter.periodMarketState(states,period);
 				} else if (parameter.equals("source")) {
 					SourceFilter filter = new SourceFilter();
 					array = filter.period(states, value, period);
@@ -156,13 +155,13 @@ public class Filters {
 
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketCountry(states,period);
+					array = filter.periodMarketState(states,period);
 				} else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 			} else if (period == 3) {
 
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketCountry(states,period);
+					array = filter.periodMarketState(states,period);
 				} else
 					throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 				
@@ -170,14 +169,14 @@ public class Filters {
 
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketCountry(states,period);
+					array = filter.periodMarketState(states,period);
 				}
 
 				else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 			} else if (period == 12) {
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketCountry(states,period);
+					array = filter.periodMarketState(states,period);
 				} else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 			} else throw new WrongPeriodException(period + " non è un numero ammesso. Inserisci un numero tra 1, 3, 6 oppure 12.");
 		}
@@ -203,7 +202,7 @@ public class Filters {
 
 			else if (period == 6) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SourceComparator filter = new SourceComparator();
 					array = filter.period(states, value, period);
 				}
@@ -216,7 +215,7 @@ public class Filters {
 
 			else if (period == 12) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SourceComparator filter = new SourceComparator();
 					array = filter.period(states, value, period);
 				}

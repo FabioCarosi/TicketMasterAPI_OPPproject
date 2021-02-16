@@ -17,8 +17,8 @@ import it.univpm.TicketmasterCanada.exception.WrongStateException;
 /**
  * Interfaccia che contiene i metodi per il filtraggio deli eventi per country o per market
  */
-public interface MarketCountryInterface {
+public interface MarketStateInterface {
 	
-	public abstract JSONArray periodMarketCountry(Vector<String> market_country, int period) throws WrongStateException;
+	public abstract JSONArray periodMarketState(Vector<String> market_state, int period) throws WrongStateException;
 	
 }

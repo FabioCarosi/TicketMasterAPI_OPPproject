@@ -23,7 +23,7 @@ import it.univpm.TicketmasterCanada.stats.Stats;
 public class MarketIdFilter {
 	Stats stats;
 
-	public JSONArray periodMarketCountry(Vector<String> markets, int period) throws WrongStateException, WrongValueException {
+	public JSONArray periodMarketState(Vector<String> markets, int period) throws WrongStateException, WrongValueException {
 		
         JSONArray marketEvents = new JSONArray();
 		

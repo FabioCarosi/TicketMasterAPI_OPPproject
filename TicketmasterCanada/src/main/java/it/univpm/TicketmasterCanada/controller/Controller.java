@@ -183,7 +183,7 @@ public class Controller {
 		String comparator;
 
 		comparator = object.getString("comparator");
-		array = object.getJSONArray("states");
+		array = object.getJSONArray("elements");
 
 		Vector<String> elements = new Vector<String>(array.length());
 
@@ -213,7 +213,7 @@ public class Controller {
 		} 
 	}
 	
-	@GetMapping(value = "/saveCountryEvents") 
+	@GetMapping(value = "/saveEvents") 
 	public ResponseEntity<Object> saveCountryEvents(@RequestParam String stateCode) throws IOException, WrongStateException {
 		
 		exc.stateStringException(stateCode);
