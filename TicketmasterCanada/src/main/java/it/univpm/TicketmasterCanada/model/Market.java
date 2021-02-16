@@ -1,6 +1,3 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.model;
 
 /**
@@ -10,7 +7,7 @@ package it.univpm.TicketmasterCanada.model;
 public class Market {
 	
 	private String marketID; 		//rappresenta l'id di un ampio raggruppamento geografico
-	private String marketName; 	//rappresenta il nome di un ampio raggruppamento geografico
+	private String marketName; 		//rappresenta il nome di un ampio raggruppamento geografico
 	
 	/**
 	 * Metodo che restituisce il:
@@ -83,7 +80,9 @@ public class Market {
 		return "marketID=" + marketID + ", marketName=" + marketName;
 	}
 
-
+	/*
+	 * Override del metodo equals.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

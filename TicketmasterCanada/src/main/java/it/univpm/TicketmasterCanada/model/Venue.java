@@ -1,12 +1,8 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.model;
 
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
- *
  */
 public class Venue {
 	
@@ -17,7 +13,7 @@ public class Venue {
 
 
 	/**
-	 * Ritorna la citta'
+	 * Ritorna la città
 	 * @return the city
 	 */
 	public City getCity() {
@@ -97,7 +93,7 @@ public class Venue {
 	}
 
 	/**
-	 * Costruttore con parametro stato
+	 * Costruttore con parametro:
 	 * @param state
 	 */
 	public Venue(State state) {
@@ -106,7 +102,7 @@ public class Venue {
 	}
 
 	/**
-	 * Costruttore con parametro market
+	 * Costruttore con parametro:
 	 * @param market
 	 */
 	public Venue(Market market) {
@@ -115,7 +111,7 @@ public class Venue {
 	}
 
 	/**
-	 * Costruttore con parametro paese
+	 * Costruttore con parametro:
 	 * @param country
 	 */
 	public Venue(Country country) {

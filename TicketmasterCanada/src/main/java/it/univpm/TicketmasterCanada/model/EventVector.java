@@ -10,12 +10,13 @@ import java.util.Vector;
 
 public class EventVector {
 	
-	private int eventsNumber;
-	private int showedEvents;
+	private int eventsNumber;		//numero totale di eventi 
+	private int showedEvents;		//numero di eventi mostrati
 	
 	Vector<Event> vector = new Vector<Event>();
 
 	/**
+	 * Ritorna il vector
 	 * @return the vector
 	 */
 	public Vector<Event> getVector() {
@@ -23,6 +24,7 @@ public class EventVector {
 	}
 
 	/**
+	 * Setta il vector.
 	 * @param vector the vector to set
 	 */
 	public void setVector(Vector<Event> vector) {
@@ -30,6 +32,7 @@ public class EventVector {
 	}
 
 	/**
+	 * Costruttore con parametro:
 	 * @param vector
 	 */
 	public EventVector(Vector<Event> vector) {
@@ -38,43 +41,42 @@ public class EventVector {
 	}
 	
 	/**
-	 * @param vector
+	 * Costruttore vuoto.
 	 */
 	public EventVector() {
 		super();
 	}
 
 	/**
-	 * @return the eventsNumber
+	 * Ritorna l'eventsNumber
+	 * @return eventsNumber
 	 */
 	public int getEventsNumber() {
 		return eventsNumber;
 	}
 
 	/**
-	 * @param eventsNumber the eventsNumber to set
+	 * Setta l'eventsNumber
+	 * @param eventsNumber
 	 */
 	public void setEventsNumber(int eventsNumber) {
 		this.eventsNumber = eventsNumber;
 	}
 
 	/**
-	 * @return the showedEvents
+	 * Ritorna gli showedEvents
+	 * @return showedEvents
 	 */
 	public int getShowedEvents() {
 		return showedEvents;
 	}
 
 	/**
-	 * @param showedEvents the showedEvents to set
+	 * Setta showedEvents
+	 * @param showedEvents
 	 */
 	public void setShowedEvents(int showedEvents) {
 		this.showedEvents = showedEvents;
 	}
-
-	
-	
-	
-
 	
 }

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.model;
 
 import java.util.Vector;
@@ -15,51 +12,58 @@ public class Country {
 	private String countryCode;
 	private String countryName;
 	
-	private Vector<Venue> venuesArray = new Vector<Venue>(); //contiene le informazioni del posto
+	private Vector<Venue> venuesArray = new Vector<Venue>(); 	//contiene le informazioni del posto in cui si svolge l'evento
 
 	/**
-	 * @return the countryCode
+	 * Ritorna il countryCode
+	 * @return countryCode
 	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
 	/**
-	 * @param countryCode the countryCode to set
+	 * Setta il countryCode
+	 * @param countryCode
 	 */
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
 	}
 
 	/**
-	 * @return the countryName
+	 * Ritorna il countryName
+	 * @return countryName
 	 */
 	public String getCountryName() {
 		return countryName;
 	}
 
 	/**
-	 * @param countryName the countryName to set
+	 * Setta il countryName
+	 * @param countryName
 	 */
 	public void setCountryName(String countryName) {
 		this.countryName = countryName;
 	}
 
 	/**
-	 * @return the venuesArray
+	 * Ritorna il venuesArray
+	 * @return venuesArray
 	 */
 	public Vector<Venue> getVenuesArray() {
 		return venuesArray;
 	}
 
 	/**
-	 * @param venuesArray the venuesArray to set
+	 * Setta il venuesArray
+	 * @param venuesArray 
 	 */
 	public void setVenuesArray(Vector<Venue> venuesArray) {
 		this.venuesArray = venuesArray;
 	}
 
 	/**
+	 * Costruttore con parametri:
 	 * @param countryCode
 	 * @param countryName
 	 * @param venuesArray
@@ -72,13 +76,14 @@ public class Country {
 	}
 
 	/**
-	 * 
+	 * Costruttore vuoto
 	 */
 	public Country() {
 		super();
 	}
 
 	/**
+	 * Costruttore con parametro:
 	 * @param countryCode
 	 */
 	public Country(String countryCode) {
@@ -87,6 +92,7 @@ public class Country {
 	}
 
 	/**
+	 * Costruttore con parametri:
 	 * @param countryCode
 	 * @param countryName
 	 */

@@ -1,17 +1,14 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.model;
 
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
- *
+
  */
 public class Informations {
 
 	private String currency;   		//valuta del pagamento
-	private double minPrice;   	//prezzo minimo del biglietto
+	private double minPrice;   		//prezzo minimo del biglietto
 	private double maxPrice;    	//prezzo massimo del biglietto
 	private String source;			//azienda che si occupa della vendita dei biglietti
 	

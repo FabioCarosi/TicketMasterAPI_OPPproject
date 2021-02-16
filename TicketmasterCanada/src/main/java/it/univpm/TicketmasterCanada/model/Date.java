@@ -1,6 +1,4 @@
-
 package it.univpm.TicketmasterCanada.model;
-
 
 /**
  * @author Mattia Girolami
@@ -14,6 +12,7 @@ public class Date {
 	
 	
 	/**
+	 * Costruttore con parametri:
 	 * @param data
 	 * @param orario
 	 */
@@ -24,38 +23,53 @@ public class Date {
 	}
 	
 	/**
-	 * 
+	 * Costruttore vuoto.
 	 */
 	public Date() {
 		super();
 	}
 
+	/*
+	 * Ritorna la data.
+	 */
 	public String getData() {
 		return data;
 	}
 
 
+	/*
+	 * Setta la data.
+	 */
 	public void setData(String data) {
 		this.data = data;
 	}
 
 
+	/*
+	 * Ritorna l'orario.
+	 */
 	public String getOrario() {
 		return orario;
 	}
 
-
+	/*
+	 * Setta l'orario.
+	 */
 	public void setOrario(String orario) {
 		this.orario = orario;
 	}
 	
-	
+	/*
+	 * Override del metodo toString:
+	 */
 	@Override
 	public String toString() {
 		return data +  "  " + orario;
 	}
 	
-	
+	/*
+	 * Override del metodo equals:  
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

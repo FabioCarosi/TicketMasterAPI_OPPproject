@@ -1,22 +1,28 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.files;
 
 /**
  * @author Mattia Girolami
  * @author Fabio Carosi
  *
+ *         Questa classe crea automaticamente un file .txt alla partenza del
+ *         programma, richiamando il metodo SaveImportantCountryEvents della
+ *         classe GetImportantEvents, che andrà a salvare gli eventi più
+ *         importanti in base al paese e al segment scelti.
  */
+
 public class Booster {
 
+	/*
+	 * Questa procedura ha il solo compito di salvare gli eventi all'interno di file
+	 * .txt, all'interno di una cartella creata dal programma stesso.
+	 */
 	public void salvaBooster() {
 
 		GetImportantEvents salva = new GetImportantEvents();
 
 		try {
 
-			salva.SaveImportantCountryEvents("BC", "Arts & Theatre");
+			salva.SaveImportantStateEvents("BC", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -24,7 +30,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("BC", "Miscellaneous");
+			salva.SaveImportantStateEvents("BC", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -32,7 +38,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("BC", "Music");
+			salva.SaveImportantStateEvents("BC", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -40,7 +46,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("BC", "Sports");
+			salva.SaveImportantStateEvents("BC", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -48,7 +54,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("AB", "Arts & Theatre");
+			salva.SaveImportantStateEvents("AB", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,7 +62,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("AB", "Miscellaneous");
+			salva.SaveImportantStateEvents("AB", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -64,7 +70,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("AB", "Music");
+			salva.SaveImportantStateEvents("AB", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,7 +78,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("AB", "Sports");
+			salva.SaveImportantStateEvents("AB", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,7 +86,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("SK", "Arts & Theatre");
+			salva.SaveImportantStateEvents("SK", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,7 +94,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("SK", "Miscellaneous");
+			salva.SaveImportantStateEvents("SK", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -96,7 +102,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("SK", "Music");
+			salva.SaveImportantStateEvents("SK", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,7 +110,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("SK", "Sports");
+			salva.SaveImportantStateEvents("SK", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -112,7 +118,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("MB", "Arts & Theatre");
+			salva.SaveImportantStateEvents("MB", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -120,7 +126,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("MB", "Miscellaneous");
+			salva.SaveImportantStateEvents("MB", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -128,7 +134,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("MB", "Music");
+			salva.SaveImportantStateEvents("MB", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,7 +142,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("MB", "Sports");
+			salva.SaveImportantStateEvents("MB", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -144,7 +150,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("ON", "Arts & Theatre");
+			salva.SaveImportantStateEvents("ON", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -152,7 +158,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("ON", "Miscellaneous");
+			salva.SaveImportantStateEvents("ON", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -160,7 +166,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("ON", "Music");
+			salva.SaveImportantStateEvents("ON", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -168,7 +174,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("ON", "Sports");
+			salva.SaveImportantStateEvents("ON", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -176,7 +182,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("QC", "Arts & Theatre");
+			salva.SaveImportantStateEvents("QC", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -184,7 +190,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("QC", "Miscellaneous");
+			salva.SaveImportantStateEvents("QC", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -192,7 +198,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("QC", "Music");
+			salva.SaveImportantStateEvents("QC", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -200,7 +206,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("QC", "Sports");
+			salva.SaveImportantStateEvents("QC", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -208,7 +214,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NB", "Arts & Theatre");
+			salva.SaveImportantStateEvents("NB", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -216,7 +222,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NB", "Miscellaneous");
+			salva.SaveImportantStateEvents("NB", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -224,7 +230,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NB", "Music");
+			salva.SaveImportantStateEvents("NB", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -232,7 +238,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NB", "Sports");
+			salva.SaveImportantStateEvents("NB", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -240,7 +246,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NS", "Arts & Theatre");
+			salva.SaveImportantStateEvents("NS", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -248,7 +254,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NS", "Miscellaneous");
+			salva.SaveImportantStateEvents("NS", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -256,7 +262,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NS", "Music");
+			salva.SaveImportantStateEvents("NS", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -264,7 +270,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NS", "Sports");
+			salva.SaveImportantStateEvents("NS", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -272,7 +278,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("PE", "Arts & Theatre");
+			salva.SaveImportantStateEvents("PE", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -280,7 +286,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("PE", "Miscellaneous");
+			salva.SaveImportantStateEvents("PE", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -288,7 +294,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("PE", "Music");
+			salva.SaveImportantStateEvents("PE", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -296,7 +302,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("PE", "Sports");
+			salva.SaveImportantStateEvents("PE", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -304,7 +310,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NL", "Arts & Theatre");
+			salva.SaveImportantStateEvents("NL", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -312,7 +318,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NL", "Miscellaneous");
+			salva.SaveImportantStateEvents("NL", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -320,7 +326,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NL", "Music");
+			salva.SaveImportantStateEvents("NL", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -328,7 +334,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NL", "Sports");
+			salva.SaveImportantStateEvents("NL", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -336,7 +342,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("YT", "Arts & Theatre");
+			salva.SaveImportantStateEvents("YT", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -344,7 +350,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("YT", "Miscellaneous");
+			salva.SaveImportantStateEvents("YT", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -352,7 +358,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("YT", "Music");
+			salva.SaveImportantStateEvents("YT", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -360,7 +366,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("YT", "Sports");
+			salva.SaveImportantStateEvents("YT", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -368,7 +374,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NT", "Arts & Theatre");
+			salva.SaveImportantStateEvents("NT", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -376,7 +382,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NT", "Miscellaneous");
+			salva.SaveImportantStateEvents("NT", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -384,7 +390,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NT", "Music");
+			salva.SaveImportantStateEvents("NT", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -392,7 +398,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NT", "Sports");
+			salva.SaveImportantStateEvents("NT", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -400,7 +406,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NU", "Arts & Theatre");
+			salva.SaveImportantStateEvents("NU", "Arts & Theatre");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -408,7 +414,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NU", "Miscellaneous");
+			salva.SaveImportantStateEvents("NU", "Miscellaneous");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -416,7 +422,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NU", "Music");
+			salva.SaveImportantStateEvents("NU", "Music");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -424,7 +430,7 @@ public class Booster {
 
 		try {
 
-			salva.SaveImportantCountryEvents("NU", "Sports");
+			salva.SaveImportantStateEvents("NU", "Sports");
 
 		} catch (Exception e) {
 			e.printStackTrace();

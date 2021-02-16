@@ -1,16 +1,12 @@
-/**
- * 
- */
 package it.univpm.TicketmasterCanada.model;
 
 /**
  * @author Fabio Carosi
  * @author Mattia Girolami
- *
  */
+
 public class Genre {
-
-
+	
 	private String segmentName;		//tipologia dell'evento(es. Sport)
 	private String genreName;		//nome del genere dell'evento(es. Golf)
 	private String subGenreName;	//nome della manifestazione (es. Red Cup)
