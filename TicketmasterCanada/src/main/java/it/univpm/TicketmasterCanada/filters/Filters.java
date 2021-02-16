@@ -1,6 +1,5 @@
 package it.univpm.TicketmasterCanada.filters;
 
-
 import java.util.Vector;
 
 import org.json.JSONArray;
@@ -43,7 +42,8 @@ public class Filters {
 	 * @parameter data contiene la data di oggi
 	 * @parameter period lasso di tempo in mesi utilizzato per filtrare
 	 * @parameter value valore assunto dal parameteretro
-	 * @parameter comparator String che permette all'utente di poter scegliere cosa confrontare
+	 * @parameter comparator String che permette all'utente di poter scegliere cosa
+	 *            confrontare
 	 */
 	public Filters(String comparator, Vector<String> states, String parameter, String value, int period) {
 		super();
@@ -54,7 +54,8 @@ public class Filters {
 		this.period = period;
 	}
 
-	public JSONArray filtersImplementation()throws WrongPeriodException, WrongParameterException, WrongValueException, WrongComparatorException, WrongStateException{
+	public JSONArray filtersImplementation() throws WrongPeriodException, WrongParameterException, WrongValueException,
+			WrongComparatorException, WrongStateException {
 
 		JSONArray array = new JSONArray();
 
@@ -82,12 +83,9 @@ public class Filters {
 							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
 
 			} else if (period == 3) {
-				if (parameter.equals("marketID")) {
-					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketState(states,period);
-				} else if (parameter.equals("state")) {
+				if (parameter.equals("total")) {
 					StateFilter filter = new StateFilter();
-					array = filter.periodMarketState(states,period);
+					array = filter.periodMarketState(states, period);
 				} else if (parameter.equals("source")) {
 					SourceFilter filter = new SourceFilter();
 					array = filter.period(states, value, period);
@@ -100,16 +98,15 @@ public class Filters {
 				} else if (parameter.equals("subgenre")) {
 					SubGenreFilter filter = new SubGenreFilter();
 					array = filter.period(states, value, period);
-				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
-				
+				} else
+					throw new WrongParameterException(
+							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
+
 			} else if (period == 6) {
 
-				if (parameter.equals("marketID")) {
-					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketState(states,period);
-				} else if (parameter.equals("state")) {
+				if (parameter.equals("total")) {
 					StateFilter filter = new StateFilter();
-					array = filter.periodMarketState(states,period);
+					array = filter.periodMarketState(states, period);
 				} else if (parameter.equals("source")) {
 					SourceFilter filter = new SourceFilter();
 					array = filter.period(states, value, period);
@@ -122,16 +119,15 @@ public class Filters {
 				} else if (parameter.equals("subgenre")) {
 					SubGenreFilter filter = new SubGenreFilter();
 					array = filter.period(states, value, period);
-				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
-				
+				} else
+					throw new WrongParameterException(
+							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
+
 			} else if (period == 12) {
 
-				if (parameter.equals("marketID")) {
-					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketState(states,period);
-				} else if (parameter.equals("country")) {
+				if (parameter.equals("total")) {
 					StateFilter filter = new StateFilter();
-					array = filter.periodMarketState(states,period);
+					array = filter.periodMarketState(states, period);
 				} else if (parameter.equals("source")) {
 					SourceFilter filter = new SourceFilter();
 					array = filter.period(states, value, period);
@@ -144,10 +140,13 @@ public class Filters {
 				} else if (parameter.equals("subgenre")) {
 					SubGenreFilter filter = new SubGenreFilter();
 					array = filter.period(states, value, period);
-				} else throw new WrongParameterException(parameter + " non è accettato. Scegli tra: marketID, source, segment, genre e subgenre.");
+				} else
+					throw new WrongParameterException(
+							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
 			}
 
-			else throw new WrongPeriodException(period + " non è ammesso. Inserisci un period uguale a 1, 3, 6 o 12");
+			else
+				throw new WrongPeriodException(period + " non è ammesso. Inserisci un period uguale a 1, 3, 6 o 12");
 
 		} else if (comparator.equals("market")) {
 
@@ -155,30 +154,39 @@ public class Filters {
 
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketState(states,period);
-				} else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
+					array = filter.periodMarketState(states, period);
+				} else
+					throw new WrongParameterException(
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 			} else if (period == 3) {
 
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketState(states,period);
+					array = filter.periodMarketState(states, period);
 				} else
-					throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
-				
+					throw new WrongParameterException(
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
+
 			} else if (period == 6) {
 
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketState(states,period);
+					array = filter.periodMarketState(states, period);
 				}
 
-				else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
+				else
+					throw new WrongParameterException(
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
 			} else if (period == 12) {
 				if (parameter.equals("total")) {
 					MarketIdFilter filter = new MarketIdFilter();
-					array = filter.periodMarketState(states,period);
-				} else throw new WrongParameterException(parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
-			} else throw new WrongPeriodException(period + " non è un numero ammesso. Inserisci un numero tra 1, 3, 6 oppure 12.");
+					array = filter.periodMarketState(states, period);
+				} else
+					throw new WrongParameterException(
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa total.");
+			} else
+				throw new WrongPeriodException(
+						period + " non è un numero ammesso. Inserisci un numero tra 1, 3, 6 oppure 12.");
 		}
 
 		else if (comparator.equals("source")) {
@@ -227,11 +235,12 @@ public class Filters {
 			} else
 				throw new WrongPeriodException(
 						period + " non è un numero ammesso. Inserisci un numero tra 1, 3, 6 oppure 12.");
+
 		} else if (comparator.equals("segment")) {
 
 			if (period == 1) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SegmentComparator filter = new SegmentComparator();
 					array = filter.period(states, value, period);
 				}
@@ -243,7 +252,7 @@ public class Filters {
 
 			else if (period == 3) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SegmentComparator filter = new SegmentComparator();
 					array = filter.period(states, value, period);
 				}
@@ -255,7 +264,7 @@ public class Filters {
 
 			else if (period == 6) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SegmentComparator filter = new SegmentComparator();
 					array = filter.period(states, value, period);
 				}
@@ -268,7 +277,7 @@ public class Filters {
 
 			else if (period == 12) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SegmentComparator filter = new SegmentComparator();
 					array = filter.period(states, value, period);
 				} else
@@ -283,7 +292,7 @@ public class Filters {
 
 			if (period == 1) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					GenreComparator filter = new GenreComparator();
 					array = filter.period(states, value, period);
 				}
@@ -296,7 +305,7 @@ public class Filters {
 
 			else if (period == 3) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					GenreComparator filter = new GenreComparator();
 					array = filter.period(states, value, period);
 				}
@@ -309,7 +318,7 @@ public class Filters {
 
 			else if (period == 6) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					GenreComparator filter = new GenreComparator();
 					array = filter.period(states, value, period);
 				}
@@ -322,7 +331,7 @@ public class Filters {
 
 			else if (period == 12) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					GenreComparator filter = new GenreComparator();
 					array = filter.period(states, value, period);
 				} else
@@ -337,7 +346,7 @@ public class Filters {
 
 			if (period == 1) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SubGenreComparator filter = new SubGenreComparator();
 					array = filter.period(states, value, period);
 				}
@@ -350,7 +359,7 @@ public class Filters {
 
 			else if (period == 3) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SubGenreComparator filter = new SubGenreComparator();
 					array = filter.period(states, value, period);
 				}
@@ -363,7 +372,7 @@ public class Filters {
 
 			else if (period == 6) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SubGenreComparator filter = new SubGenreComparator();
 					array = filter.period(states, value, period);
 				}
@@ -376,7 +385,7 @@ public class Filters {
 
 			else if (period == 12) {
 
-				if (parameter.equals("country")) {
+				if (parameter.equals("state")) {
 					SubGenreComparator filter = new SubGenreComparator();
 					array = filter.period(states, value, period);
 				}

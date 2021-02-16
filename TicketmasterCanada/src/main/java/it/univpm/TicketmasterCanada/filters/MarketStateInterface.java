@@ -15,10 +15,11 @@ import it.univpm.TicketmasterCanada.exception.WrongStateException;
  */
 
 /**
- * Interfaccia che contiene i metodi per il filtraggio deli eventi per country o per market
+ * Interfaccia che contiene i metodi per il filtraggio deli eventi per country o
+ * per market
  */
 public interface MarketStateInterface {
-	
+
 	public abstract JSONArray periodMarketState(Vector<String> market_state, int period) throws WrongStateException;
-	
+
 }
