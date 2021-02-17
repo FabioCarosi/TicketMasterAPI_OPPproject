@@ -35,9 +35,15 @@ public class GetImportantEvents {
 	public JSONObject ImportantEvents(String stateCode, String segment) {
 
 		JSONObject importantObject;
-		String Url = "https://app.ticketmaster.com/discovery/v2/events?stateCode=" + stateCode + "&segmentName="
-				+ segment + "&apikey=" + apikey;
+		String Url = null;
+		if (stateCode.equals("CA")) {
+			Url = "https://app.ticketmaster.com/discovery/v2/events?countryCode=CA&segmentName=" + segment + "&apikey="
+					+ apikey;
+		} else {
+			Url = "https://app.ticketmaster.com/discovery/v2/events?stateCode=" + stateCode + "&segmentName=" + segment
+					+ "&apikey=" + apikey;
 
+		}
 		RestTemplate restTemplate = new RestTemplate();
 
 		importantObject = new JSONObject(restTemplate.getForObject(Url, String.class));
@@ -65,9 +71,10 @@ public class GetImportantEvents {
 		JSONObject selectedImportantEventsOBJ = ImportantEvents(stateCode, segment);
 		EventVector sourceInfo = new EventVector();
 
-
+		JSONObject pageObject = selectedImportantEventsOBJ.getJSONObject("page");
 		JSONObject embeddedObject = selectedImportantEventsOBJ.getJSONObject("_embedded");
 		JSONArray eventsArray = embeddedObject.getJSONArray("events");
+		int totalElements = pageObject.getInt("totalElements");
 		JSONObject stack;
 
 		int dimMax = 5;
@@ -255,6 +262,8 @@ public class GetImportantEvents {
 
 		}
 		sourceInfo.setVector(fullVector);
+		sourceInfo.setEventsNumber(totalElements);
+		sourceInfo.setShowedEvents(dimMax);
 
 		return sourceInfo;
 
@@ -283,7 +292,7 @@ public class GetImportantEvents {
 
 		object = jsonCreator.jsonCreator(eventsArray);
 
-		String nomeDirectory = "MostImportantEvent";
+		String nomeDirectory = "_MostImportantEvent";
 
 		String pathDirectory = System.getProperty("user.dir") + "/" + nomeDirectory;
 
