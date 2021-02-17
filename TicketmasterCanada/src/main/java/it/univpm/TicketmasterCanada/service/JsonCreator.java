@@ -169,8 +169,7 @@ public class JsonCreator {
 		}
 		
 		evento.put("Evento", arr );
-		evento.put("totalEvents", eventVector.getEventsNumber());
-		evento.put("showedEvents", eventVector.getShowedEvents());
+	
 		return evento;
 	}
 

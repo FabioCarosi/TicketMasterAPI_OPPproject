@@ -65,10 +65,9 @@ public class GetImportantEvents {
 		JSONObject selectedImportantEventsOBJ = ImportantEvents(stateCode, segment);
 		EventVector sourceInfo = new EventVector();
 
-		JSONObject pageObject = selectedImportantEventsOBJ.getJSONObject("page");
+
 		JSONObject embeddedObject = selectedImportantEventsOBJ.getJSONObject("_embedded");
 		JSONArray eventsArray = embeddedObject.getJSONArray("events");
-		int totalElements = pageObject.getInt("totalElements");
 		JSONObject stack;
 
 		int dimMax = 5;
@@ -256,8 +255,6 @@ public class GetImportantEvents {
 
 		}
 		sourceInfo.setVector(fullVector);
-		sourceInfo.setEventsNumber(totalElements);
-		sourceInfo.setShowedEvents(dimMax);
 
 		return sourceInfo;
 
@@ -286,7 +283,7 @@ public class GetImportantEvents {
 
 		object = jsonCreator.jsonCreator(eventsArray);
 
-		String nomeDirectory = "_MostImportantEvent";
+		String nomeDirectory = "MostImportantEvent";
 
 		String pathDirectory = System.getProperty("user.dir") + "/" + nomeDirectory;
 
