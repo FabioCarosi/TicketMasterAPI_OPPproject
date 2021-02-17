@@ -261,8 +261,23 @@ public class Controller {
 	 * 
 	 * L'utente deve inserire un JSONObject del tipo riportato nei seguenti esempi:
 	 * 
-	 * { "comparator": "states", "elements": [ { "name": "AB" }, { "name": "BC" }, {
-	 * "name": "ON" } ], "parameter": "segment", "value": "Sports", "period": 6 }
+	 * { 
+	 * "comparator": "states", 
+	 * 	"elements": [
+	 *  	{
+	 *  		 "name": "AB" 
+	 *  	}, 
+	 *  	{
+	 *  		 "name": "BC" 
+	 *  	},
+	 *  	{
+	 *  		 "name": "ON" 
+	 *  	} 
+	 *  ],
+	 *  "parameter": "segment",
+	 *  "value": "Sports",
+	 *  "period": 6
+	 * }
 	 * 
 	 * - oppure -
 	 * 
