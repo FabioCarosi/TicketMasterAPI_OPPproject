@@ -57,7 +57,7 @@ public class Controller {
 	}
 
 	/**
-	 * Rotta di tipo GET che mostra gli eventi nella Provicia Canadese inserita
+	 * Rotta di tipo GET che mostra gli eventi nella Provincia Canadese inserita
 	 * dall'utente
 	 * 
 	 * @param stateCode rappresenta il codice dello Stato di cui si vogliono
@@ -70,8 +70,7 @@ public class Controller {
 	@GetMapping(value = "/stateEvents")
 	public ResponseEntity<Object> getStateEvent(@RequestParam String stateCode) throws WrongStateException {
 
-		exc.stateStringException(stateCode);
-
+	
 		EventVector eventsArray = service.getStateEventsFromAPI(stateCode);
 
 		JSONObject obj = new JSONObject();
@@ -95,7 +94,6 @@ public class Controller {
 	@GetMapping(value = "/marketEvents")
 	public ResponseEntity<Object> getMarketEvent(@RequestParam String marketID) throws WrongValueException {
 
-		exc.marketStringException(marketID);
 
 		EventVector eventsArray = service.getMarketEventsFromAPI(marketID);
 
@@ -120,8 +118,6 @@ public class Controller {
 	public ResponseEntity<Object> getSourceEvent(@RequestParam String source, String stateCode)
 			throws WrongValueException, WrongStateException {
 
-		exc.stateStringException(stateCode);
-		exc.sourceStringException(source);
 
 		EventVector eventsArray = service.getSourceEventsFromAPI(source, stateCode);
 
@@ -150,7 +146,6 @@ public class Controller {
 	public ResponseEntity<Object> getKeywordEvent(@RequestParam String keyword, String stateCode)
 			throws WrongStateException {
 
-		exc.stateStringException(stateCode);
 
 		EventVector eventsArray = service.getKeywordEventsFromAPI(keyword, stateCode);
 
@@ -180,8 +175,6 @@ public class Controller {
 	public ResponseEntity<Object> getSegmentEvent(@RequestParam String segment, String stateCode)
 			throws WrongStateException, WrongValueException {
 
-		exc.stateStringException(stateCode);
-		exc.segmentStringException(segment);
 
 		EventVector eventsArray = service.getSegmentEventsFromAPI(segment, stateCode);
 
@@ -211,8 +204,6 @@ public class Controller {
 	public ResponseEntity<Object> getGenreEvent(@RequestParam String genre, String stateCode)
 			throws WrongStateException, WrongValueException {
 
-		exc.stateStringException(stateCode);
-		exc.genreStringException(genre);
 
 		EventVector eventsArray = service.getGenreEventsFromAPI(genre, stateCode);
 
@@ -242,9 +233,6 @@ public class Controller {
 	public ResponseEntity<Object> getSubGenreEvent(@RequestParam String subgenre, String stateCode)
 			throws WrongStateException, WrongValueException {
 
-		exc.subgenreStringException(subgenre);
-		exc.stateStringException(stateCode);
-
 		EventVector eventsArray = service.getSubGenreEventsFromAPI(subgenre, stateCode);
 
 		JSONObject obj = new JSONObject();
@@ -261,23 +249,8 @@ public class Controller {
 	 * 
 	 * L'utente deve inserire un JSONObject del tipo riportato nei seguenti esempi:
 	 * 
-	 * { 
-	 * "comparator": "states", 
-	 * 	"elements": [
-	 *  	{
-	 *  		 "name": "AB" 
-	 *  	}, 
-	 *  	{
-	 *  		 "name": "BC" 
-	 *  	},
-	 *  	{
-	 *  		 "name": "ON" 
-	 *  	} 
-	 *  ],
-	 *  "parameter": "segment",
-	 *  "value": "Sports",
-	 *  "period": 6
-	 * }
+	 * { "comparator": "states", "elements": [ { "name": "AB" }, { "name": "BC" }, {
+	 * "name": "ON" } ], "parameter": "segment", "value": "Sports", "period": 6 }
 	 * 
 	 * - oppure -
 	 * 
@@ -301,7 +274,7 @@ public class Controller {
 	 * @return un JSONArray di JSONObject che mostrano i vari elements con il
 	 *         relativo numero di eventi e infine quali tra questi presentano il
 	 *         maggiore ed il minor numero di eventi
-	 * @throws WrongComparisonException se viene inserito un comparison diverso da
+	 * @throws WrongComparatorException se viene inserito un comparator diverso da
 	 *                                  country, market, source, segment, genre o
 	 *                                  subgenre
 	 * @throws WrongPeriodException     se il periodo inserito non è uno tra 1, 3, 6
@@ -314,7 +287,7 @@ public class Controller {
 
 	@PostMapping(value = "/filter")
 	public ResponseEntity<Object> filters(@RequestBody String body) throws WrongPeriodException, WrongValueException,
-			WrongComparatorException, WrongComparatorException, WrongStateException {
+			WrongComparatorException, WrongStateException, WrongParameterException {
 
 		JSONObject object = new JSONObject(body);
 		JSONArray array = new JSONArray();
@@ -365,7 +338,6 @@ public class Controller {
 	public ResponseEntity<Object> saveCountryEvents(@RequestParam String stateCode)
 			throws IOException, WrongStateException {
 
-		exc.stateStringException(stateCode);
 
 		GetImportantEvents save = new GetImportantEvents();
 
