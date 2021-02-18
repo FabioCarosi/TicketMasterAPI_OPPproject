@@ -38,14 +38,14 @@ public class MarketIdFilter {
 		String minMarket = null; // Stato che contiente il minor numero di eventi
 		int maxEvent = 0; // Numero di eventi maggiore
 		int minEvent = 999999; // Numero di eventi minore
-
+		int totEvent =0;
 		while (it.hasNext()) { // ciclo che si conclude dopo aver scorso tutto il vettore con i Markets
 
 			JSONObject object = new JSONObject();
 			object = stats.getMarketEvents(it.next(), period); // chiamata al metodo getMarktetEvents a cui si passa il
 																// market i-esimo e il periodo preso in esame
 			int totalElements = object.getInt("totalEvents");
-
+			totEvent = totEvent+totalElements;
 			JSONObject couple = new JSONObject();
 			couple.put("market ", markets.get(i)); // Inserisco il codice del Market esaminato nel coppia stato-numero
 													// eventi
@@ -70,16 +70,20 @@ public class MarketIdFilter {
 		JSONObject maxMarketEvents = new JSONObject(); // Salvo il market e il numero di eventi maggiore all'interno di
 														// un JSONObject
 		maxMarketEvents.put("Market with most events", maxMarket);
-		maxMarketEvents.put("totalEvents", maxEvent);
+		maxMarketEvents.put("Events", maxEvent);
 		JSONObject minMarketEvents = new JSONObject(); // Salvo il market e il numero di eventi minore all'interno di un
 														// JSONObject
 		minMarketEvents.put("Market with least events", minMarket);
-		minMarketEvents.put("totalEvents", minEvent);
+		minMarketEvents.put("Events", minEvent);
+		
+		JSONObject totalEvents = new JSONObject();
+		totalEvents.put("Total Events", totEvent);
 
 		marketEvents.put(maxMarketEvents); // Inserisco il JSONOBject del market con più eventi all'interno del
 											// JSONArray finale
 		marketEvents.put(minMarketEvents); // Inserisco il JSONOBject del market con meno eventi all'interno del
 											// JSONArray finale
+		marketEvents.put(totalEvents);
 
 		return marketEvents;
 

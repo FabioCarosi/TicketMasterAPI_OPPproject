@@ -23,7 +23,9 @@ public class Filters {
 	private int period;
 	private String value;
 	private String comparator;
-
+	
+	
+    
 	/**
 	 * Costruttore vuoto
 	 */
@@ -51,13 +53,122 @@ public class Filters {
 		this.value = value;
 		this.period = period;
 	}
-
+	
+	
+	
+	
 	public JSONArray filtersImplementation() throws WrongPeriodException, WrongParameterException, WrongValueException,
 			WrongComparatorException, WrongStateException {
 
 		JSONArray array = new JSONArray();
+		
+		if (comparator.equals("country")) {
+			Vector<String> countries = new Vector<String>();
 
-		if (comparator.equals("states")) {
+		    countries.add("BC");
+		    countries.add("AB");
+		    countries.add("SK");
+		    countries.add("MB");
+		    countries.add("ON");
+		    countries.add("QC");
+		    countries.add("NB");
+		    countries.add("NS");
+		    countries.add("PE");
+		    countries.add("NL");
+		    countries.add("YT");
+		    countries.add("NT");
+		    countries.add("NU");
+		    
+			if (period == 1) {
+				
+
+				if (parameter.equals("total")) {
+					StateFilter filter = new StateFilter();
+					array = filter.periodMarketState(countries, period);
+				} else if (parameter.equals("source")) {
+					SourceFilter filter = new SourceFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("genre")) {
+					GenreFilter filter = new GenreFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("segment")) {
+					SegmentFilter filter = new SegmentFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("subgenre")) {
+					SubGenreFilter filter = new SubGenreFilter();
+					array = filter.period(countries, value, period);
+				} else
+					throw new WrongParameterException(
+							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
+
+			} else if (period == 3) {
+				if (parameter.equals("total")) {
+					StateFilter filter = new StateFilter();
+					array = filter.periodMarketState(countries, period);
+				} else if (parameter.equals("source")) {
+					SourceFilter filter = new SourceFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("genre")) {
+					GenreFilter filter = new GenreFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("segment")) {
+					SegmentFilter filter = new SegmentFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("subgenre")) {
+					SubGenreFilter filter = new SubGenreFilter();
+					array = filter.period(countries, value, period);
+				} else
+					throw new WrongParameterException(
+							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
+
+			} else if (period == 6) {
+
+				if (parameter.equals("total")) {
+					StateFilter filter = new StateFilter();
+					array = filter.periodMarketState(countries, period);
+				} else if (parameter.equals("source")) {
+					SourceFilter filter = new SourceFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("genre")) {
+					GenreFilter filter = new GenreFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("segment")) {
+					SegmentFilter filter = new SegmentFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("subgenre")) {
+					SubGenreFilter filter = new SubGenreFilter();
+					array = filter.period(countries, value, period);
+				} else
+					throw new WrongParameterException(
+							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
+
+			} else if (period == 12) {
+
+				if (parameter.equals("total")) {
+					StateFilter filter = new StateFilter();
+					array = filter.periodMarketState(countries, period);
+				} else if (parameter.equals("source")) {
+					SourceFilter filter = new SourceFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("genre")) {
+					GenreFilter filter = new GenreFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("segment")) {
+					SegmentFilter filter = new SegmentFilter();
+					array = filter.period(countries, value, period);
+				} else if (parameter.equals("subgenre")) {
+					SubGenreFilter filter = new SubGenreFilter();
+					array = filter.period(countries, value, period);
+				} else
+					throw new WrongParameterException(
+							parameter + " non è accettato. Scegli tra: total, source, segment, genre e subgenre.");
+			}
+
+			else
+				throw new WrongPeriodException(period + " non è ammesso. Inserisci un period uguale a 1, 3, 6 o 12");
+		}
+
+		else if (comparator.equals("state")) {
 
 			if (period == 1) {
 
@@ -402,8 +513,9 @@ public class Filters {
 
 		else
 			throw new WrongComparatorException(comparator + " non è una stringa ammessa. Inserisci una stringa tra "
-					+ "state, market, source, segment, genre o subgenre.");
+					+ "country, state, market, source, segment, genre o subgenre.");
 
 		return array;
 	}
 }
+

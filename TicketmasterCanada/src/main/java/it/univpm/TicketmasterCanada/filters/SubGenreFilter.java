@@ -50,7 +50,7 @@ public class SubGenreFilter {
 		String minState = null; // Stato che contiente il minor numero di eventi
 		int maxEvent = 0; // Numero di eventi maggiore
 		int minEvent = 999999; // Numero di eventi minore
-
+		int totEvent = 0;
 		while (it.hasNext()) { // ciclo che si conclude dopo aver scorso tutto il vettore con gli States
 
 			JSONObject object = new JSONObject();
@@ -58,7 +58,7 @@ public class SubGenreFilter {
 																			// passa il genre i-esimo e il periodo preso
 																			// in esame
 			int totalElements = object.getInt("totalEvents");
-
+			totEvent = totEvent + totalElements;
 			JSONObject couple = new JSONObject();
 			couple.put("state", states.get(i)); // Inserisco il codice dello Stato esaminato nel coppia stato-numero
 												// eventi
@@ -83,16 +83,20 @@ public class SubGenreFilter {
 		JSONObject maxStateEvents = new JSONObject(); // Salvo il nome e il numero di eventi dello Stato con più eventi
 														// all'interno di un JSONObject
 		maxStateEvents.put("State with most events", maxState);
-		maxStateEvents.put("totalEvents", maxEvent);
+		maxStateEvents.put("Events", maxEvent);
 		JSONObject minStateEvents = new JSONObject(); // Salvo il nome e il numero di eventi dello Stato con meno eventi
 														// all'interno di un JSONObject
 		minStateEvents.put("State with least events", minState);
-		minStateEvents.put("totalEvents", minEvent);
+		minStateEvents.put("Events", minEvent);
+
+		JSONObject totalEvents = new JSONObject();
+		totalEvents.put("Total Events", totEvent);
 
 		subgenreEvents.put(maxStateEvents); // Inserisco il JSONOBject dellos stati con più eventi all'interno del
 											// JSONArray finale
 		subgenreEvents.put(minStateEvents); // Inserisco il JSONOBject dellos stati con meno eventi all'interno del
 											// JSONArray finale
+		subgenreEvents.put(totalEvents);
 
 		return subgenreEvents;
 	}
