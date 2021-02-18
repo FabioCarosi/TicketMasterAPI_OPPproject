@@ -512,7 +512,7 @@ genere non è accettato. Scegli tra: total, source, segment, genre e subgenre.
 <a name=4></a>
 ## 4.   /saveEvents?stateCode=<stateCode>
 La quarta rotta è di tipo GET e salverà all'interno di un file l'elenco di eventi aventi luogo nello Stato canadese iniserito dall'utente.
-Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero [2](#2) [(/stateEvents)](#2).
+Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero [2](#2) ([/stateEvents](#2)).
 
 #### Esempio
 
@@ -749,7 +749,7 @@ N° | source
 4| `frontgate ` 
 
 
-Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2(#2) (/stateEvents)(#2).
+Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero [2](#2) ([/stateEvents](#2)).
 
 ### Esempio
 
@@ -835,7 +835,7 @@ universal non è un valore ammesso
 ## 7.    /keywordEvents?keyword=<keyword>&stateCode=<stateCode>
 
 Questa rotta restituisce un JSONObject con gli eventi a partire dalla parola chiave inserita e avente come luogo lo Stato inserito dall'utente. 
-Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2(#2) (/stateEvents)(#2).
+Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero [2](#2) ([/stateEvents](#2)).
 
 ### Esempio
 
@@ -926,7 +926,7 @@ segmentName | segmentId
 
 
 Se si è a conoscenza di ulteriori segmentId, questi possono essere utilizzati come parametro. Non è però ammesso l'utilizzo di altri segmentName al di fuori di quelli sopracitati, in quanto l'applicazione non è in grado di convertirli. 
-Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2(#2) (/stateEvents)(#2).
+Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero [2](#2) ([/stateEvents](#2)).
 
 ### Esempio
 
@@ -1088,7 +1088,7 @@ Genre| genreId
 	
 	
 Se si è a conoscenza di ulteriori genreId, questi possono essere utilizzati come parametro. Non è però ammesso l'utilizzo di altri genreName al di fuori di quelli sopracitati, in quanto l'applicazione non è in grado di convertirli.
-Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2(#2) (/stateEvents)(#2).
+Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero [2](#2) ([/stateEvents](#2)).
 
 ### Esempio 
 
@@ -1275,7 +1275,7 @@ SubGenre| subGenreId
 	
 	
 Se si è a conoscenza di ulteriori subGenreId, questi possono essere utilizzati come parametro. Non è però ammesso l'utilizzo di altri subGenreName al di fuori di quelli sopracitati, in quanto l'applicazione non è in grado di convertirli.
-Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2(#2) (/stateEvents)(#2).
+Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero [2](#2) ([/stateEvents](#2)).
 
 ### Esempio
 
