@@ -2,8 +2,8 @@
 
 <h1 align="center"> TicketmasterCanada </h1>
  
-<p align="center">
-La nostra applicazione permetta di studiare gli eventi che avranno luogo in Canada, utilizzando le API del sito ticketmaster. Inoltre permettere all'utente finale di visualizzare delle statistiche per ogni stato. Infine, l'utente ha la possibilità di calcolare/filtrare le statistiche in base a dei filtri scelti dall'utente stesso.
+
+La nostra applicazione permetta di studiare gli eventi che avranno luogo in Canada, utilizzando le API del sito [Ticketmaster](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/#search-events-v2). Inoltre permettere all'utente finale di visualizzare delle statistiche per ogni stato. Infine, l'utente ha la possibilità di calcolare/filtrare le statistiche in base a dei filtri scelti dall'utente stesso.
 </p>
 
 ## **Scaletta dei contenuti**
@@ -28,18 +28,19 @@ Permette all'utente di visualizzare:
 * Gli eventi di un singolo market (102, 103, 106, 107, 108, 110, 111, 112, 120)
 * Gli eventi di un singolo source (universe, tmr, ticketmaster, frontgate)
 * Gli eventi a partire da una parola chiave
-* Gli eventi di una particolare tipologia (Music, Arts & Theatre, Sports, Miscellanous)
+* Gli eventi di una particolare tipologia
 * Gli eventi di un particolare genere
 * Gli eventi di un particolare sottogenere
 
 Inoltre l'utente ha a disposizione diversi modi per filtrare gli eventi:
 * Confrontare gli Stati canadesi filtrando per source, tipolgia dell'evento, genere dell'evento, sottogenere dell'evento oppure confrontando il totale degli eventi
-* Confrontare i vari Market 
+* Confrontare i vari market 
 * Confrontare per source filtrando per Stati
 * Confrontare per tipologia degli eventi filtrando per Stati
 * Confrontare per genere degli eventi filtrando per Stati
 * Confrontare per sottogenere degli eventi filtrando per Stati
 
+L'applicazione salva automaticamente al momento dell'avvio, una serie di eventi principali del Canada all'interno di un file e, infine, permette anche di salvare all'interno di un file gli eventi di uno Stato canadese indicato dall'user.
 
 <a name="install"></a>
 ## Installazione
