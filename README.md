@@ -396,12 +396,12 @@ Richiede un body del seguente tipo:
 ```
 
 - **comparator**: rappresenta che tipo di elementi si vogliono confrontare tra loro.
-I comparator ammessi sono: `country`  , `state`, `market`, `segment`, `genre`, `subGenre` o `source`.
+I comparator ammessi sono: `country`  , `state`, `market`, `segment`, `genre`, `subgenre` o `source`.
 - **elements**: sono gli elementi che si vogliono confrontare. Se il _comparator_ è _country_ non è necessario passare elementi nel body, in quanto l'applicazione analizzerà automaticamente tutti gli Stati con del Canada.
 - **parameter**: rappresenta il parametro su cui si vuole effettuare il confronto. 
 Nel caso in cui comparator sia `country` oppure _state i parameter ammessi sono: `total`, `source`, `segment`, `genre` e `subgenre`.
 Nel caso in cui comparator sia `market` il parameter ammesso è: `total`.
-Nel caso in cui comparator sia `source` , `segment` , `genre` oppure `subGenre` il parameter ammesso è: `state`.
+Nel caso in cui comparator sia `source` , `segment` , `genre` oppure `subgenre` il parameter ammesso è: `state`.
 - **value**: rappresenta il valore del parametro su cui si vuole effettuare il confronto.
 - **period**: indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto (i valori ammesi sono: 1, 3, 6 oppure 12).
 
