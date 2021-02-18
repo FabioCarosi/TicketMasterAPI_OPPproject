@@ -1420,7 +1420,7 @@ Abbiamo implementato i seguenti test all'interno del nostro programma:
 
 <a name="doc"></a>
 ## Documentazione
-Il codice java è interamente documentato in [Javadoc]().
+Il codice java è interamente documentato in [Javadoc](https://github.com/FabioCarosi/ProgettoOOP/tree/master/TicketmasterCanada/doc).
 
 <a name="autor"></a>
 ### Autori
