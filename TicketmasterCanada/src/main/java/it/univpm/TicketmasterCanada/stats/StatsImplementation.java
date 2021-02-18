@@ -92,7 +92,7 @@ public class StatsImplementation implements Stats {
 		endDateTime = endDateTime.plusMonths(period);
 		endDateTime = endDateTime.truncatedTo(ChronoUnit.SECONDS);
 
-		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode + "&segmentName="
+		String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode + "&segmentName="
 				+ segment + "&endDateTime="+endDateTime +"Z&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
@@ -125,7 +125,7 @@ public class StatsImplementation implements Stats {
 
 		JSONObject genreEventsObject;
 
-		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode + "&genreId="
+		String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode + "&genreId="
 				+ genreId + "&endDateTime=" + endDateTime + "Z&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
@@ -158,7 +158,7 @@ public class StatsImplementation implements Stats {
 
 		
 
-		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode + "&subGenreId="
+		String Url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode + "&subGenreId="
 				+ subGenreId + "&endDateTime=" +endDateTime + "Z&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
