@@ -512,7 +512,7 @@ genere non è accettato. Scegli tra: total, source, segment, genre e subgenre.
 <a name=4></a>
 ## 4.   /saveEvents?stateCode=<stateCode>
 La quarta rotta è di tipo GET e salverà all'interno di un file l'elenco di eventi aventi luogo nello Stato canadese iniserito dall'utente.
-Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2(#2) (/stateEvents)(#2).
+Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero [2](#2) [(/stateEvents)](#2).
 
 #### Esempio
 
