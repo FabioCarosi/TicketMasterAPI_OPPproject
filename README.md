@@ -1254,7 +1254,6 @@ SubGenre| subGenreId
 `Miscellaneous Theatre ` | ` KZazBEonSMnZfZ7v7lk`
 `Mixed Martial Arts ` | ` KZazBEonSMnZfZ7vFIE`
 `MLB ` | ` KZazBEonSMnZfZ7vF1n`
-`Musical ` | ` KnvZfZ7v7l1`
 `Nu-Metal ` | ` KZazBEonSMnZfZ7vaJ6`
 `Other ` | ` KZazBEonSMnZfZ7vaav`
 `Performance Art ` | ` KZazBEonSMnZfZ7v7l1`
