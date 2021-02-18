@@ -93,7 +93,7 @@ public class SummonException {
     public void segmentVectorException(Vector<String> segments) throws WrongValueException {
     	
     	if (!segments.contains("Arts") && !segments.contains("Miscellaneous") && !segments.contains("Music") 
-    		&& !segments.contains("Sports")) 
+    		&& !segments.contains("Sports") && !segments.contains("KZFzniwn")) 
     		
     		throw new WrongValueException(segments + " non è un valore ammesso.");
 
@@ -109,7 +109,7 @@ public class SummonException {
     public void segmentStringException(String segment) throws WrongValueException {
     	
     	if (!segment.equals("Arts") && !segment.equals("Miscellaneous") && !segment.equals("Music") 
-    		&& !segment.equals("Sports"))
+    		&& !segment.equals("Sports")&& !segment.contains("KZFzniwn"))
     		
 		throw new WrongValueException(segment + " non è un valore ammesso.");
 
@@ -140,21 +140,7 @@ public class SummonException {
 				&& !genres.contains("R&B") && !genres.contains("Spectacular") && !genres.contains("Theatre")
 				&& !genres.contains("Undefined") && !genres.contains("Variety") && !genres.contains("Volleyball")
 				&& !genres.contains("World") && !genres.contains("Wrestling") && !genres.contains("KnvZfZ7vAvv")
-				&& !genres.contains("KnvZfZ7vAeI") && !genres.contains("KnvZfZ7vAet") && !genres.contains("KnvZfZ7vAde")
-				&& !genres.contains("KnvZfZ7vAvd") && !genres.contains("KnvZfZ7vAdA") && !genres.contains("KnvZfZ7v7na")
-				&& !genres.contains("KnvZfZ7v7n1") && !genres.contains("KnvZfZ7vAeJ") && !genres.contains("KnvZfZ7vAe1")
-				&& !genres.contains("KnvZfZ7vAAE") && !genres.contains("KnvZfZ7vAv6") && !genres.contains("KnvZfZ7vAdk")
-				&& !genres.contains("KnvZfZ7vAda") && !genres.contains("KnvZfZ7v7nI") && !genres.contains("KnvZfZ7vAvF")
-				&& !genres.contains("KnvZfZ7vAd1") && !genres.contains("KnvZfZ7vA1n") && !genres.contains("KnvZfZ7v7nn")
-				&& !genres.contains("KnvZfZ7vAva") && !genres.contains("KnvZfZ7vAv1") && !genres.contains("KnvZfZ7vAAJ")
-				&& !genres.contains("KnvZfZ7v7lI") && !genres.contains("KnvZfZ7vAvE") && !genres.contains("KnvZfZ7v7lv")
-				&& !genres.contains("KnvZfZ7vA7d") && !genres.contains("KnvZfZ7vAvt") && !genres.contains("KnvZfZ7vA7A")
-				&& !genres.contains("KnvZfZ7v7ld") && !genres.contains("KnvZfZ7vA7k") && !genres.contains("KnvZfZ7v7l6")
-				&& !genres.contains("KnvZfZ7vAev") && !genres.contains("KnvZfZ7vAed") && !genres.contains("KnvZfZ7vAeA")
-				&& !genres.contains("KnvZfZ7vA71") && !genres.contains("KnvZfZ7vAee") && !genres.contains("KnvZfZ7v7la")
-				&& !genres.contains("KnvZfZ7v7l1") && !genres.contains("KnvZfZ7v7ll") && !genres.contains("KnvZfZ7v7lJ")
-				&& !genres.contains("KnvZfZ7vAA7") && !genres.contains("KnvZfZ7vAeF") && !genres.contains("KnvZfZ7vAAk")
-				&& !genres.contains("KnvZfZ7v7l1"))
+				&& !genres.contains("KnvZfZ7v"))
 
 			throw new WrongValueException(genres + " non è un valore ammesso.");
 
@@ -185,21 +171,7 @@ public class SummonException {
 				&& !genre.equals("Spectacular") && !genre.equals("Theatre") && !genre.equals("Undefined")
 				&& !genre.equals("Variety") && !genre.equals("Volleyball") && !genre.equals("World")
 				&& !genre.equals("Wrestling") && !genre.equals("Wrestling") && !genre.equals("KnvZfZ7vAvv")
-				&& !genre.equals("KnvZfZ7vAeI") && !genre.equals("KnvZfZ7vAet") && !genre.equals("KnvZfZ7vAde")
-				&& !genre.equals("KnvZfZ7vAvd") && !genre.equals("KnvZfZ7vAdA") && !genre.equals("KnvZfZ7v7na")
-				&& !genre.equals("KnvZfZ7v7n1") && !genre.equals("KnvZfZ7vAeJ") && !genre.equals("KnvZfZ7vAe1")
-				&& !genre.equals("KnvZfZ7vAAE") && !genre.equals("KnvZfZ7vAv6") && !genre.equals("KnvZfZ7vAdk")
-				&& !genre.equals("KnvZfZ7vAda") && !genre.equals("KnvZfZ7v7nI") && !genre.equals("KnvZfZ7vAvF")
-				&& !genre.equals("KnvZfZ7v7l1") && !genre.equals("KnvZfZ7vAd1") && !genre.equals("KnvZfZ7vA1n")
-				&& !genre.equals("KnvZfZ7v7nn") && !genre.equals("KnvZfZ7vAva") && !genre.equals("KnvZfZ7vAv1")
-				&& !genre.equals("KnvZfZ7vAAJ") && !genre.equals("KnvZfZ7v7lI") && !genre.equals("KnvZfZ7vAvE")
-				&& !genre.equals("KnvZfZ7v7lv") && !genre.equals("KnvZfZ7vA7d") && !genre.equals("KnvZfZ7vAvt")
-				&& !genre.equals("KnvZfZ7vA7A") && !genre.equals("KnvZfZ7v7ld") && !genre.equals("KnvZfZ7vA7k")
-				&& !genre.equals("KnvZfZ7v7l6") && !genre.equals("KnvZfZ7vAev") && !genre.equals("KnvZfZ7vAed")
-				&& !genre.equals("KnvZfZ7vAeA") && !genre.equals("KnvZfZ7vA71") && !genre.equals("KnvZfZ7vAee")
-				&& !genre.equals("KnvZfZ7v7la") && !genre.equals("KnvZfZ7v7l1") && !genre.equals("KnvZfZ7v7ll")
-				&& !genre.equals("KnvZfZ7v7lJ") && !genre.equals("KnvZfZ7vAA7") && !genre.equals("KnvZfZ7vAeF")
-				&& !genre.equals("KnvZfZ7vAAk"))
+				&& !genre.contains("KnvZfZ7v"))
 
 			throw new WrongValueException(genre + " non è un valore ammesso.");
 
@@ -243,38 +215,7 @@ public class SummonException {
 				&& !subGenres.contains("Undefined") && !subGenres.contains("Urban") && !subGenres.contains("Variety")
 				&& !subGenres.contains("Volleyball") && !subGenres.contains("Witchstep") && !subGenres.contains("World")
 				&& !subGenres.contains("Wrestling") && !subGenres.contains("KZazBEonSMnZfZ7vk1l")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vAvJ") && !subGenres.contains("KZazBEonSMnZfZ7v6dt")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vF1a") && !subGenres.contains("KZazBEonSMnZfZ7vF11")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vAAd") && !subGenres.contains("KZazBEonSMnZfZ7v676")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vFJJ") && !subGenres.contains("KZazBEonSMnZfZ7v671")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vaaE") && !subGenres.contains("KZazBEonSMnZfZ7vAv7")
-				&& !subGenres.contains("KZazBEonSMnZfZ7v7na") && !subGenres.contains("KZazBEonSMnZfZ7v7n1")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vF1A") && !subGenres.contains("KZazBEonSMnZfZ7vAJ1")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vF17") && !subGenres.contains("KZazBEonSMnZfZ7vFlv")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vAFa") && !subGenres.contains("KZazBEonSMnZfZ7vFJE")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vFEv") && !subGenres.contains("KZazBEonSMnZfZ7v7nl")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vAJn") && !subGenres.contains("KZazBEonSMnZfZ7v7lt")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vFEe") && !subGenres.contains("KZazBEonSMnZfZ7vFEd")
-				&& !subGenres.contains("KZazBEonSMnZfZ7v6At") && !subGenres.contains("KZazBEonSMnZfZ7v7le")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vAn7") && !subGenres.contains("KZazBEonSMnZfZ7vaa1")
-				&& !subGenres.contains("KZazBEonSMnZfZ7v6kl") && !subGenres.contains("KZazBEonSMnZfZ7vkFd")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vFnl") && !subGenres.contains("KZazBEonSMnZfZ7vAv6")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vkEk") && !subGenres.contains("KZazBEonSMnZfZ7vAde")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vkda") && !subGenres.contains("KZazBEonSMnZfZ7vFdJ")
-				&& !subGenres.contains("KZazBEonSMnZfZ7v7l7") && !subGenres.contains("KZazBEonSMnZfZ7vFJ6")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vaJk") && !subGenres.contains("KZazBEonSMnZfZ7vFIt")
-				&& !subGenres.contains("KZazBEonSMnZfZ7v7lk") && !subGenres.contains("KZazBEonSMnZfZ7vFIE")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vaJ6") && !subGenres.contains("KZazBEonSMnZfZ7vaav")
-				&& !subGenres.contains("KZazBEonSMnZfZ7v7l1") && !subGenres.contains("KZazBEonSMnZfZ7v6F1")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vkel") && !subGenres.contains("KZazBEonSMnZfZ7vknl")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vFtJ") && !subGenres.contains("KZazBEonSMnZfZ7v6da")
-				&& !subGenres.contains("KZazBEonSMnZfZ7v6an") && !subGenres.contains("KZazBEonSMnZfZ7vkIt")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vF6E") && !subGenres.contains("KZazBEonSMnZfZ7vknE")
-				&& !subGenres.contains("KZazBEonSMnZfZ7v61J") && !subGenres.contains("KZazBEonSMnZfZ7v7lE")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vAv1") && !subGenres.contains("KZazBEonSMnZfZ7vkdA")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vAvA") && !subGenres.contains("KZazBEonSMnZfZ7vFn6")
-				&& !subGenres.contains("KZazBEonSMnZfZ7va1k") && !subGenres.contains("KZazBEonSMnZfZ7v6Jt")
-				&& !subGenres.contains("KZazBEonSMnZfZ7vFna"))
+				&& !subGenres.contains("KZazBEonSMnZfZ7"))
 
 			throw new WrongValueException(subGenres + " non è un valore ammesso.");
 
@@ -313,38 +254,7 @@ public class SummonException {
 				&& !subGenre.equals("Undefined") && !subGenre.equals("Urban") && !subGenre.equals("Variety")
 				&& !subGenre.equals("Volleyball") && !subGenre.equals("Witchstep") && !subGenre.equals("World")
 				&& !subGenre.equals("Wrestling") && !subGenre.equals("KZazBEonSMnZfZ7vk1l")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vAvJ") && !subGenre.equals("KZazBEonSMnZfZ7v6dt")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vF1a") && !subGenre.equals("KZazBEonSMnZfZ7vF11")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vAAd") && !subGenre.equals("KZazBEonSMnZfZ7v676")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vFJJ") && !subGenre.equals("KZazBEonSMnZfZ7v671")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vaaE") && !subGenre.equals("KZazBEonSMnZfZ7vAv7")
-				&& !subGenre.equals("KZazBEonSMnZfZ7v7na") && !subGenre.equals("KZazBEonSMnZfZ7v7n1")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vF1A") && !subGenre.equals("KZazBEonSMnZfZ7vAJ1")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vF17") && !subGenre.equals("KZazBEonSMnZfZ7vFlv")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vAFa") && !subGenre.equals("KZazBEonSMnZfZ7vFJE")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vFEv") && !subGenre.equals("KZazBEonSMnZfZ7v7nl")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vAJn") && !subGenre.equals("KZazBEonSMnZfZ7v7lt")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vFEe") && !subGenre.equals("KZazBEonSMnZfZ7vFEd")
-				&& !subGenre.equals("KZazBEonSMnZfZ7v6At") && !subGenre.equals("KZazBEonSMnZfZ7v7le")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vAn7") && !subGenre.equals("KZazBEonSMnZfZ7vaa1")
-				&& !subGenre.equals("KZazBEonSMnZfZ7v6kl") && !subGenre.equals("KZazBEonSMnZfZ7vkFd")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vFnl") && !subGenre.equals("KZazBEonSMnZfZ7vAv6")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vkEk") && !subGenre.equals("KZazBEonSMnZfZ7vAde")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vkda") && !subGenre.equals("KZazBEonSMnZfZ7vFdJ")
-				&& !subGenre.equals("KZazBEonSMnZfZ7v7l7") && !subGenre.equals("KZazBEonSMnZfZ7vFJ6")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vaJk") && !subGenre.equals("KZazBEonSMnZfZ7vFIt")
-				&& !subGenre.equals("KZazBEonSMnZfZ7v7lk") && !subGenre.equals("KZazBEonSMnZfZ7vFIE")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vaJ6") && !subGenre.equals("KZazBEonSMnZfZ7vaav")
-				&& !subGenre.equals("KZazBEonSMnZfZ7v7l1") && !subGenre.equals("KZazBEonSMnZfZ7v6F1")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vkel") && !subGenre.equals("KZazBEonSMnZfZ7vknl")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vFtJ") && !subGenre.equals("KZazBEonSMnZfZ7v6da")
-				&& !subGenre.equals("KZazBEonSMnZfZ7v6an") && !subGenre.equals("KZazBEonSMnZfZ7vkIt")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vF6E") && !subGenre.equals("KZazBEonSMnZfZ7vknE")
-				&& !subGenre.equals("KZazBEonSMnZfZ7v61J") && !subGenre.equals("KZazBEonSMnZfZ7v7lE")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vAv1") && !subGenre.equals("KZazBEonSMnZfZ7vkdA")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vAvA") && !subGenre.equals("KZazBEonSMnZfZ7vFn6")
-				&& !subGenre.equals("KZazBEonSMnZfZ7va1k") && !subGenre.equals("KZazBEonSMnZfZ7v6Jt")
-				&& !subGenre.equals("KZazBEonSMnZfZ7vFna"))
+				&& !subGenre.contains("KZazBEonSMnZfZ7"))
 
 			throw new WrongValueException(subGenre + " non è un valore ammesso.");
 
