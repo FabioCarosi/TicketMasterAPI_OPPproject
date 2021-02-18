@@ -136,10 +136,6 @@ N° | Tipo | Rotta | Descrizione
 [4](#4) | ` GET ` | `/saveEvents?stateCode=<stateCode>` | *Restituisce un file contente gli eventi dello State canadese passato come parametro. Se l'utente inserisce lo stateCode = CA si visualizzano gli eventi dell'intero Canada.*
 
 
-## Funzionamento del programma 
-
-Per utilizzare l'applicazione bisogna innanzitutto avviare l'applicazione come SpringBoot e utlizzare il software Postman per richiamare le rotte facendo attenzione a non confondere le rotte di tipo GET con la rotta di tipo POST. Quindi procedere come segue:
-
 <a name="1"></a>
 ## 1.   /countryEvents
 
