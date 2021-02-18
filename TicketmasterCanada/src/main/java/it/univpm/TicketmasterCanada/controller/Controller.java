@@ -248,14 +248,48 @@ public class Controller {
 	 * Rotta di tipo POST che filtra gli eventi in base alle richieste dell'utente
 	 * 
 	 * L'utente deve inserire un JSONObject del tipo riportato nei seguenti esempi:
-	 * 
-	 * { "comparator": "states", "elements": [ { "name": "AB" }, { "name": "BC" }, {
-	 * "name": "ON" } ], "parameter": "segment", "value": "Sports", "period": 6 }
+	 * { 
+			 "comparator": "state", 
+			 "elements": [
+			 {
+			  		 "name": "AB" 
+			   	}, 
+			   	{
+			   		 "name": "BC" 
+			   	},
+			   	{
+			   		 "name": "MB" 
+			   	}
+		
+			   ],
+			   "param": "genre",
+			   "value": "Pop",
+			   "period": 6
+		}
 	 * 
 	 * - oppure -
 	 * 
-	 * { "comparator": "market", "elements": [ { "name": "120" }, { "name": "108" ],
-	 * "parameter": "total", "value": "", "period": 3 }
+			 { 
+		  "comparator": "segment", 
+		  "elements": [
+		  {
+		   		 "name": "Arts" 
+		    	}, 
+		    	{
+		    		 "name": "Music" 
+		    	},
+		    	{
+		    		 "name": "Miscellaneous" 
+		    	},
+		     {
+		    		 "name": "Sports" 
+		    	}
+		
+		    ],
+		    "param": "state",
+		    "value": "AB",
+		    "period": 3
+		}
 	 * 
 	 * PARAM - camparation: rappresenta che tipo di elementi si vogliono confrontare
 	 * tra loro: si possono confrontare tra loro: state, market, segment, genre,
