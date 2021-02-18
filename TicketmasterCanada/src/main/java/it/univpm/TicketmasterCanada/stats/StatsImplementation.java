@@ -91,9 +91,16 @@ public class StatsImplementation implements Stats {
 		
 		endDateTime = endDateTime.plusMonths(period);
 		endDateTime = endDateTime.truncatedTo(ChronoUnit.SECONDS);
+		
+		String segmentId = segment;
+		
+		if (segment.equals("Arts")) segmentId = "KZFzniwnSyZfZ7v7na";
+		else if (segment.equals("Sports")) segmentId = "KZFzniwnSyZfZ7v7nE";
+		else if (segment.equals("Miscellaneous")) segmentId = "KZFzniwnSyZfZ7v7n1";
+		else if (segment.equals("Music")) segmentId = "KZFzniwnSyZfZ7v7nJ";
 
-		String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode + "&segmentName="
-				+ segment + "&endDateTime="+endDateTime +"Z&apikey=" + apiKey;
+		String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode + "&segmentId="
+				+ segmentId + "&endDateTime="+endDateTime +"Z&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
 

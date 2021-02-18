@@ -177,12 +177,18 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 		exc.segmentStringException(segment);
 				
 		String request = "";
-
+		String segmentId = segment;
+		
+		if (segment.equals("Arts")) segmentId = "KZFzniwnSyZfZ7v7na";
+		else if (segment.equals("Sports")) segmentId = "KZFzniwnSyZfZ7v7nE";
+		else if (segment.equals("Miscellaneous")) segmentId = "KZFzniwnSyZfZ7v7n1";
+		else if (segment.equals("Music")) segmentId = "KZFzniwnSyZfZ7v7nJ";
+		
 		if (stateCode.equals("CA")) {
-			request = "https://app.ticketmaster.com/discovery/v2/events?size=200&segmentName=" + segment
+			request = "https://app.ticketmaster.com/discovery/v2/events?size=200&segmentId=" + segmentId
 					+ "&countryCode=CA" + "&apikey=" + apiKey;
 		} else {
-			request = "https://app.ticketmaster.com/discovery/v2/events?size=200&segmentName=" + segment + "&stateCode="
+			request = "https://app.ticketmaster.com/discovery/v2/events?size=200&segmentId=" + segmentId + "&stateCode="
 					+ stateCode + "&apikey=" + apiKey;
 		}
 		RestTemplate rTemplate = new RestTemplate();

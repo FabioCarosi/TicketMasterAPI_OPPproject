@@ -92,7 +92,7 @@ public class SummonException {
      */
     public void segmentVectorException(Vector<String> segments) throws WrongValueException {
     	
-    	if (!segments.contains("Arts & Theatre") && !segments.contains("Miscellaneous") && !segments.contains("Music") 
+    	if (!segments.contains("Arts") && !segments.contains("Miscellaneous") && !segments.contains("Music") 
     		&& !segments.contains("Sports")) 
     		
     		throw new WrongValueException(segments + " non è un valore ammesso.");
@@ -108,7 +108,7 @@ public class SummonException {
      */
     public void segmentStringException(String segment) throws WrongValueException {
     	
-    	if (!segment.equals("Arts & Theatre") && !segment.equals("Miscellaneous") && !segment.equals("Music") 
+    	if (!segment.equals("Arts") && !segment.equals("Miscellaneous") && !segment.equals("Music") 
     		&& !segment.equals("Sports"))
     		
 		throw new WrongValueException(segment + " non è un valore ammesso.");

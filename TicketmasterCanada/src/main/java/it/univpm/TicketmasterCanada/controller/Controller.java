@@ -285,7 +285,7 @@ public class Controller {
 	 *                                  ammesso
 	 */
 
-	@PostMapping(value = "/filter")
+	@PostMapping(value = "/statsFilter")
 	public ResponseEntity<Object> filters(@RequestBody String body) throws WrongPeriodException, WrongValueException,
 			WrongComparatorException, WrongStateException, WrongParameterException {
 
