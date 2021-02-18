@@ -1062,7 +1062,7 @@ Genre| genreId
  `	Family`  | ` KnvZfZ7vA1n`
  `	Fashion ` | ` KnvZfZ7v7nn`
  `	Folk ` | ` KnvZfZ7vAva`
- `	Hip` | `Hop/Rap ` | ` KnvZfZ7vAv1`
+ `	Hip-Hop/Rap ` | ` KnvZfZ7vAv1`
  `	Hobby/Special Interest Expos ` | ` KnvZfZ7vAAJ`
  `	Ice Shows ` | ` KnvZfZ7v7lI`
  `	Jazz ` | ` KnvZfZ7vAvE`
