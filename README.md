@@ -751,6 +751,8 @@ N° | source
 2| `universe ` 
 3| `tmr ` 
 4| `frontgate ` 
+
+
 Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2 (/stateEvents).
 
 ### Esempio
@@ -925,6 +927,8 @@ segmentName | segmentId
 `Arts`| `KZFzniwnSyZfZ7v7na` 
 `Music`|  `KZFzniwnSyZfZ7v7nJ` 
 `Miscellaneous`|  `KZFzniwnSyZfZ7v7n1`
+
+
 Se si è a conoscenza di ulteriori segmentId, questi possono essere utilizzati come parametro. Non è però ammesso l'utilizzo di altri segmentName al di fuori di quelli sopracitati, in quanto l'applicazione non è in grado di convertirli. 
 Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2 (/stateEvents).
 
@@ -1081,10 +1085,12 @@ Genre| genreId
 `	Spectacular ` | ` KnvZfZ7v7la`
 `	Theatre ` | ` KnvZfZ7v7l1`
 `	Undefined ` | ` KnvZfZ7v7ll`
-	`Variety ` | ` KnvZfZ7v7lJ	`
-	`Volleyball ` | ` KnvZfZ7vAA7`
- 	`World ` | ` KnvZfZ7vAeF`
- 	`Wrestling ` | ` KnvZfZ7vAAk`
+`	Variety ` | ` KnvZfZ7v7lJ	`
+`	Volleyball ` | ` KnvZfZ7vAA7`
+`	World ` | ` KnvZfZ7vAeF`
+`	Wrestling ` | ` KnvZfZ7vAAk`
+	
+	
 Se si è a conoscenza di ulteriori genreId, questi possono essere utilizzati come parametro. Non è però ammesso l'utilizzo di altri genreName al di fuori di quelli sopracitati, in quanto l'applicazione non è in grado di convertirli.
 Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2 (/stateEvents).
 
@@ -1217,59 +1223,62 @@ SubGenre| subGenreId
 `Cabaret ` | ` KZazBEonSMnZfZ7vAv7`
 `Children's Theatre ` | ` KZazBEonSMnZfZ7v7na`
 `Circus ` | ` KZazBEonSMnZfZ7v7n1`
-` 	Classical/Vocal ` | ` KZazBEonSMnZfZ7vF1A`
-` 	Club Dance ` | ` KZazBEonSMnZfZ7vAJ1`
- `	Comedy ` | ` KZazBEonSMnZfZ7vF17`
- `	Community/Civic ` | ` KZazBEonSMnZfZ7vFlv`
- `	Country ` | ` KZazBEonSMnZfZ7vAFa`
- `	Cricket ` | ` KZazBEonSMnZfZ7vFJE`
- `	Cycling ` | ` KZazBEonSMnZfZ7vFEv`
- `	Dance ` | ` KZazBEonSMnZfZ7v7nl`
- `	Disco ` | ` KZazBEonSMnZfZ7vAJn`
- `	Drama ` | ` KZazBEonSMnZfZ7v7lt`
- `	Dressage ` | ` KZazBEonSMnZfZ7vFEe`
- `	Equestrian ` | ` KZazBEonSMnZfZ7vFEd`
- `	European Pop ` | ` KZazBEonSMnZfZ7v6At`
- `	Fashion ` | ` KZazBEonSMnZfZ7v7le`
- `	Folk ` | ` KZazBEonSMnZfZ7vAn7`
- `	French Rap ` | ` KZazBEonSMnZfZ7vaa1`
- `	Hard Rock ` | ` KZazBEonSMnZfZ7v6kl`
- `	Heavy Metal ` | ` KZazBEonSMnZfZ7vkFd`
- `	Hobby/Special Interest Expos ` | ` KZazBEonSMnZfZ7vFnl`
- `	Ice Shows ` | ` KZazBEonSMnZfZ7vAv6`
- `	Indie Pop ` | ` KZazBEonSMnZfZ7vkEk`
- `	Indie Rock ` | ` KZazBEonSMnZfZ7vAde`
- `	Jazz ` | ` KZazBEonSMnZfZ7vkda`
- `	Latin ` | ` KZazBEonSMnZfZ7vFdJ`
- `	Magic ` | ` KZazBEonSMnZfZ7v7l7`
- `	Men Professional ` | ` KZazBEonSMnZfZ7vFJ6`
- `	Metalcore ` | ` KZazBEonSMnZfZ7vaJk`
- `	Miscellaneous ` | ` KZazBEonSMnZfZ7vFIt`
- `	Miscellaneous Theatre ` | ` KZazBEonSMnZfZ7v7lk`
- `	Mixed Martial Arts ` | ` KZazBEonSMnZfZ7vFIE`
- `	MLB ` | ` KZazBEonSMnZfZ7vF1n`
- `	Musical ` | ` KnvZfZ7v7l1`
- `Nu-Metal ` | ` KZazBEonSMnZfZ7vaJ6`
-`	Other ` | ` KZazBEonSMnZfZ7vaav`
-`	Performance Art ` | ` KZazBEonSMnZfZ7v7l1`
-`	Pop ` | ` KZazBEonSMnZfZ7v6F1`
-`	Rap` | `Rock ` | ` KZazBEonSMnZfZ7vkel`
-`	Reggae ` | ` KZazBEonSMnZfZ7vknl`
-`	Rugby Union ` | ` KZazBEonSMnZfZ7vFtJ`
-`	Rock ` | ` KZazBEonSMnZfZ7v6da`
-`	Rock & Roll ` | ` KZazBEonSMnZfZ7v6an`
-`	R&B ` | ` KZazBEonSMnZfZ7vkIt`
-`	Scandinavia ` | ` KZazBEonSMnZfZ7vF6E`
-`	Soul ` | ` KZazBEonSMnZfZ7vknE`
-`	Southern Rock ` | ` KZazBEonSMnZfZ7v61J`
-`	Spectacular ` | ` KZazBEonSMnZfZ7v7lE`
-`	Undefined ` | ` KZazBEonSMnZfZ7vAv1`
-`	Urban ` | ` KZazBEonSMnZfZ7vkdA`
-`	Variety ` | ` KZazBEonSMnZfZ7vAvA`
-`	Volleyball ` | ` KZazBEonSMnZfZ7vFn6`
-`	Witchstep ` | ` KZazBEonSMnZfZ7va1k`
-`	World ` | ` KZazBEonSMnZfZ7v6Jt`
-`	Wrestling ` | ` KZazBEonSMnZfZ7vFna`
+`Classical/Vocal ` | ` KZazBEonSMnZfZ7vF1A`
+`Club Dance ` | ` KZazBEonSMnZfZ7vAJ1`
+`Comedy ` | ` KZazBEonSMnZfZ7vF17`
+`Community/Civic ` | ` KZazBEonSMnZfZ7vFlv`
+`Country ` | ` KZazBEonSMnZfZ7vAFa`
+`Cricket ` | ` KZazBEonSMnZfZ7vFJE`
+`Cycling ` | ` KZazBEonSMnZfZ7vFEv`
+`Dance ` | ` KZazBEonSMnZfZ7v7nl`
+`Disco ` | ` KZazBEonSMnZfZ7vAJn`
+`Drama ` | ` KZazBEonSMnZfZ7v7lt`
+`Dressage ` | ` KZazBEonSMnZfZ7vFEe`
+`Equestrian ` | ` KZazBEonSMnZfZ7vFEd`
+`European Pop ` | ` KZazBEonSMnZfZ7v6At`
+`Fashion ` | ` KZazBEonSMnZfZ7v7le`
+`Folk ` | ` KZazBEonSMnZfZ7vAn7`
+`French Rap ` | ` KZazBEonSMnZfZ7vaa1`
+`Hard Rock ` | ` KZazBEonSMnZfZ7v6kl`
+`Heavy Metal ` | ` KZazBEonSMnZfZ7vkFd`
+`Hobby/Special Interest Expos ` | ` KZazBEonSMnZfZ7vFnl`
+`Ice Shows ` | ` KZazBEonSMnZfZ7vAv6`
+`Indie Pop ` | ` KZazBEonSMnZfZ7vkEk`
+`Indie Rock ` | ` KZazBEonSMnZfZ7vAde`
+`Jazz ` | ` KZazBEonSMnZfZ7vkda`
+`Latin ` | ` KZazBEonSMnZfZ7vFdJ`
+`Magic ` | ` KZazBEonSMnZfZ7v7l7`
+`Men Professional ` | ` KZazBEonSMnZfZ7vFJ6`
+`Metalcore ` | ` KZazBEonSMnZfZ7vaJk`
+`Miscellaneous ` | ` KZazBEonSMnZfZ7vFIt`
+`Miscellaneous Theatre ` | ` KZazBEonSMnZfZ7v7lk`
+`Mixed Martial Arts ` | ` KZazBEonSMnZfZ7vFIE`
+`MLB ` | ` KZazBEonSMnZfZ7vF1n`
+`Musical ` | ` KnvZfZ7v7l1`
+`Nu-Metal ` | ` KZazBEonSMnZfZ7vaJ6`
+`Other ` | ` KZazBEonSMnZfZ7vaav`
+`Performance Art ` | ` KZazBEonSMnZfZ7v7l1`
+`Pop ` | ` KZazBEonSMnZfZ7v6F1`
+`Rap-Rock ` | ` KZazBEonSMnZfZ7vkel`
+`Reggae ` | ` KZazBEonSMnZfZ7vknl`
+`Rugby Union ` | ` KZazBEonSMnZfZ7vFtJ`
+`Rock ` | ` KZazBEonSMnZfZ7v6da`
+`Rock & Roll ` | ` KZazBEonSMnZfZ7v6an`
+`R&B ` | ` KZazBEonSMnZfZ7vkIt`
+`Scandinavia ` | ` KZazBEonSMnZfZ7vF6E`
+`Soul ` | ` KZazBEonSMnZfZ7vknE`
+`Southern Rock ` | ` KZazBEonSMnZfZ7v61J`
+`Spectacular ` | ` KZazBEonSMnZfZ7v7lE`
+`Undefined ` | ` KZazBEonSMnZfZ7vAv1`
+`Urban ` | ` KZazBEonSMnZfZ7vkdA`
+`Variety ` | ` KZazBEonSMnZfZ7vAvA`
+`Volleyball ` | ` KZazBEonSMnZfZ7vFn6`
+`Witchstep ` | ` KZazBEonSMnZfZ7va1k`
+`World ` | ` KZazBEonSMnZfZ7v6Jt`
+`Wrestling ` | ` KZazBEonSMnZfZ7vFna`
+	
+	
+	
 Se si è a conoscenza di ulteriori subGenreId, questi possono essere utilizzati come parametro. Non è però ammesso l'utilizzo di altri subGenreName al di fuori di quelli sopracitati, in quanto l'applicazione non è in grado di convertirli.
 Per conoscere la lista degli stateCode ammessi si fa riferimento alla tabella presenta nella rotta numero 2 (/stateEvents).
 
