@@ -1,7 +1,8 @@
 package it.univpm.TicketmasterCanada.stats;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
+import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
@@ -16,52 +17,26 @@ import it.univpm.TicketmasterCanada.service.ServiceImplementation;
 public class StatsImplementation implements Stats {
 
 	SummonException exc = new SummonException();
-	private static LocalDate datanow = LocalDate.now();
+	private static LocalDateTime endDateTime = LocalDateTime.now();
 
-	LocalDateTime nunc = LocalDateTime.now();
-
-	int hour = nunc.getHour();
-	int minute = nunc.getMinute();
-	int second = nunc.getSecond();
-
-	String tempus = "T" + hour + ":" + minute + ":" + second + "Z";
 
 	/**
 	 * Chiave API per accedere ai servizi Ticketmaster
 	 */
 	private String apiKey = "Ccg2GNVOGvUUXJeAPtSSAEQZjxbFN75B";
+ 
 
-	public JSONObject getCountryEvents(int period) {
-
-		JSONObject countryObject;
-
-		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=CA&endDateTime="
-				+ datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
-
-		RestTemplate restTemplate = new RestTemplate();
-
-		countryObject = new JSONObject(restTemplate.getForObject(url, String.class));
-
-		JSONObject pageObject = countryObject.getJSONObject("page");
-		int totalElements = pageObject.getInt("totalElements");
-
-		JSONObject finalObject = new JSONObject();
-
-		finalObject.put("Country ", "CA");
-		finalObject.put("totalEvents", totalElements);
-
-		return finalObject;
-
-	}
 
 	public JSONObject getStateEvents(String stateCode, int period) throws WrongStateException {
 
 		exc.stateStringException(stateCode);
 
 		JSONObject stateObject;
+		
+		endDateTime = endDateTime.plusMonths(period);
+		endDateTime = endDateTime.truncatedTo(ChronoUnit.SECONDS);
 
-		String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode + "&endDateTime="
-				+ datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
+		String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode + "&endDateTime="+endDateTime+ "Z&apikey=" +  apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -84,10 +59,12 @@ public class StatsImplementation implements Stats {
 		exc.marketStringException(marketId);
 
 		JSONObject marketObject;
-
-		String url = "https://app.ticketmaster.com/discovery/v2/events?&marketId=" + marketId + "&endDateTime="
-				+ datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
-
+		
+		endDateTime = endDateTime.plusMonths(period);
+		endDateTime = endDateTime.truncatedTo(ChronoUnit.SECONDS);
+		
+		String url = "https://app.ticketmaster.com/discovery/v2/events?&marketId=" + marketId + "&endDateTime="+ endDateTime +"Z&apikey=" + apiKey;
+		
 		RestTemplate restTemplate = new RestTemplate();
 
 		marketObject = new JSONObject(restTemplate.getForObject(url, String.class));
@@ -111,9 +88,12 @@ public class StatsImplementation implements Stats {
 		exc.stateStringException(stateCode);
 
 		JSONObject segmentObject;
+		
+		endDateTime = endDateTime.plusMonths(period);
+		endDateTime = endDateTime.truncatedTo(ChronoUnit.SECONDS);
 
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode + "&segmentName="
-				+ segment + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
+				+ segment + "&endDateTime="+endDateTime +"Z&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -138,11 +118,15 @@ public class StatsImplementation implements Stats {
 		exc.stateStringException(stateCode);
 		exc.genreStringException(genre);
 		String genreId = ServiceImplementation.genreConverter(genre);
+		
+		endDateTime = endDateTime.plusMonths(period);
+		endDateTime = endDateTime.truncatedTo(ChronoUnit.SECONDS);
+
 
 		JSONObject genreEventsObject;
 
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode + "&genreId="
-				+ genreId + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
+				+ genreId + "&endDateTime=" + endDateTime + "Z&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -168,9 +152,14 @@ public class StatsImplementation implements Stats {
 		String subGenreId = subGenre;
 		subGenreId = ServiceImplementation.genreConverter(subGenre);
 		JSONObject subGenreEventsObject;
+		
+		endDateTime = endDateTime.plusMonths(period);
+		endDateTime = endDateTime.truncatedTo(ChronoUnit.SECONDS);
+
+		
 
 		String Url = "https://app.ticketmaster.com/discovery/v2/events?&countryCode=" + stateCode + "&subGenreId="
-				+ subGenreId + "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
+				+ subGenreId + "&endDateTime=" +endDateTime + "Z&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -196,9 +185,12 @@ public class StatsImplementation implements Stats {
 		exc.sourceStringException(source);
 
 		JSONObject sourceObject;
-
+		
+		endDateTime = endDateTime.plusMonths(period);
+		endDateTime = endDateTime.truncatedTo(ChronoUnit.SECONDS);
+		
 		String url = "https://app.ticketmaster.com/discovery/v2/events?&stateCode=" + stateCode + "&source=" + source
-				+ "&endDateTime=" + datanow.plusMonths(period) + tempus + "&apikey=" + apiKey;
+				+ "&endDateTime=" + endDateTime + "Z&apikey=" + apiKey;
 
 		RestTemplate restTemplate = new RestTemplate();
 

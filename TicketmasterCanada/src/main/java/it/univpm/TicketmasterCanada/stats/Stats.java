@@ -12,7 +12,6 @@ import it.univpm.TicketmasterCanada.exception.*;
  */
 public interface Stats {
 	
-	public abstract JSONObject getCountryEvents(int period);
 	public abstract JSONObject getStateEvents(String stateCode, int period) throws WrongStateException;
 	public abstract JSONObject getMarketEvents(String marketId, int period) throws WrongValueException;
 	public abstract JSONObject getSourceEvents(String stateCode, String source, int period) throws WrongStateException, WrongValueException;

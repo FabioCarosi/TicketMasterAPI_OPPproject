@@ -195,7 +195,7 @@ public class Filters {
 					array = filter.period(states, value, period);
 				} else
 					throw new WrongParameterException(
-							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa state.");
 			} else if (period == 3) {
 
 				if (parameter.equals("state")) {
@@ -203,7 +203,7 @@ public class Filters {
 					array = filter.period(states, value, period);
 				} else
 					throw new WrongParameterException(
-							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa state.");
 			}
 
 			else if (period == 6) {
@@ -215,7 +215,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -228,7 +228,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parameteretro ammesso. Puoi inserire solo la stringa state.");
 
 			} else
 				throw new WrongPeriodException(
@@ -245,7 +245,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 			}
 
 			else if (period == 3) {
@@ -257,7 +257,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 			}
 
 			else if (period == 6) {
@@ -269,7 +269,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -280,7 +280,7 @@ public class Filters {
 					array = filter.period(states, value, period);
 				} else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 			} else
 				throw new WrongPeriodException(
 						period + " non è un numero ammesso. Inserisci un numero tra 1, 3, 6 oppure 12.");
@@ -297,7 +297,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -310,7 +310,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -323,7 +323,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -334,7 +334,7 @@ public class Filters {
 					array = filter.period(states, value, period);
 				} else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 			} else
 				throw new WrongPeriodException(
 						period + " non è un numero ammesso. Inserisci un numero tra 1, 3, 6 oppure 12.");
@@ -351,7 +351,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -364,7 +364,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -377,7 +377,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -390,7 +390,7 @@ public class Filters {
 
 				else
 					throw new WrongParameterException(
-							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa country.");
+							parameter + " non è un parametro ammesso. Puoi inserire solo la stringa state.");
 
 			}
 
@@ -402,7 +402,7 @@ public class Filters {
 
 		else
 			throw new WrongComparatorException(comparator + " non è una stringa ammessa. Inserisci una stringa tra "
-					+ "country, market, source, segment, genre o subgenre.");
+					+ "state, market, source, segment, genre o subgenre.");
 
 		return array;
 	}
