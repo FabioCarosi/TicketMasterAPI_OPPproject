@@ -161,7 +161,7 @@ public class Event {
 
 	/**
 	 * Metodo che setta la data.
-	 * @param Date date 
+	 * @param date date 
 	 */
 	public void setDate(Date date) {
 		this.date = date;
@@ -177,7 +177,7 @@ public class Event {
 
 	/**
 	 * Metodo che setta le informazioni.
-	 * @param Informations informations
+	 * @param informations informations
 	 */
 	public void setInformations(Informations informations) {
 		this.informations = informations;
@@ -194,7 +194,7 @@ public class Event {
 
 	/**
 	 * Metodo che setta il genere.
-	 * @param Genre genre
+	 * @param genre genre
 	 */
 	public void setGenre(Genre genre) {
 		this.genre = genre;
@@ -210,7 +210,7 @@ public class Event {
 	
 	/**
 	 * Metodo che setta l'id
-	 * @param Id id
+	 * @param id id
 	 */
 	public void setId(String id) {
 		this.id = id;
@@ -226,7 +226,7 @@ public class Event {
 	
 	/**
 	 * Metodo che setta il name dell'evento.
-	 * @param Name name
+	 * @param name name
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -242,7 +242,7 @@ public class Event {
 	
 	/**
 	 * Metodo che setta l'url.
-	 * @param Url url
+	 * @param url url
 	 */
 	public void setUrl(String url) {
 		this.url = url;
@@ -258,7 +258,7 @@ public class Event {
 	
 	/**
 	 * Metodo che setta le info.
-	 * @param Info info
+	 * @param info info
 	 */
 	public void setInfo(String info) {
 		this.info = info;
