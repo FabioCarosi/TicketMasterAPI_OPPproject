@@ -64,7 +64,7 @@ public class Controller {
 	 *                  visualizzare gli eventi (sono ammessi solo le Province
 	 *                  canadesi)
 	 * @return gli eventi in ordine di importanza che hanno luogo nello State scelto
-	 * @throws WrongValueException se viene inserito il codice di uno State non
+	 * @throws WrongStateException se viene inserito il codice di uno State non
 	 *                             canadese
 	 */
 	@GetMapping(value = "/stateEvents")

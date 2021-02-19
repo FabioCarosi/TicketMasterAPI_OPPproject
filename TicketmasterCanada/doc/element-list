@@ -1,1 +1,8 @@
+it.univpm.TicketmasterCanada
+it.univpm.TicketmasterCanada.controller
+it.univpm.TicketmasterCanada.exception
+it.univpm.TicketmasterCanada.files
+it.univpm.TicketmasterCanada.filters
 it.univpm.TicketmasterCanada.model
+it.univpm.TicketmasterCanada.service
+it.univpm.TicketmasterCanada.stats

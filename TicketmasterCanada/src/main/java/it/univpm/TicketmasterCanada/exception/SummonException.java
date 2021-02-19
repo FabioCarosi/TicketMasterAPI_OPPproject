@@ -35,8 +35,8 @@ public class SummonException {
 	/** Questo metodo serve a valutare se il country inserito dall'utente è ammesso oppure no, ossia se il countryCode
 	 * inserito appartiene ad un paese europeo. In caso contrario lancia la relativa eccezione     
 	 * 
-     * @param country paese inserito dall'utente all'interno delle varie rotte di GET
-	 * @throws WrongCountryException se viene inserito il codice di un paese non europeo 
+     * @param state paese inserito dall'utente all'interno delle varie rotte di GET
+	 * @throws WrongStateException se viene inserito il codice di un paese non europeo 
      */
     public void stateStringException(String state) throws WrongStateException {
 		

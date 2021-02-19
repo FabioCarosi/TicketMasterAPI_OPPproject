@@ -275,7 +275,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	
 	/** Questo metodo va a prendere da Ticketmaster gli eventi in una Provincia del Canada tramite il codice di tale state, utilizzando il getStateEvents e il vectorFiller
 	 * 
-	 * @param stateCode codice della provincia del Canada in cui ha luogo l'evento
+	 * @param code codice della provincia del Canada in cui ha luogo l'evento
 	 * @return un JSONObject contenente tutti gli eventi che si svolgono nella provincia del Canada e tutte le relative informazioni
 	 * @throws WrongStateException se viene inserito un code non canadese
 	 */
@@ -388,7 +388,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	/**
 	 * Metodo che restitusce un vettore di Event con tutte le informazioni del singolo evento a partite dal JSONObject ricevuto dei metodi get*Events
 	 * 
-	 * @param JSONOject creato precedentemente dai metodi get*Events (getStateEvents, getSegmentEvents, getMarketEvents...)
+	 * @param object JSONOject creato precedentemente dai metodi get*Events (getStateEvents, getSegmentEvents, getMarketEvents...)
 	 * @return fullVector cioè un vettore di Event con tutti gli eventi e le rispettive informazioni
 	 */
 	public Vector<Event> vectorFiller(JSONObject object) {

@@ -23,7 +23,7 @@ public class Informations {
 	
 	/**
 	 * Metodo che setta la valuta.
-	 * @param String currency
+	 * @param currency
 	 */
 	public void setCurrency(String currency) {
 		this.currency = currency;
@@ -39,7 +39,7 @@ public class Informations {
 	
 	/**
 	 * Metodo che setta il prezzo minimo.
-	 * @param double minPrice.
+	 * @param minPrice.
 	 */
 	public void setMinPrice(double minPrice) {
 		this.minPrice = minPrice;
@@ -55,7 +55,7 @@ public class Informations {
 	
 	/**
 	 * Metodo che setta il prezzo massimo.
-	 * @param double maxPrice. 
+	 * @param  maxPrice. 
 	 */
 	public void setMaxPrice(double maxPrice) {
 		this.maxPrice = maxPrice;
@@ -71,7 +71,7 @@ public class Informations {
 
 	/**
 	 * Metodo che setta il rivenditore dei biglietti;
-	 * @param String source;
+	 * @param  source;
 	 */
 	public void setSource(String source) {
 		this.source = source;
@@ -129,7 +129,7 @@ public class Informations {
 
 	/**
 	Override del metodo equals.
-	 * @param oggetto Informations da confrontare.
+	 * @param obj oggetto Informations da confrontare.
 	 * @return true se i due oggetti siano uguali, false altrimenti.
 	*/
 	@Override

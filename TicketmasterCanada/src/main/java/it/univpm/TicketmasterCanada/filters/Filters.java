@@ -38,11 +38,11 @@ public class Filters {
 	/**
 	 * Costruttore con parametri:
 	 * 
-	 * @parameter states Vector di stinghe contenente i nomi degli stati da filtrare
-	 * @parameter parameter parameteretro per poter effettuare il filtraggio
-	 * @parameter period lasso di tempo in mesi utilizzato per filtrare
-	 * @parameter value valore assunto dal parameteretro
-	 * @parameter comparator String che permette all'utente di poter scegliere cosa
+	 * @param states Vector di stinghe contenente i nomi degli stati da filtrare
+	 * @param parameter parameteretro per poter effettuare il filtraggio
+	 * @param period lasso di tempo in mesi utilizzato per filtrare
+	 * @param value valore assunto dal parameteretro
+	 * @param comparator String che permette all'utente di poter scegliere cosa
 	 *            confrontare
 	 */
 	public Filters(String comparator, Vector<String> states, String parameter, String value, int period) {

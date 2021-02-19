@@ -32,7 +32,7 @@ public class SubGenreComparator implements FilterInterface {
 	 * mostra il maggiore e il minor numero di eventi
 	 * 
 	 * @param subgenres vettori di sottogeneri
-	 * @param states    in cui si svolgono gli eventi
+	 * @param state    in cui si svolgono gli eventi
 	 * @param period    indica il periodo temporale (in mesi) su cui si vuole
 	 *                  effettuare il confronto
 	 * @throws WrongValueException se inserito genere di evento non ammesso

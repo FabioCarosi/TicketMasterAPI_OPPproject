@@ -33,7 +33,7 @@ public class GenreFilter {
 	 * di eventi di ciascuno, oltre a mostrare quale di essi ospita il maggior
 	 * numero di eventi e quale il minor numero di eventi
 	 * 
-	 * @param countries vettore di paesi
+	 * @param states vettore di paesi
 	 * @param genre     genere di eventi
 	 * @param period    indica il periodo temporale (in mesi) su cui si vuole
 	 *                  effettuare il confronto

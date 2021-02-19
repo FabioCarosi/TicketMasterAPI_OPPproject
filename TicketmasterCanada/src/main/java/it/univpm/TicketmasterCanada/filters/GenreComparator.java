@@ -30,7 +30,7 @@ public class GenreComparator implements FilterInterface {
 	 *Inoltre mostra il maggiore e il minor numero di eventi
 	 * 
 	 * @param genres vettore di generi
-	 * @param country paese in cui si svolgono gli eventi
+	 * @param state paese in cui si svolgono gli eventi
 	 * @param period indica il periodo temporale (in mesi) su cui si vuole effettuare il confronto
 	 * @throws WrongValueException se inserito genere di evento non ammesso
 	 * @throws WrongStateException se inserito provincia non Canadese

@@ -21,7 +21,7 @@ public class Genre {
 	
 	/**
 	 * Metodo che setta il nome della categoria.
-	 * @param String segmentName.
+	 * @param segmentName.
 	 */
 	public void setSegmentName(String segmentName) {
 		this.segmentName = segmentName;
@@ -37,7 +37,7 @@ public class Genre {
 	
 	/**
 	 * Metodo che setta il genere dell'evento.
-	 * @param String genreName.
+	 * @param genreName.
 	 */
 	public void setGenreName(String genreName) {
 		this.genreName = genreName;
@@ -53,7 +53,7 @@ public class Genre {
 	
 	/**
 	 * Metodo che setta il sottogenere dell'evento.
-	 * @param String subGenreName.
+	 * @param  subGenreName.
 	 */
 	public void setSubGenreName(String subGenreName) {
 		this.subGenreName = subGenreName;
@@ -118,7 +118,7 @@ public class Genre {
 	
 	/**
 	 * Override del metodo equals.		
-	 * @param oggetto Genre da confrontare.
+	 * @param obj oggetto Genre da confrontare.
 	 * @return true se i due oggetti siano uguali, false altrimenti.
 	*/
 	@Override
