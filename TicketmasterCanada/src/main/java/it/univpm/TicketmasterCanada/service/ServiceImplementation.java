@@ -31,7 +31,7 @@ public class ServiceImplementation implements it.univpm.TicketmasterCanada.servi
 	/**
 	 * Chiave API per accedere ai servizi Ticketmaster
 	 */
-	private String apiKey = "Ccg2GNVOGvUUXJeAPtSSAEQZjxbFN75B";
+	private String apiKey = "API_KEY_TICKETMASTER";
 
 
 	/**
